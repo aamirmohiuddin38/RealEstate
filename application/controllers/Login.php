@@ -6,6 +6,7 @@ class Login extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Login_model');
+		$this->load->database('realestate_db');
 	}
 	public function index()
 	{
@@ -15,10 +16,11 @@ class Login extends CI_Controller {
 		//prepare data first to pass to checkUser() func
         $info = [
 			'mail' => $this->input->post('email'),
-			'pwd' => $this->input->post('pwsd'),
+			'pwd' => $this->input->post('pswd'),
 			'rem' => $this->input->post('remember')
 		];
-
+        //   print_r($info);
+		//   print_r($_POST);
 		$isValid = $this->Login_model->checkUser($info);
 		if($isValid == true){
 			echo "<h1>Welcome back user</h1>";
