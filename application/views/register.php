@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Pager</title>
+    <title>Register Page</title>
     <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Google Fonts -->
@@ -32,7 +32,7 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example1c">Your Name</label>
-                      <input type="text" id="form3Example1c" class="form-control" name ='name' value = "<?= $info->name; ?>"/>
+                      <input type="text" id="form3Example1c" class="form-control" name ='name' value = "<?= $info->u_name; ?>"/>
                     </div>
                   </div>
 
@@ -40,7 +40,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label>
-                      <input type="email" id="form3Example3c" class="form-control" name = 'email' value = "<?= $info->email; ?>"/>
+                      <input type="email" id="form3Example3c" class="form-control" name = 'email' value = "<?= $info->u_email; ?>"/>
                     </div>
                   </div>
 
@@ -48,7 +48,7 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Phone No</label>
-                      <input type="text" id="form3Example4cdx" class="form-control" name = 'phone' value = "<?= $info->phone; ?>" />
+                      <input type="text" id="form3Example4cdx" class="form-control" name = 'phone' value = "<?= $info->u_phone; ?>" />
                     </div>
                   </div>
                   
@@ -56,7 +56,7 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Username</label>
-                      <input type="text" id="form3Example4cdy" class="form-control" name='username' value = "<?= $info->username; ?>"/>
+                      <input type="text" id="form3Example4cdy" class="form-control" name='username' value = "<?= $info->u_username; ?>"/>
                     </div>
                   </div> 
 

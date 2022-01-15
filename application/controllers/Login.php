@@ -6,7 +6,6 @@ class Login extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Login_model');
-		$this->load->database('realestate_db');
 	}
 	public function index()
 	{
