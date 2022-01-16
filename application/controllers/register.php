@@ -28,7 +28,7 @@ class Register extends CI_Controller {
         // print_r($inputPostData);
         // echo "</pre>";
         
-        $this->register_model->insertDb($inputPostData);
+        //$this->register_model->insertDb($inputPostData);
         // $data['users'] = $this->register_model->getDbData();
         // print_r($data['users']);
     }
