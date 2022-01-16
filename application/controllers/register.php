@@ -16,8 +16,11 @@ class Register extends CI_Controller
     public function index()
     {
         // Define validation rules.
-        $this->form_validation->set_rules('name', 'Name dgkjdhkjsdhkdhf', 'required');
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|min_length[10]|max_length[12]|numeric');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
 
         // Store/Prepare input data
         $inputPostData = [
