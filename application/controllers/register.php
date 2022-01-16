@@ -9,18 +9,17 @@ class Register extends CI_Controller
         parent::__construct();
         $this->load->database();
         $this->load->model('register_model');
-        $this->load->helper('url');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
     }
 
     public function index()
     {
+        // Define validation rules.
+        $this->form_validation->set_rules('name', 'Name dgkjdhkjsdhkdhf', 'required');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required|min_length[10]|max_length[12]|numeric');
 
-        echo date('y-m-d');
-        echo "<br>";
-        echo date('Y-m-d');
-        echo "<br>";
-        echo date('D, Y-M-d H:m:s');
-        // Store input data
+        // Store/Prepare input data
         $inputPostData = [
             'u_id' => NULL,
             'u_name' => $this->input->post('name'),
@@ -32,17 +31,16 @@ class Register extends CI_Controller
             'u_dou' => date('Y-m-d H:m:s'),
             'u_status' => 1
         ];
+
         // Prepare data for view
         $data['info'] = (object) $inputPostData; //sent to value attributes
 
-        if ($this->input->post('register') == 1) {
-
+        // Check validation 
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('register', $data);
+        } else {
             $this->register_model->insertDb($inputPostData);
 
-            $this->load->view('register', $data);
-            // redirect('/index');
-        } else {
-            // Load the register form.
             $this->load->view('register', $data);
         }
     }
@@ -72,4 +70,15 @@ class Register extends CI_Controller
  *                  - display view with error message.
  *      - if validation fails
  *          - Display view again with error message.
+ */
+
+
+/**
+ * Prepare data (When we post request)
+ * Validate
+ *      - Success
+ *          then DB call (if success)
+ *      - Fail ()
+ *            - display view
+ *              
  */

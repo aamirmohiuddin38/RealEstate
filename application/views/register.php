@@ -25,7 +25,7 @@
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
+                  <?php echo validation_errors(); ?>
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
                   <form class="mx-1 mx-md-4" action="<?php echo base_url('index.php/register/index'); ?>" method="POST">
@@ -35,6 +35,7 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example1c">Your Name</label>
                         <input type="text" id="form3Example1c" class="form-control" name='name' value="<?= $info->u_name; ?>" />
+                        <span class="badge badge-danger text-sm"> <?php echo form_error('name'); ?></span>
                       </div>
                     </div>
 
@@ -43,6 +44,7 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label>
                         <input type="email" id="form3Example3c" class="form-control" name='email' value="<?= $info->u_email; ?>" />
+                        <span class="badge badge-danger text-sm"> <?php echo form_error('email'); ?></span>
                       </div>
                     </div>
 
@@ -51,6 +53,7 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Phone No</label>
                         <input type="text" id="form3Example4cdx" class="form-control" name='phone' value="<?= $info->u_phone; ?>" />
+                        <span class="badge badge-danger text-sm"> <?php echo form_error('phone'); ?></span>
                       </div>
                     </div>
 
