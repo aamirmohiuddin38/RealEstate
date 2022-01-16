@@ -8,7 +8,7 @@ class Register extends CI_Controller
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model('register_model');
+        $this->load->model(['register_model', 'login_model']);
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
     }
@@ -17,6 +17,7 @@ class Register extends CI_Controller
     {
         // Define validation rules.
         $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('user_role', 'User Role', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|min_length[10]|max_length[12]|numeric');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -25,6 +26,7 @@ class Register extends CI_Controller
         // Store/Prepare input data
         $inputPostData = [
             'u_id' => NULL,
+            'u_ur_id' => $this->input->post('user_role'),
             'u_name' => $this->input->post('name'),
             'u_email' => $this->input->post('email'),
             'u_phone' => $this->input->post('phone'),
@@ -37,6 +39,8 @@ class Register extends CI_Controller
 
         // Prepare data for view
         $data['info'] = (object) $inputPostData; //sent to value attributes
+        // $data['user_role_list'] = ['1' => "Admin", '2' => "Client"];
+        $data['user_role_list'] = $this->login_model->get_user_role_list_as_array();
 
         // Check validation 
         if ($this->form_validation->run() == FALSE) {
