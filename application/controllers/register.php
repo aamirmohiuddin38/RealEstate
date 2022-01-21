@@ -14,6 +14,7 @@ class Register extends CI_Controller {
 	public function index(){
         // Define Validation rules
         $this->form_validation->set_rules('name','Name','required', array('required' => 'Please provide your %s'));
+        $this->form_validation->set_rules('user_role','required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email', array('required' => 'Please provide your %s', 'valid_email' => 'This %s is not valid'));
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|min_length[10]|max_length[14]|numeric');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -23,6 +24,7 @@ class Register extends CI_Controller {
         $inputPostData = [
             'u_id' => NULL,
             'u_name' => $this->input->post('name'),
+            'u_ur_id' => $this->input->post('user_role'),
             'u_email' => $this->input->post('email'),
             'u_phone' => $this->input->post('phone'),
             'u_username' => $this->input->post('username'),
@@ -32,6 +34,7 @@ class Register extends CI_Controller {
             'u_status' => 1
         ];
         $data['info'] = (object) $inputPostData; //sent to value attributes
+        $data['user_role_list'] = $this->register_model->get_user_role();
     //Check validation
     if($this->form_validation->run() == FALSE){
         $this->load->view('register',$data);
