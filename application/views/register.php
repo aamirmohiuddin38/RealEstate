@@ -25,7 +25,6 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
                 <form class="mx-1 mx-md-4" action="register" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -33,6 +32,7 @@
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example1c">Your Name</label>
                       <input type="text" id="form3Example1c" class="form-control" name ='name' value = "<?= $info->u_name; ?>"/>
+                      <span class="badge badge-danger text-sm" style="height:15px"><small><?php echo form_error('name'); ?></small></span>
                     </div>
                   </div>
 
@@ -41,6 +41,7 @@
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label>
                       <input type="email" id="form3Example3c" class="form-control" name = 'email' value = "<?= $info->u_email; ?>"/>
+                      <span class="badge badge-danger text-sm" style="height:15px"><small><?php echo form_error('email'); ?></small></span>
                     </div>
                   </div>
 
@@ -49,6 +50,7 @@
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Phone No</label>
                       <input type="text" id="form3Example4cdx" class="form-control" name = 'phone' value = "<?= $info->u_phone; ?>" />
+                      <span class="badge badge-danger text-sm" style="height:15px"><small><?php echo form_error('phone'); ?></small></span>
                     </div>
                   </div>
                   
@@ -57,6 +59,7 @@
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Username</label>
                       <input type="text" id="form3Example4cdy" class="form-control" name='username' value = "<?= $info->u_username; ?>"/>
+                      <span class="badge badge-danger text-sm" style="height:15px"><small><?php echo form_error('username'); ?></small></span>
                     </div>
                   </div> 
 
@@ -65,6 +68,7 @@
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4c">Password</label>
                       <input type="password" id="form3Example4c" class="form-control" name = 'password'/>
+                      <span class="badge badge-danger text-sm" style="height:15px"><small><?php echo form_error('password'); ?></small></span>
                     </div>
                   </div>
 
