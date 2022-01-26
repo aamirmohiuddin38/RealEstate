@@ -25,6 +25,19 @@
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <?php if ($this->session->flashdata('success') != null) {  ?>
+                    <div class="alert alert-info alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <?php echo $this->session->flashdata('success'); ?>
+                    </div>
+                  <?php } ?>
+
+                  <?php if ($this->session->flashdata('exception') != null) {  ?>
+                    <div class="alert alert-danger alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <?php echo $this->session->flashdata('exception'); ?>
+                    </div>
+                  <?php } ?>
                   <?php echo validation_errors(); ?>
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 

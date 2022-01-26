@@ -28,7 +28,7 @@ class Login_model extends CI_Model
 
     public function get_user_role_list_as_array()
     {
-        $data = $this->db->select('*')->from('user_role_tbl')->get()->result();
+        $data = $this->db->select('*')->from('user_role_tbl')->where('ur_status', 1)->get()->result();
 
         foreach ($data as $key => $user_role) {
             $list[$user_role->ur_id] = ucfirst($user_role->ur_role);

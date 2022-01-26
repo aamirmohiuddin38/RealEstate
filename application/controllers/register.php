@@ -11,6 +11,7 @@ class Register extends CI_Controller
         $this->load->model(['register_model', 'login_model']);
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        $this->load->library('session');
     }
 
     public function index()
@@ -46,7 +47,11 @@ class Register extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('register', $data);
         } else {
-            $this->register_model->insertDb($inputPostData);
+            if ($this->register_model->insertDb($inputPostData)) {
+                $this->session->set_flashdata('success', "User Registered Sucessfully");
+            } else {
+                $this->session->set_flashdata('exception', "Failed to insert data into the database.");
+            }
 
             $this->load->view('register', $data);
         }
