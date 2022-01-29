@@ -4,6 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login_model extends CI_Model
 {
+    public function insertDb($data)
+    {
+        return $this->db->insert('user_tbl', $data);
+    }
     public function checkUser($userinfo)
     {
         $result = $this->db->select("u_name,u_email,u_phone, u_username")
@@ -31,5 +35,10 @@ class Login_model extends CI_Model
             $list[$user_role->ur_id] = ucfirst($user_role->ur_role);
         }
         return $list ?? NULL;
+    }
+
+    public function getDbData()
+    {
+        return $temp['users'] = $this->db->select('*')->from('user_tbl')->get()->result();
     }
 }
