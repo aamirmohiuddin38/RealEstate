@@ -72,13 +72,7 @@ class Login extends CI_Controller
 			}
 		} else {
 			$data['user_role_list'] = $this->common_model->get_user_roles();
-			// $l = [];
-			// foreach ($data['user_role_list'] as $k => $v) {
-			//     if ($k != 3) {
-			//         $l[$k] = $v;
-			//     }
-			// }
-			// $data['user_role_list'] = $l;
+
 			$this->load->view('login/login_wrapper', $data);
 		}
 	}
