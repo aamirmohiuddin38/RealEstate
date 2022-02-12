@@ -10,4 +10,9 @@ class Property_model extends CI_Model
   {
     return $this->db->insert($this->table, $data);
   }
+
+  public function read()
+  {
+    return $this->db->select("*")->from($this->table)->get()->result();
+  }
 }
