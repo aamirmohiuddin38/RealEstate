@@ -20,6 +20,14 @@ class Property extends CI_Controller
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
 
+  public function list()
+  {
+    $data = [];
+    $data['properties'] = $this->property_model->read();
+    // print_r($data['property']);
+    $data['content'] = $this->load->view('admin/property/list_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
   public function create()
   {
     echo "<pre>";
