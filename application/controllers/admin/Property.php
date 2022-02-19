@@ -57,7 +57,7 @@ class Property extends CI_Controller
 
 
     if ($this->property_model->create($postData)) {
-      echo "Suceesssss";
+      redirect('admin/property/list');
     } else {
       echo "failed";
     }
