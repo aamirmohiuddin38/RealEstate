@@ -28,10 +28,19 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/list_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
+
   public function create()
   {
-    echo "<pre>";
-    print_r($_REQUEST);
+    // echo "<pre>";
+    // print_r($_REQUEST);
+    // die();
+
+    #----------- Validation ----------------#
+    {
+      $this->form_validation->set_rules('property_title', ('Propety Title'),  'required|max_length[50]');
+      $this->form_validation->set_rules('type', ('Type'),    'required');
+    }
+
 
     $data['input'] = (object) $postData = [
       "p_id"           => null,
@@ -55,11 +64,19 @@ class Property extends CI_Controller
       "p_published"    => $this->input->post('published'),
     ];
 
-
-    if ($this->property_model->create($postData)) {
-      redirect('admin/property/list');
+    if ($this->form_validation->run() == TRUE) {
+      if ($this->property_model->create($postData)) {
+        $this->session->set_flashdata('message', ('save_successfully'));
+        redirect('index.php/admin/property/list');
+      } else {
+        $this->session->set_flashdata('exception', ('please_try_again'));
+        $data['content'] = $this->load->view('admin/property/form_view', $data, true);
+        $this->load->view('admin/layout/main_wrapper_view', $data);
+      }
     } else {
-      echo "failed";
+      $this->session->set_flashdata('exception', ('please_try_again'));
+      $data['content'] = $this->load->view('admin/property/form_view', $data, true);
+      $this->load->view('admin/layout/main_wrapper_view', $data);
     }
   }
 }

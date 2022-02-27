@@ -3,7 +3,7 @@
   <div class="row">
     <!-- Save -->
     <div class="col-sm-12">
-      <form role="form" action="<?php echo base_url('index.php/'); ?>admin/property/create" method="post" id="save_property_form">
+      <form role="form" action="<?php echo base_url('index.php/admin/property/create'); ?>" method="post" id="save_property_form">
 
         <!-- property_title, content, Property type, status, label -->
         <div class="card">
@@ -31,6 +31,7 @@
                     <div class="form-group">
                       <label for="property_title">Property Title</label> <small class="req text-danger"> *</small>
                       <input name="property_title" class="form-control " type="text" placeholder="Property Title" id="property_title" value="">
+                      <?php echo form_error('property_title', '<span class="badge bg-danger p-1">', '</span>'); ?>
                     </div>
                   </div>
                 </div>

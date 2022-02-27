@@ -24,6 +24,38 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
+
+      <!-- alert message -->
+      <?php if ($this->session->flashdata('message') != null) {  ?>
+        <div class="alert alert-info alert-dismissible m-2">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-info"></i> Alert!</h5>
+          <?php echo $this->session->flashdata('message');
+          if (isset($_SESSION['message'])) {
+            unset($_SESSION['message']);
+          } ?>
+        </div>
+      <?php } ?>
+
+      <?php if ($this->session->flashdata('exception') != null) {  ?>
+        <div class="alert alert-danger alert-dismissable  m-2">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-ban"></i>Alert</h5>
+          <?php echo $this->session->flashdata('exception');
+          if (isset($_SESSION['exception'])) {
+            unset($_SESSION['exception']);
+          } ?>
+        </div>
+      <?php } ?>
+
+      <?php if (0 && validation_errors()) {  ?>
+        <div class="alert alert-danger alert-dismissable  m-2">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-ban"></i>Alert</h5>
+          <?php echo validation_errors();
+          ?>
+        </div>
+      <?php } ?>
       <?php echo !empty($content) ? $content : null; ?>
     </div><!-- /.container-fluid -->
   </section>
