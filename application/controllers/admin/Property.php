@@ -23,8 +23,20 @@ class Property extends CI_Controller
   public function list()
   {
     $data = [];
+    $data['type_list'] = [
+      "" => "Select Property Type",
+      "3" => "Office",
+      "4" => "Shop",
+      "5" => "Appartment",
+      "6" => "Multi Family Home",
+      "7" => "Single Family Home",
+      "8" => "Studio",
+      "9" => "Villa",
+      "15" => "Commercial",
+      "17" => "Dummy Updated",
+    ];
     $data['properties'] = $this->property_model->read();
-    // print_r($data['property']);
+    print_r($data['properties']);
     $data['content'] = $this->load->view('admin/property/list_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }

@@ -22,7 +22,7 @@
                   <div class="row">
                     <div class="col-sm-6">Type</div>
                     <div class="col-sm-6">
-                      <strong>Residential</strong>
+                      <strong><?php echo $type_list[$property->p_type]; ?></strong>
                     </div>
                   </div>
 
