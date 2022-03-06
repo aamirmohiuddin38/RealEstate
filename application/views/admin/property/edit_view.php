@@ -1,13 +1,70 @@
- 
-  <div class="row">
+    		<!-- Content Wrapper. Contains page content -->
+
+  <?php      
+      $type=[
+                        "1"=>"Office",
+                        "2"=>"Shop",
+                        "3"=>"Appartment",
+                        "4"=>"Multi Family Home",
+                        "5"=>"Single Family Home",
+                        "6"=>"Studio",
+                        "7"=>"Villa",
+                        "8"=>"Commercial",
+                        "9"=>"Dummy Updated",
+                    ];
+        $status=[
+                       "1"=>"For Rent",
+                       "2"=>"For Sale",
+                       "3"=>"New Construction",
+                       "4"=>"New listing",
+                       "5"=>"Open House",
+                       "6"=>"Reduced Price",
+                       "7"=>"Pesale",
+                      
+                   ];
+        $label=[
+                       "1"=>"Hot Offer",
+                       "2"=>"Sold",  
+        ];   
+        $country=[
+          '1'  =>'Pakistan',
+          '2'  =>'India',
+          '3'  =>'Afganistan',
+          '4'  =>'Saudi Arabia',
+          ];
+          $state=[
+          '1'  =>'Jammu&Kashmir',
+          '2'  =>'Bihar',
+          '3'  =>'Asaam',
+          '4'  =>'Andra Pradesh',
+          ];
+          $city=[
+          '1'  =>'MUmbai',
+          '2'  =>'Banglore',
+          '3'  =>'Jaipur',
+          '4'  =>'Delhi',
+          '5'  =>'Srinagar',
+          ];  
+          $facing=[
+          "1"  => 'East',
+          "2"  => 'West',
+          "3"  => 'North',
+          "4"  => 'South',
+          "5"  => 'South East',
+          "6"  => 'South West',
+          "7"  => 'North East',
+          "8"  => 'North West',
+          ];     
+       ?>           
+  <div class="row ">
     <!-- Save -->
     <div class="col-sm-12">
-      <form role="form" action="<?php echo base_url('index.php/'); ?>admin/property/create" method="post" id="save_property_form">
+      <form role="form" action="<?php echo base_url('index.php/'); ?>admin/property/modify?id=<?php echo $result->p_id;?>" method="post" id="save_property_form">
 
         <!-- property_title, content, Property type, status, label -->
         <div class="card">
           <div class="card-header bg-dark">
-            <h3 class="card-title"> Add Property</h3>
+            <h3 class="card-title"><i class="fa fa-plus"></i> Add Property</h3>
             <div class="card-tools">
               <!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -15,6 +72,7 @@
               </button>
             </div>
           </div>
+
           <div class="card-body">
 
 
@@ -29,7 +87,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="property_title">Property Title</label> <small class="req text-danger"> *</small>
-                      <input name="property_title" class="form-control " type="text" placeholder="Property Title" id="property_title" value="">
+                      <input name="property_title" class="form-control " type="text" placeholder="Property Title" id="property_title" value="<?php echo $result->p_title;?>">
                       <!-- validation errors -->
                       <span class="badge badge-danger">
                         <?php echo form_error('property_title');?>
@@ -43,7 +101,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label>Description</label>
-                      <textarea id="summernote" name="content" class="form-control summernote" rows="6" placeholder="Content"></textarea>
+                      <textarea id="summernote" name="content" class="form-control summernote" rows="6" placeholder="Content" ><?php echo $result->p_content;?></textarea>
 
                     </div>
                   </div>
@@ -55,8 +113,8 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Type</label><i class="req text-danger text-danger"> *</i>
-                      <select name="type" class="form-control" id="type">
-                        <option value="">Select Property Type</option>
+                      <select name="type" class="form-control" id="type" >
+                        <option value="<?php echo $result->p_type;?>"><?php echo $type[$result->p_type];?></option>
                         <option value="1">Office</option>
                         <option value="2">Shop</option>
                         <option value="3">Appartment</option>
@@ -78,7 +136,7 @@
                     <div class="form-group">
                       <label>Status</label>
                       <select name="status" class="form-control" id="status">
-                        <option value="">Select Property Type</option>
+                        <option value="<?php echo $result->p_status;?>"><?php echo $status[$result->p_status];?></option>
                         <option value="1">For Rent</option>
                         <option value="2">For Sale</option>
                         <option value="3">New Construction</option>
@@ -94,7 +152,7 @@
                     <div class="form-group">
                       <label>Label</label>
                       <select name="label" class="form-control" id="label">
-                        <option value="">Select Property Type</option>
+                        <option value="<?php echo $result->p_label;?>"><?php echo $label[$result->p_label];?></option>
                         <option value="1">Hot Offer</option>
                         <option value="2">Sold</option>
                       </select>
@@ -125,7 +183,7 @@
         <div class="form-group">
           <label for="">Country</label> <i class="req text-danger text-danger"> *</i>
           <select name="country" class="form-control" id="country">
-        <option value="" selected="selected">Select country</option>
+        <option value="<?php echo $result->p_country;?>"><?php echo $country[$result->p_country];?></option>
         <option value="1">Pakistan</option>
         <option value="2">India</option>
         <option value="3">Afganistan</option>
@@ -142,7 +200,7 @@
         <div class="form-group">
           <label for="">State</label> <i class="req text-danger text-danger"> *</i>
           <select name="state" class="form-control" id="state">
-          <option value="" selected="selected">Select State</option>
+          <option value="<?php echo $result->p_state;?>"><?php echo $state[$result->p_state];?></option>
         <option value="1">Jammu&Kashmir</option>
         <option value="2">Bihar</option>
         <option value="3">Asaam</option>
@@ -159,7 +217,7 @@
         <div class="form-group">
           <label for="">City</label> <i class="req text-danger text-danger"> *</i>
           <select name="city" class="form-control" id="city">
-          <option value="" selected="selected">Select City</option>
+          <option value="<?php echo $result->p_city;?>" selected="selected"><?php echo $city[$result->p_city];?></option>
             <option value="1">Mumbai</option>
             <option value="2">Banglore</option>
             <option value="3">jaipur</option>
@@ -176,7 +234,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="address">Address</label> <small class="req text-danger"> *</small>
-          <input name="address" class="form-control " type="text" placeholder="Address" id="address" value="">
+          <input name="address" class="form-control " type="text" placeholder="Address" id="address" value="<?php echo $result->p_address;?>">
               <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('address');?>
@@ -187,7 +245,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="postal_code">Postal Code</label> <small class="req text-danger"> *</small>
-          <input name="postal_code" class="form-control " type="text" placeholder="Postal Code" id="postal_code" value="">
+          <input name="postal_code" class="form-control " type="text" placeholder="Postal Code" id="postal_code" value="<?php echo $result->p_postal_code;?>">
            <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('postal_code');?>
@@ -216,7 +274,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="bedrooms">Bedrooms</label>
-                  <input name="bedrooms" class="form-control " type="text" placeholder="Bedrooms" id="bedrooms" value="">
+                  <input name="bedrooms" class="form-control " type="text" placeholder="Bedrooms" id="bedrooms" value="<?php echo $result->p_bedrooms;?>">
                 </div>
               </div>
 
@@ -224,7 +282,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="bathrooms">Bathrooms</label>
-                  <input name="bathrooms" class="form-control " type="text" placeholder="Bathrooms" id="bathrooms" value="">
+                  <input name="bathrooms" class="form-control " type="text" placeholder="Bathrooms" id="bathrooms" value="<?php echo $result->p_bathrooms;?>">
                 </div>
               </div>
 
@@ -232,7 +290,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="area_size">Area Size</label> <small class="req text-danger"> *</small>
-                  <input name="area_size" class="form-control " type="text" placeholder="Area Size" id="area_size" value="">
+                  <input name="area_size" class="form-control " type="text" placeholder="Area Size" id="area_size" value="<?php echo $result->p_area;?>">
                      <!-- validation errors -->
                      <span class="badge badge-danger">
                         <?php echo form_error('area_size');?>
@@ -245,7 +303,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="size_postfix">Size Postfix</label> <small class="req text-danger"> *</small>
-                  <input name="size_postfix" class="form-control " type="text" placeholder="Size Postfix" id="size_postfix" value="">
+                  <input name="size_postfix" class="form-control " type="text" placeholder="Size Postfix" id="size_postfix" value="<?php echo $result->p_area_unit;?>">
                        <!-- validation errors -->
                        <span class="badge badge-danger">
                         <?php echo form_error('size_postfix');?>
@@ -261,7 +319,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="land_area">Land Area</label> <small class="req text-danger"> *</small>
-                  <input name="land_area" class="form-control " type="text" placeholder="Land Area" id="land_area" value="">
+                  <input name="land_area" class="form-control " type="text" placeholder="Land Area" id="land_area" value="<?php echo $result->p_land;?>">
                         <!-- validation errors -->
                         <span class="badge badge-danger">
                         <?php echo form_error('land_area');?>
@@ -274,7 +332,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="land_area_postfix">Land Area Postfix</label> <small class="req text-danger"> *</small>
-                  <input name="land_area_postfix" class="form-control " type="text" placeholder="Land Area Postfix" id="land_area_postfix" value="">
+                  <input name="land_area_postfix" class="form-control " type="text" placeholder="Land Area Postfix" id="land_area_postfix" value="<?php echo $result->p_land_unit;?>">
                   <!-- validation errors -->
                   <span class="badge badge-danger">
                         <?php echo form_error('land_area_postfix');?>
@@ -287,7 +345,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="garages">Garages</label>
-                  <input name="garages" class="form-control " type="text" placeholder="Garages" id="garages" value="">
+                  <input name="garages" class="form-control " type="text" placeholder="Garages" id="garages" value="<?php echo $result->p_garage;?>">
                 </div>
               </div>
 
@@ -295,7 +353,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="garage_size">Garage Size</label>
-                  <input name="garage_size" class="form-control " type="text" placeholder="Garage Size" id="garage_size" value="">
+                  <input name="garage_size" class="form-control " type="text" placeholder="Garage Size" id="garage_size" value="<?php echo $result->p_garages_unit;?>">
                 </div>
               </div>
             </div>
@@ -306,7 +364,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Year Built</label><i class="req text-danger text-danger"> *</i>
-                  <input name="year_built" class="form-control " type="text" placeholder="Year Built" id="year_built" value="" requiredd="">
+                  <input name="year_built" class="form-control " type="text" placeholder="Year Built" id="year_built" value="<?php echo $result->p_year;?>" requiredd="">
                    <!-- validation errors -->
                    <span class="badge badge-danger">
                         <?php echo form_error('year_built');?>
@@ -319,7 +377,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>Price </label> <small class="req text-danger"> *</small>
-                  <input name="price" class="form-control " type="text" placeholder="Price" id="price" value="" requiredd="">
+                  <input name="price" class="form-control " type="text" placeholder="Price" id="price" value="<?php echo $result->p_price;?>" requiredd="">
                   <!-- validation errors -->
                   <span class="badge badge-danger">
                         <?php echo form_error('price');?>
@@ -334,7 +392,7 @@
                 <div class="form-group">
                   <label for="">Front Facing</label> 
                   <select name="front_facing" class="form-control select2-hidden-accessible" id="front_facing" data-select2-id="front_facing" tabindex="-1" aria-hidden="true">
-                    <option value="" selected="selected" data-select2-id="8">Select facing direction</option>
+                    <option value="<?php echo $result->p_front_facing?>" selected="selected" data-select2-id="8"><?php echo $facing[$result->p_front_facing];?></option>
                     <option value="1">East</option>
                     <option value="2">West</option>
                     <option value="3">North</option>
@@ -541,7 +599,9 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label>Write private note for this property, it will not display for public. </label>
-                  <textarea id="private_note" name="private_note" class="form-control summernote" rows="6" placeholder=""></textarea>
+                  <textarea id="private_note" name="private_note" class="form-control summernote" rows="6" placeholder="">
+                  <?php echo $result->p_private_note;?>
+                  </textarea>
 
                 </div>
               </div>
@@ -609,7 +669,7 @@
           <div class="card-footer ">
             <div class="form-group offset-sm-8 col-sm-4">
               <!-- <label>Submit</label> -->
-              <button type="submit" name="save" value="add_property" class="form-control btn btn-primary btn-sm  checkbox-toggle"><i class="fa fa-plus"> &nbsp;Save</i></button>
+              <button type="submit" name="save" value="add_property" class="form-control btn btn-success btn-sm  checkbox-toggle"><i class="fa fa-plus"> &nbsp;Update</i></button>
             </div>
           </div>
         </div>
@@ -619,7 +679,4 @@
   </div>
 
 
-  <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
-
-  <!-- Bootstrap 4 -->
-  <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
