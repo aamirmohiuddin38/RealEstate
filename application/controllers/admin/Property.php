@@ -33,7 +33,7 @@ class Property extends CI_Controller
   }
   public function create()
   {
-   //  validation rules
+    // validation rules
           $this->form_validation->set_rules('property_title','Property Title','required|max_length[25]|min_length[5]');
           $this->form_validation->set_rules('type','Type','required');
           $this->form_validation->set_rules('label','Property Label','required');
@@ -86,11 +86,11 @@ class Property extends CI_Controller
 
             if ($this->property_model->create($postData)) {
               
-              $this->session->set_flashdata('success','Property Added');
-              redirect('admin/property/list');
+              $this->session->set_flashdata('success','Property Added!');
+              redirect('index.php/admin/property/list');
             } else {
               $this->session->set_flashdata('failure','Property not Added!');
-              redirect('admin/property/list');
+              redirect('index.php/admin/property/list');
             }
           }
      }
@@ -116,11 +116,11 @@ class Property extends CI_Controller
             $id=$_GET['id'];
           if($this->property_model->delete_data($id)){
            $this->session->set_flashdata('success','Property Deleted!');
-           redirect('admin/property/list');
+           redirect('index.php/admin/property/list');
           }
           else{
             $this->session->set_flashdata('failure','Property Not Deleted!');
-            redirect('admin/property/list');
+            redirect('index.php/admin/property/list');
           }
       }
       public function modify(){
@@ -180,11 +180,11 @@ class Property extends CI_Controller
 
                if($this->property_model->update_data($postData,$id)){
                 $this->session->set_flashdata('success','Property Updated!');
-                redirect('admin/property/list');
+                redirect('index.php/admin/property/list');
                }
                else{
                  $this->session->set_flashdata('failure','Property Not Updated!');
-                 redirect('admin/property/list');
+                 redirect('index.php/admin/property/list');
                }
       
     } 

@@ -58,7 +58,7 @@ $settings = $this->db->select("*,site_align")
 					</div>
 				<?php } ?>
 
-				<?php echo form_open('login', 'id="loginForm" novalidate'); ?>
+				<?php echo form_open('index.php/login', 'id="loginForm" novalidate'); ?>
 				<div class="input-group mb-3">
 					<input type="text" placeholder="<?= display('email') ?>" name="email" id="email" class="form-control">
 					<div class="input-group-append">

@@ -68,7 +68,7 @@ class Login extends CI_Controller
 				// can directy redirect here
 			} else {
 				$this->session->set_flashdata('exception', display('incorrect_email_password'));
-				redirect('login');
+				redirect('index.php/login');
 			}
 		} else {
 			$data['user_role_list'] = $this->common_model->get_user_roles();
@@ -82,7 +82,7 @@ class Login extends CI_Controller
 		//$this->save_login_time();
 		switch ($user_role) {
 			case 1:
-				redirect('admin/home/index');    // Admin
+				redirect('index.php/admin/home/index');    // Admin
 				break;
 				// case 2:
 				//     redirect('dashboard_worker/home/index');     // worker
@@ -102,6 +102,6 @@ class Login extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('index.php/login');
 	}
 }

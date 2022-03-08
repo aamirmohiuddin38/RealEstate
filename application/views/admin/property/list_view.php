@@ -222,9 +222,14 @@
             </div> */ ?>
           <?php }
         } else { ?>
-        <?php } ?>
 
+        <?php 
+      echo "No records Available!";}
+       ?>
 
+        
+
+        
       </div>
 
       </div>
