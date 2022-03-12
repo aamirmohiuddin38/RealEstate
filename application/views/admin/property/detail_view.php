@@ -230,10 +230,11 @@
                     </div>
                         <div class="card-body">
                             <?php if($result->p_private_note==null){
-                                echo $result->p_private_note;
+                               echo'No Private Note Available!';
                                 }
                                 else{
-                                    echo'No Private Note Available!';
+                                    echo $result->p_private_note;
+                                   
                                 }
                              ?>
                         </div>
