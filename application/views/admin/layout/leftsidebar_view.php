@@ -57,14 +57,14 @@
             </li>
 
             <li class="nav-item">
-              <a href="" class="nav-link ">
+              <a href="<?php echo base_url('index.php/admin/property/property_document')?>" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Property Documents</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="" class="nav-link ">
+              <a href="<?php echo base_url('index.php/admin/property/property_image')?>" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Property Images</p>
               </a>

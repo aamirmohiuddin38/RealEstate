@@ -189,4 +189,14 @@ class Property extends CI_Controller
       
     } 
  }
+    public function property_document(){
+      $data=[];
+      $data['content']=$this->load->view('admin/property/document_view',$data,true);
+      $this->load->view('admin/layout/main_wrapper_view',$data);
+    }
+    public function property_image(){
+      $data=[];
+      $data['content']=$this->load->view('admin/property/image_view',$data,true);
+      $this->load->view('admin/layout/main_wrapper_view',$data);
+    }
 }
