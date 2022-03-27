@@ -1,61 +1,4 @@
-    		<!-- Content Wrapper. Contains page content -->
-
-  <?php      
-      $type=[
-                        "1"=>"Office",
-                        "2"=>"Shop",
-                        "3"=>"Appartment",
-                        "4"=>"Multi Family Home",
-                        "5"=>"Single Family Home",
-                        "6"=>"Studio",
-                        "7"=>"Villa",
-                        "8"=>"Commercial",
-                        "9"=>"Dummy Updated",
-                    ];
-        $status=[
-                       "1"=>"For Rent",
-                       "2"=>"For Sale",
-                       "3"=>"New Construction",
-                       "4"=>"New listing",
-                       "5"=>"Open House",
-                       "6"=>"Reduced Price",
-                       "7"=>"Pesale",
-                      
-                   ];
-        $label=[
-                       "1"=>"Hot Offer",
-                       "2"=>"Sold",  
-        ];   
-        $country=[
-          '1'  =>'Pakistan',
-          '2'  =>'India',
-          '3'  =>'Afganistan',
-          '4'  =>'Saudi Arabia',
-          ];
-          $state=[
-          '1'  =>'Jammu&Kashmir',
-          '2'  =>'Bihar',
-          '3'  =>'Asaam',
-          '4'  =>'Andra Pradesh',
-          ];
-          $city=[
-          '1'  =>'MUmbai',
-          '2'  =>'Banglore',
-          '3'  =>'Jaipur',
-          '4'  =>'Delhi',
-          '5'  =>'Srinagar',
-          ];  
-          $facing=[
-          "1"  => 'East',
-          "2"  => 'West',
-          "3"  => 'North',
-          "4"  => 'South',
-          "5"  => 'South East',
-          "6"  => 'South West',
-          "7"  => 'North East',
-          "8"  => 'North West',
-          ];     
-       ?>           
+    		<!-- Content Wrapper. Contains page content -->          
   <div class="row ">
     <!-- Save -->
     <div class="col-sm-12">
@@ -64,7 +7,7 @@
         <!-- property_title, content, Property type, status, label -->
         <div class="card">
           <div class="card-header bg-dark">
-            <h3 class="card-title"><i class="fa fa-plus"></i> Add Property</h3>
+            <h3 class="card-title"><i class="fa fa-plus"></i> Edit Property</h3>
             <div class="card-tools">
               <!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -114,16 +57,24 @@
                     <div class="form-group">
                       <label>Type</label><i class="req text-danger text-danger"> *</i>
                       <select name="type" class="form-control" id="type" >
-                        <option value="<?php echo $result->p_type;?>"><?php echo $type[$result->p_type];?></option>
-                        <option value="1">Office</option>
-                        <option value="2">Shop</option>
-                        <option value="3">Appartment</option>
-                        <option value="4">Multi Family Home</option>
-                        <option value="5">Single Family Home</option>
-                        <option value="6">Studio</option>
-                        <option value="7">Villa</option>
-                        <option value="8">Commercial</option>
-                        <option value="9">Dummy Updated</option>
+                      <?php 
+                      if(!empty($type))
+                      {
+                          foreach ($type as $tp)
+                          if($tp['type_id']== $result->p_type)
+                          {
+                            ?> 
+                           <option value="<?php echo $tp['type_id']; ?>" selected="selected"><?php echo $tp['type_name']; ?></option>
+                           <?php
+                          }
+                          else
+                          {
+                            ?> 
+                            <option value="<?php echo $tp['type_id']; ?>"><?php echo $tp['type_name']; ?></option>
+                            <?php
+                          }
+                      }
+                      ?>
                       </select>
                       <!-- validation errors -->
                       <span class="badge badge-danger">
@@ -136,14 +87,24 @@
                     <div class="form-group">
                       <label>Status</label>
                       <select name="status" class="form-control" id="status">
-                        <option value="<?php echo $result->p_status;?>"><?php echo $status[$result->p_status];?></option>
-                        <option value="1">For Rent</option>
-                        <option value="2">For Sale</option>
-                        <option value="3">New Construction</option>
-                        <option value="4">New listing</option>
-                        <option value="5">Open House</option>
-                        <option value="6">Reduced Price</option>
-                        <option value="7">Resale</option>
+                      <?php 
+                      if(!empty($status))
+                      {
+                          foreach ($status as $st) 
+                          if($st['status_id']== $result->p_status)
+                          {
+                            ?> 
+                           <option value="<?php echo $st['status_id']; ?>" selected="selected"><?php echo $st['status_name']; ?></option>
+                           <?php
+                          }
+                          else
+                          {
+                            ?> 
+                           <option value="<?php echo $st['status_id']; ?>" ><?php echo $st['status_name']; ?></option>
+                           <?php
+                          }
+                      }
+                      ?>
                       </select>
                     </div>
                   </div>
@@ -152,9 +113,24 @@
                     <div class="form-group">
                       <label>Label</label>
                       <select name="label" class="form-control" id="label">
-                        <option value="<?php echo $result->p_label;?>"><?php echo $label[$result->p_label];?></option>
-                        <option value="1">Hot Offer</option>
-                        <option value="2">Sold</option>
+                      <?php 
+                      if(!empty($label))
+                      {
+                        foreach ($label as $lb) 
+                        if($lb['label_id']== $result->p_label)
+                        {
+                          ?> 
+                         <option value="<?php echo $lb['label_id']; ?>" selected="selected"><?php echo $lb['label_name']; ?></option>
+                         <?php
+                        }
+                        else
+                        {
+                          ?> 
+                          <option value="<?php echo $lb['label_id']; ?>"><?php echo $lb['label_name']; ?></option>
+                          <?php
+                        }
+                      }
+                      ?>
                       </select>
                     </div>
                   </div>
@@ -183,47 +159,53 @@
         <div class="form-group">
           <label for="">Country</label> <i class="req text-danger text-danger"> *</i>
           <select name="country" class="form-control" id="country">
-        <option value="<?php echo $result->p_country;?>"><?php echo $country[$result->p_country];?></option>
-        <option value="1">Pakistan</option>
-        <option value="2">India</option>
-        <option value="3">Afganistan</option>
-        <option value="4">Saudi Arabia</option></select>
+          <option value="<?php echo $result->p_country; ?>" selected="selected"><?php echo $country; ?></option>
+            </select>
          <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('country');?>
           </span> 
         </div>
       </div>
-        
-      <!-- State -->
       <div class="col-sm-4">
         <div class="form-group">
-          <label for="">State</label> <i class="req text-danger text-danger"> *</i>
-          <select name="state" class="form-control" id="state">
-          <option value="<?php echo $result->p_state;?>"><?php echo $state[$result->p_state];?></option>
-        <option value="1">Jammu&Kashmir</option>
-        <option value="2">Bihar</option>
-        <option value="3">Asaam</option>
-        <option value="4">Andra Pradesh</option></select>
+        <label for="">State</label> <i class="req text-danger text-danger"> *</i>
+        <select name="state" class="form-control" id="state">
+            <?php 
+              if(!empty($States))
+              {
+                foreach ($States as $state) {
+                  if($state['state_id']== $result->p_state)
+                  {
+                    ?> 
+                    <option value="<?php echo $state['state_id']; ?>"selected="selected"><?php echo $state['state_name']; ?></option>
+                    <?php
+                  }
+                  else
+                  {
+                    ?> 
+                    <option value="<?php echo $state['state_id']; ?>"><?php echo $state['state_name']; ?></option>
+                    <?php
+                  }
+                }
+              }
+            ?>
+            </select>
+            </div>
            <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('state');?>
           </span>
-        </div>
-      </div>
-
+            </div>
       <!-- City -->
       <div class="col-sm-4">
         <div class="form-group">
           <label for="">City</label> <i class="req text-danger text-danger"> *</i>
+          <div id="cities_select">
           <select name="city" class="form-control" id="city">
-          <option value="<?php echo $result->p_city;?>" selected="selected"><?php echo $city[$result->p_city];?></option>
-            <option value="1">Mumbai</option>
-            <option value="2">Banglore</option>
-            <option value="3">jaipur</option>
-            <option value="4">Delhi</option>
-            <option value="5">Srinagar</option>
+          <option value="<?php echo $result->p_city;?>" selected="selected"><?php echo $city; ?></option>
           </select>
+            </div>
            <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('city');?>
@@ -392,15 +374,26 @@
                 <div class="form-group">
                   <label for="">Front Facing</label> 
                   <select name="front_facing" class="form-control select2-hidden-accessible" id="front_facing" data-select2-id="front_facing" tabindex="-1" aria-hidden="true">
-                    <option value="<?php echo $result->p_front_facing?>" selected="selected" data-select2-id="8"><?php echo $facing[$result->p_front_facing];?></option>
-                    <option value="1">East</option>
-                    <option value="2">West</option>
-                    <option value="3">North</option>
-                    <option value="4">South</option>
-                    <option value="5">South East</option>
-                    <option value="6">South West</option>
-                    <option value="7">North East</option>
-                    <option value="8">North West</option>
+                  <?php 
+              if(!empty($facing_directions))
+              {
+                foreach ($facing_directions as $f_dir) {
+                  if($f_dir['facing_id']== $result->p_front_facing)
+                  {
+                    ?> 
+                      <option value="<?php echo $f_dir['facing_id']; ?>"selected="selected"><?php echo $f_dir['facing_direction']; ?></option>
+                    <?php
+                  }
+                  else
+                  {
+                    ?> 
+                    <option value="<?php echo $f_dir['facing_id']; ?>"><?php echo $f_dir['facing_direction']; ?></option>
+                    <?php
+                  }
+                
+                }
+              }
+            ?>
                   </select>
                 </div>
               </div>
@@ -677,6 +670,34 @@
       </form>
     </div>
   </div>
+  <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
 
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  $("document").ready(function()
+  {
+     
+    $('#state').change(function()
+        {
+          var state_id = $(this).val();
+          $.ajax({
+
+              url : '<?php echo base_url('index.php/admin/property/getCities'); ?>',
+              type: 'POST',
+              data:{state_id:state_id},
+              dataType:'json',
+              success: function(response)
+              {
+                if(response['cities'])
+                {
+                  $("#cities_select").html(response['cities']);
+                }
+              }
+           })
+        })
+
+      })
+</script>
 
  

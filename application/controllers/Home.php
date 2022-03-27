@@ -38,7 +38,6 @@ class Home extends CI_Controller
 	 public function getCountry()
 	{
 		$response=$this->input->post('variableX');
-		echo $response; 
 		echo json_encode($response);
 
 	}

@@ -57,15 +57,17 @@
                       <label>Type</label><i class="req text-danger text-danger"> *</i>
                       <select name="type" class="form-control" id="type">
                         <option value="">Select Property Type</option>
-                        <option value="1">Office</option>
-                        <option value="2">Shop</option>
-                        <option value="3">Appartment</option>
-                        <option value="4">Multi Family Home</option>
-                        <option value="5">Single Family Home</option>
-                        <option value="6">Studio</option>
-                        <option value="7">Villa</option>
-                        <option value="8">Commercial</option>
-                        <option value="9">Dummy Updated</option>
+                        <?php 
+                      if(!empty($type))
+                      {
+                          foreach ($type as $tp) 
+                          {
+                            ?> 
+                           <option value="<?php echo $tp['type_id']; ?>"><?php echo $tp['type_name']; ?></option>
+                           <?php
+                          }
+                      }
+                      ?>
                       </select>
                       <!-- validation errors -->
                       <span class="badge badge-danger">
@@ -79,13 +81,17 @@
                       <label>Status</label>
                       <select name="status" class="form-control" id="status">
                         <option value="">Select Property Type</option>
-                        <option value="1">For Rent</option>
-                        <option value="2">For Sale</option>
-                        <option value="3">New Construction</option>
-                        <option value="4">New listing</option>
-                        <option value="5">Open House</option>
-                        <option value="6">Reduced Price</option>
-                        <option value="7">Resale</option>
+                          <?php 
+                      if(!empty($status))
+                      {
+                          foreach ($status as $st) 
+                          {
+                            ?> 
+                           <option value="<?php echo $st['status_id']; ?>"><?php echo $st['status_name']; ?></option>
+                           <?php
+                          }
+                      }
+                      ?>
                       </select>
                     </div>
                   </div>
@@ -95,8 +101,17 @@
                       <label>Label</label>
                       <select name="label" class="form-control" id="label">
                         <option value="">Select Property Type</option>
-                        <option value="1">Hot Offer</option>
-                        <option value="2">Sold</option>
+                        <?php 
+                      if(!empty($label))
+                      {
+                          foreach ($label as $lb) 
+                          {
+                            ?> 
+                           <option value="<?php echo $lb['label_id']; ?>"><?php echo $lb['label_name']; ?></option>
+                           <?php
+                          }
+                      }
+                      ?>
                       </select>
                     </div>
                   </div>
@@ -338,14 +353,17 @@
                   <label for="">Front Facing</label> 
                   <select name="front_facing" class="form-control select2-hidden-accessible" id="front_facing" data-select2-id="front_facing" tabindex="-1" aria-hidden="true">
                     <option value="" selected="selected" data-select2-id="8">Select facing direction</option>
-                    <option value="1">East</option>
-                    <option value="2">West</option>
-                    <option value="3">North</option>
-                    <option value="4">South</option>
-                    <option value="5">South East</option>
-                    <option value="6">South West</option>
-                    <option value="7">North East</option>
-                    <option value="8">North West</option>
+                    <?php 
+                      if(!empty($facing_directions))
+                      {
+                          foreach ($facing_directions as $facing_dir) 
+                          {
+                            ?> 
+                           <option value="<?php echo $facing_dir['facing_id']; ?>"><?php echo $facing_dir['facing_direction']; ?></option>
+                           <?php
+                          }
+                      }
+                      ?>
                   </select>
                 </div>
               </div>

@@ -9,17 +9,22 @@ class Property extends CI_Controller
     parent::__construct();
 
     $this->load->model(array(
-      'property_model',
+      'property_model','Common_model',
     ));
     $this->load->library('form_validation','session');
   }
 
   public function index()
   {
-    $countries=$this->property_model->getCountries();
     $data = [];
+    $countries=$this->property_model->getCountries();
+    $data['status']=$this->property_model->getStatus();
+    $data['type']=$this->property_model->getType();
+    $data['label']=$this->property_model->getLabel();
+    $data['facing_directions']=$this->property_model->getFacingDirections();
     $data['countries']=$countries;
     $data['content'] = $this->load->view('admin/property/form_view', $data, true);
+
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
   public function getStates()
@@ -46,9 +51,9 @@ class Property extends CI_Controller
   {
     $data = [];
     $data['properties'] = $this->property_model->read();
-    // echo"<pre>";
-    // print_r($data['properties']);
-    // echo "</pre>";  
+     //echo"<pre>";
+     //print_r($data['properties']);
+     //echo "</pre>";  
     $data['content'] = $this->load->view('admin/property/list_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
@@ -119,16 +124,31 @@ class Property extends CI_Controller
      public function detail(){  
       $id=$_GET['id'];
       $data['result']=$this->property_model->get($id);
-      //  echo "<pre>" ;
-      //  print_r($data['result']);
-      //  echo "</pre>" ;
-      $data['content']=$this->load->view('admin/property/detail_view',$data,true);
+      $data['country']=$this->Common_model->getCountryName($data['result']->p_country);
+      $data['state']=$this->Common_model->getStateName($data['result']->p_state);
+      $data['city']=$this->Common_model->getCityName($data['result']->p_city);
+      $data['property_facing']=$this->Common_model->getPropertyFacing($data['result']->p_front_facing);
+       // echo "<pre>" ;
+       // print_r($data['result']);
+        //echo $data['result'][]
+       // echo "</pre>" ;
+     $data['content']=$this->load->view('admin/property/detail_view',$data,true);
       $this->load->view('admin/layout/main_wrapper_view',$data);
       }
-
+      
       public function edit(){
         $id=$_GET['id'];
+        $data = [];
         $data['result']=$this->property_model->get($id);
+        $States=$this->property_model->getStatesOfCountry($data['result']->p_country);
+        $data['States']=$States;
+        $data['country']=$this->Common_model->getCountryName($data['result']->p_country);
+        $data['city']=$this->Common_model->getCityName($data['result']->p_city);
+        $data['facing_directions']=$this->property_model->getFacingDirections();
+        $data['status']=$this->property_model->getStatus();
+        $data['type']=$this->property_model->getType();
+        $data['label']=$this->property_model->getLabel();
+        //$data['stateName']=$this->Common_model->getStateName($data['result']->p_country);
         $data['content']=$this->load->view('admin/property/edit_view',$data,true);
         $this->load->view('admin/layout/main_wrapper_view',$data);
         

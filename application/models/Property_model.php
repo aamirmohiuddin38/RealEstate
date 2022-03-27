@@ -56,4 +56,21 @@ class Property_model extends CI_Model
 		$cities= $this->db->get('cities')->result_array();
     return $cities;
 	}
+  public function getFacingDirections()
+	{
+		$facing_directions= $this->db->get('property_facing')->result_array();
+		return $facing_directions;
+	}
+  public function getStatus()
+  {
+    return $this->db->get('property_status')->result_array();
+  }
+  public function getType()
+  {
+    return $this->db->get('property_type')->result_array();
+  }
+  public function getLabel()
+  {
+    return $this->db->get('property_label')->result_array();
+  }
 }

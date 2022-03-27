@@ -1,4 +1,5 @@
-<?php  print_r($result); ?> 
+<?php // print_r($result); 
+?> 
 <section class="content">
     <div class="container-fluid">
         <!-- head -->
@@ -29,8 +30,9 @@
                     <!-- Bootstrap 4 -->
                     <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
                     <script>
+                    
                     $.ajax({
-                    url: "<?=site_url("index.php/admin/Home/getCountry")?>",
+                    url: "<?=site_url("index.php/Home/getCountry")?>",
                     type: "post", // To protect sensitive data
                     data: {
                         ajax:true,
@@ -45,38 +47,7 @@
         });
                         
                     </script> 
-                    <?php
-                        $country=[
-                        '1'  =>'Pakistan',
-                        '2'  =>'India',
-                        '3'  =>'Afganistan',
-                        '4'  =>'Saudi Arabia',
-                        ];
-                        $state=[
-                        '1'  =>'Jammu&Kashmir',
-                        '2'  =>'Bihar',
-                        '3'  =>'Asaam',
-                        '4'  =>'Andra Pradesh',
-                        ];
-                        $city=[
-                        '1'  =>'MUmbai',
-                        '2'  =>'Banglore',
-                        '3'  =>'Jaipur',
-                        '4'  =>'Delhi',
-                        '5'  =>'Srinagar',
-                        ];
-                        $facing=[
-                            "1"  => 'East',
-                            "2"  => 'West',
-                            "3"  => 'North',
-                            "4"  => 'South',
-                            "5"  => 'South East',
-                            "6"  => 'South West',
-                            "7"  => 'North East',
-                            "8"  => 'North West',
-                            ]; 
-                        ?>
-                    <p class="text-secondary font-weight-bold ml-3"> <i class="fa-solid fa-location-dot mr-2"></i><?php echo $country[$result->p_country].", ".$state[$result->p_state].", ".$city[$result->p_city].", ".$result->p_address; ?>
+                    <p class="text-secondary font-weight-bold ml-3"> <i class="fa-solid fa-location-dot mr-2"></i><?php echo $country.", ".$state.", ".$city.", ".$result->p_address; ?>
                         </p>
                  <hr>
             </div>
@@ -123,8 +94,7 @@
                                     <h6><strong>Country</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <!--<script>$.event.trigger('getCountry',[ <?php echo $result->p_country; ?>]);</script> -->
-                                    <?php echo $result->p_country; ?>
+                                    <?php echo $country; ?>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <h6><strong>Pincode</strong></h6>
@@ -139,7 +109,7 @@
                                     <h6><strong>State</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                 <?php echo $result->p_state; ?>
+                                 <?php echo $state; ?>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <h6><strong>Address</strong></h6>
@@ -154,7 +124,7 @@
                                     <h6><strong>City</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <?php echo $result->p_city;?>
+                                    <?php echo $city;?>
                                 </div>
                                 
                             </div>
@@ -237,7 +207,7 @@
                                     <h6><strong>Front Facing</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <?php echo $facing[$result->p_front_facing]; ?>
+                                <?php echo $property_facing; ?>
                                 </div>
                                    
                             </div>
@@ -268,4 +238,3 @@
         </div>
     </div>
 </section>   
-    
