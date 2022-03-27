@@ -38,4 +38,22 @@ class Property_model extends CI_Model
     $this->db->where('p_id', $id);
     return $this->db->delete($this->table);
   }
+  public function getCountries()
+	{
+		
+		$countries= $this->db->get('countries')->result_array();
+		return $countries;
+	}
+  public function getStatesOfCountry($country_id)
+	{
+		$this->db->where('country_id',$country_id);
+		$states= $this->db->get('states')->result_array();
+    return $states;
+	}
+  public function getCitiesOfState($state_id)
+	{
+		$this->db->where('state_id',$state_id);
+		$cities= $this->db->get('cities')->result_array();
+    return $cities;
+	}
 }

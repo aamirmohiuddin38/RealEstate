@@ -16,11 +16,32 @@ class Property extends CI_Controller
 
   public function index()
   {
+    $countries=$this->property_model->getCountries();
     $data = [];
+    $data['countries']=$countries;
     $data['content'] = $this->load->view('admin/property/form_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
-
+  public function getStates()
+  {
+    $country_id=$this->input->post('country_id');
+    $states=$this->property_model->getStatesOfCountry($country_id);
+    $data=[];
+    $data['states']= $states;
+    $statesStr = $this->load->view('admin/property/states_view',$data,true);
+    $response['states']= $statesStr;
+    echo json_encode($response);
+  }
+  public function getCities()
+  {
+    $state_id=$this->input->post('state_id');
+    $cities=$this->property_model->getCitiesOfState($state_id);
+    $data=[];
+    $data['cities']= $cities;
+    $citiesStr = $this->load->view('admin/property/cities_view',$data,true);
+    $response['cities']= $citiesStr;
+    echo json_encode($response);
+  }
   public function list()
   {
     $data = [];

@@ -138,4 +138,10 @@ class Common_model extends CI_Model
 		}
 		exit;
 	}
+	public function getCountryName($country_id)
+	{
+		$this->db->where('country_id',$country_id);
+		$countries= $this->db->get('countries')->result_array();
+    	$country_name = $countries['country_name'];
+	}
 }

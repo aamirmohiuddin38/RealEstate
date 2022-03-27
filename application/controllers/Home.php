@@ -35,4 +35,11 @@ class Home extends CI_Controller
 		$this->load->view('admin/layout/main_wrapper_view', $temp);
 		//echo var_dump($temp);
 	}
+	 public function getCountry()
+	{
+		$response=$this->input->post('variableX');
+		echo $response; 
+		echo json_encode($response);
+
+	}
 }

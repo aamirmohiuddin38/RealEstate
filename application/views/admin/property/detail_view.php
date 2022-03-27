@@ -1,3 +1,4 @@
+<?php  print_r($result); ?> 
 <section class="content">
     <div class="container-fluid">
         <!-- head -->
@@ -20,6 +21,30 @@
                         </div> 
                     </div>          
              <div>
+                    <?php
+                       // Home::getCountry($result->p_country);
+                    ?>
+                    <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
+
+                    <!-- Bootstrap 4 -->
+                    <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <script>
+                    $.ajax({
+                    url: "<?=site_url("index.php/admin/Home/getCountry")?>",
+                    type: "post", // To protect sensitive data
+                    data: {
+                        ajax:true,
+                        variableX: "string",
+                        variableY: 25
+                        //and any other variables you want to pass via POST
+                        },
+                    success:function(response){
+                        alert('hello');
+                        // Handle the response object
+                    }
+        });
+                        
+                    </script> 
                     <?php
                         $country=[
                         '1'  =>'Pakistan',
@@ -49,7 +74,7 @@
                             "6"  => 'South West',
                             "7"  => 'North East',
                             "8"  => 'North West',
-                            ];     
+                            ]; 
                         ?>
                     <p class="text-secondary font-weight-bold ml-3"> <i class="fa-solid fa-location-dot mr-2"></i><?php echo $country[$result->p_country].", ".$state[$result->p_state].", ".$city[$result->p_city].", ".$result->p_address; ?>
                         </p>
@@ -98,7 +123,8 @@
                                     <h6><strong>Country</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <?php echo $country[$result->p_country]; ?>
+                                    <!--<script>$.event.trigger('getCountry',[ <?php echo $result->p_country; ?>]);</script> -->
+                                    <?php echo $result->p_country; ?>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <h6><strong>Pincode</strong></h6>
@@ -113,7 +139,7 @@
                                     <h6><strong>State</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <?php echo $state[$result->p_state]; ?>
+                                 <?php echo $result->p_state; ?>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <h6><strong>Address</strong></h6>
@@ -128,7 +154,7 @@
                                     <h6><strong>City</strong></h6>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <?php echo $city[$result->p_city]; ?>
+                                    <?php echo $result->p_city;?>
                                 </div>
                                 
                             </div>
@@ -230,15 +256,16 @@
                     </div>
                         <div class="card-body">
                             <?php if($result->p_private_note==null){
-                                echo $result->p_private_note;
+                                          echo'No Private Note Available!';
                                 }
                                 else{
-                                    echo'No Private Note Available!';
+                                    echo $result->p_private_note;   
                                 }
                              ?>
                         </div>
                 </div>   
             </div> 
         </div>
-    </div>         
+    </div>
+</section>   
     

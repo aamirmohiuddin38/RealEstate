@@ -125,11 +125,18 @@
         <div class="form-group">
           <label for="">Country</label> <i class="req text-danger text-danger"> *</i>
           <select name="country" class="form-control" id="country">
-        <option value="" selected="selected">Select country</option>
-        <option value="1">Pakistan</option>
-        <option value="2">India</option>
-        <option value="3">Afganistan</option>
-        <option value="4">Saudi Arabia</option></select>
+          <option value="" selected="selected">Select Country</option>
+            <?php 
+              if(!empty($countries))
+              {
+                foreach ($countries as $country) {
+                  ?> 
+                  <option value="<?php echo $country['country_id']; ?>"><?php echo $country['country_name']; ?></option>
+                  <?php
+                }
+              }
+            ?>
+            </select>
          <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('country');?>
@@ -141,12 +148,11 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="">State</label> <i class="req text-danger text-danger"> *</i>
+         <div id="states_select">
           <select name="state" class="form-control" id="state">
           <option value="" selected="selected">Select State</option>
-        <option value="1">Jammu&Kashmir</option>
-        <option value="2">Bihar</option>
-        <option value="3">Asaam</option>
-        <option value="4">Andra Pradesh</option></select>
+        </select>
+            </div>
            <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('state');?>
@@ -158,14 +164,11 @@
       <div class="col-sm-4">
         <div class="form-group">
           <label for="">City</label> <i class="req text-danger text-danger"> *</i>
+          <div id="cities_select">
           <select name="city" class="form-control" id="city">
           <option value="" selected="selected">Select City</option>
-            <option value="1">Mumbai</option>
-            <option value="2">Banglore</option>
-            <option value="3">jaipur</option>
-            <option value="4">Delhi</option>
-            <option value="5">Srinagar</option>
           </select>
+            </div>
            <!-- validation errors -->
          <span class="badge badge-danger">
               <?php echo form_error('city');?>
@@ -623,3 +626,44 @@
 
   <!-- Bootstrap 4 -->
   <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $("document").ready(function()
+    {
+        $('#country').change(function()
+        {
+          var country_id = $(this).val();
+          $.ajax({
+
+              url : '<?php echo base_url('index.php/admin/property/getStates'); ?>',
+              type: 'POST',
+              data:{country_id:country_id},
+              dataType:'json',
+              success: function(response)
+              {
+                if(response['states'])
+                {
+                  $("#states_select").html(response['states']);
+                }
+              }
+           })
+        })
+      $(document).on("change","#state",function()
+        {
+          var state_id = $(this).val();
+          //alert(state_id);
+          $.ajax({
+
+              url : '<?php echo base_url('index.php/admin/property/getCities'); ?>',
+              type: 'POST',
+              data:{state_id:state_id},
+              dataType:'json',
+              success: function(response){
+                if(response['cities'])
+                {
+                  $("#cities_select").html(response['cities']);
+                }
+              }
+          })
+        })
+    })
+  </script>
