@@ -45,16 +45,16 @@
   <div class="card-body">
       <div class="container border">
           <div class="row text-center">
-              <div class="col-md-3 border p-1 bg-light">
+              <div class="col-3 border p-1 bg-light">
                   <h6>ID</h6>
               </div> 
-              <div class="col-md-3 border p-1 bg-light">
+              <div class="col-3 border p-1 bg-light">
                  <h6> Title</h6>
               </div>   
-              <div class="col-md-3 border p-1 bg-light">
+              <div class="col-3 border p-1 bg-light">
                  <h6> Date</h6>
               </div>
-              <div class="col-md-3 border p-1 bg-light">
+              <div class="col-3 border p-1 bg-light">
                  <h6> Action</h6>
               </div>
           </div>   
