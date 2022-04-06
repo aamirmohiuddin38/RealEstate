@@ -6,16 +6,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<form action="" method="">
+					<form action="<?php echo base_url('property/property_document'); ?>" method="post">
 						<div class="form-group">
 							<label for="type">Property</label> <i class="req text-danger"> *</i>
 							<select name="pd_p_id" class="form-control" id="type">
-								<option value="">Select Property Type</option>
+								<option value="">Select Property</option>
 								<?php
-								if (!empty($type)) {
-									foreach ($type as $tp) {
+								if (!empty($propertyList)) {
+									foreach ($propertyList as $tp) {
 								?>
-										<option value="<?php echo $tp['type_id']; ?>"><?php echo $tp['type_name']; ?></option>
+										<option value="<?php echo $tp['p_id']; ?>"><?php echo $tp['p_title']; ?></option>
 								<?php
 									}
 								}
@@ -25,11 +25,19 @@
 				</div>
 				<div class="col-md-3 form-group text-black">
 					<label for="title">Title</label><i class="req text-danger"> *</i>
-					<input type="text" id="title" class="form-control" placeholder="property title">
+					<input type="text" id="title" class="form-control" placeholder="property title" name="pd_title">
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="attach_file"><?php echo display('attach_file') ?> <i class="text-danger">*</i></label>
+						<input class="form-control " type="file" name="attach_file" id="attach_file" value="<?php echo $document->pd_file_path ?>">
+						<input type="hidden" name="hidden_attach_file" id="hidden_attach_file" value="<?php echo $document->pd_file_path ?>">
+
+					</div>
 				</div>
 				<div class="col-md-4 form-group">
 					<label for="inputGroupFile01">Attach file</label><i class="req text-danger"> *(Note: choose only pdf, image, doc)</i>
-					<input type="file" class="form-control" id="inputGroupFile01">
+					<input type="file" class="form-control" id="inputGroupFile01" name="">
 				</div>
 				<div class="col-md-2 form-group text-center pt-4">
 					<button class="btn btn-info" type="submit">Upload <i class="fa-solid fa-cloud-arrow-up"></i></button>
