@@ -80,4 +80,36 @@ class Property_model extends CI_Model
   {
     return $this->db->get('property_tbl')->result_array();
   }
+
+  // For Document
+  public function createDocument($data = [])
+  {
+    return $this->db->insert('property_documents_tbl', $data);
+  }
+
+  public function readDocuments()
+  {
+    return $this->db->select("*")
+      ->from('property_documents_tbl')
+      ->get()
+      ->result();
+  }
+
+  public function updateDocument($data = [])
+  {
+    return $this->db->where('b_id', $data['b_id'])
+      ->update('property_documents_tbl', $data);
+  }
+
+  public function deleteDocument($pd_id = null)
+  {
+    $this->db->where('pd_id', $pd_id)
+      ->delete('property_documents_tbl');
+
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

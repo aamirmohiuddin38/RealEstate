@@ -1,7 +1,7 @@
 <?php $this->load->view('admin/layout/header'); ?>
 <?php $this->load->view('admin/layout/nav'); ?>
 <?php $this->load->view('admin/layout/leftsidebar_view'); ?>
-<!-- !-- Content Wrapper. Contains page content --> 
+<!-- !-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -22,6 +22,7 @@
   <!-- Main content -->
   <section class="content bg-light p-2">
     <div class="container-fluid ">
+      <?php echo validation_errors(); ?>
       <?php echo !empty($content) ? $content : null; ?>
     </div><!-- /.container-fluid -->
   </section>

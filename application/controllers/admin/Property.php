@@ -228,11 +228,70 @@ class Property extends CI_Controller
   }
   public function property_document()
   {
+    $pd_id = $this->input->post('pd_id');
+    // Validation
+    $this->form_validation->set_rules('pd_p_id', ('Property'),  'required');
     $data = [];
-    $data['propertyList'] = $this->property_model->getProperties();
-    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
-    $this->load->view('admin/layout/main_wrapper_view', $data);
+
+    // Upload File 
+    $picture = $this->fileupload->do_upload(
+      'uploads/property/',
+      'pd_file_path'
+    );
+
+    // property_documents_tbl
+
+    $data['input'] = (object)$postDataInp = array(
+      'pd_id' => $this->input->post('pd_id'),
+      'pd_p_id' => $this->input->post('pd_p_id'),
+      'pd_title' => $this->input->post('pd_title'),
+      'pd_file_path' => $picture,
+      'pd_status' => 1
+    );
+
+    if (empty($pd_id)) {
+      /*-----------CREATE A NEW RECORD-----------*/
+      if ($this->form_validation->run() === true) {
+        if ($this->property_model->createDocument($postDataInp)) {
+          #set success message
+          $this->session->set_flashdata('success', 'Property Document Added!');
+          redirect('index.php/admin/property/property_document');
+        } else {
+          #set exception message
+          $this->session->set_flashdata('failure', 'Property Document Not Added!');
+          redirect('index.php/admin/property/property_document');
+        }
+      } else {
+        #------------- Default Form Section Display ---------#
+        $data['propertyList'] = $this->property_model->getProperties();
+        $data['property_documents'] = $this->property_model->readDocuments();
+        $data['content'] = $this->load->view('admin/property/document_view', $data, true);
+        $this->load->view('admin/layout/main_wrapper_view', $data);
+      }
+    } else {
+      /*-----------UPDATE A RECORD-----------*/
+      if ($this->form_validation->run() === true) {
+        if ($this->property_model->createDocument($postDataInp)) {
+          #set success message
+          $this->session->set_flashdata('success', 'Property Document Updated!');
+        } else {
+          #set exception message
+          $this->session->set_flashdata('failure', 'Property Document Not Updated!');
+        }
+        redirect('index.php/admin/property/property_document');
+      } else {
+        #set exception message
+        $this->session->set_flashdata('failure', 'Property Document Not Added!');
+        // redirect('admin/banner/edit/' . $postDataUser['b_id']);
+        redirect('index.php/admin/property/property_document');
+      }
+    }
   }
+
+  public function edit_property_document($pd_id)
+  {
+  }
+
   public function property_image()
   {
     $data = [];
