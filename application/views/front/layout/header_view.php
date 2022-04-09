@@ -1187,4 +1187,4 @@
   </script>
 </head>
 
-<body class="<?php echo $body_class; ?> page-template page-template-template page-template-template-homepage page-template-templatetemplate-homepage-php page page-id-16753 transparent-no houzez-header-property_slider elementor-default elementor-kit-17100 elementor-page elementor-page-16753">
+<body class="<?php echo $body_class ?? ''; ?> page-template page-template-template page-template-template-homepage page-template-templatetemplate-homepage-php page page-id-16753 transparent-no houzez-header-property_slider elementor-default elementor-kit-17100 elementor-page elementor-page-16753">

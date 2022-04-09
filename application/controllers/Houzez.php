@@ -19,7 +19,7 @@ class Houzez extends CI_Controller
 			'setting_model',
 			// 'contactus_model',
 			// 'address_model',
-			'frontsite/property_model' => 'p_model',
+			'frontsite/property_model1' => 'p_model',
 			// 'property_service_model' => 'psr_model',
 			// 'admin/property_type_model' => 'pt_model',
 			// 'admin/property_status_model' => 'ps_model',
@@ -123,6 +123,7 @@ class Houzez extends CI_Controller
 
 	public function index()
 	{
+		redirect('houzez/grid_default');
 		$this->load_common_data();
 		$this->load_get_data();
 		$this->data['slider_property'] = $this->p_model->get_slider_properties();
@@ -211,6 +212,8 @@ class Houzez extends CI_Controller
 		// $this->data['total_property'] = $this->p_config['total_rows'];
 		// ddisplay($this->data);
 
+		$this->data['properties'] = $this->p_model->read();
+		print_r($this->data['properties']);
 		$this->data['content'] = $this->load->view('front/grid_default_view', $this->data, true);
 		$this->load->view('front/layout/main_wrapper', $this->data);
 	}
