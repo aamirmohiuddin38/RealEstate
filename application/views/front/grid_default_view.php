@@ -98,8 +98,9 @@
                       <ul class="item-price-wrap hide-on-list">
                         <li class="item-price">
                           <?php
-                          $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
-                          echo $fmt->formatCurrency($property->p_price, "INR");
+                          // $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+                          // echo $fmt->formatCurrency($property->p_price, "INR");
+                          echo $property->p_price;
                           ?>
                         </li>
                         <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
@@ -148,14 +149,15 @@
                       <ul class="item-price-wrap hide-on-list">
                         <li class="item-price">
                           <?php
-                          $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
-                          echo $fmt->formatCurrency($property->p_price, "INR");
+                          // $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+                          // echo $fmt->formatCurrency($property->p_price, "INR");
+                          echo $property->p_price;
                           ?>
                         </li>
                         <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
                       </ul>
                       <address class="item-address">
-                        <?php echo $property->pa_address . ' ' . $property->city . ', ' . $property->state . ', ' . $property->country . ' ' . $property->pa_postal_code; ?>
+                        <!-- <?php echo $property->pa_address . ' ' . $property->city . ', ' . $property->state . ', ' . $property->country . ' ' . $property->pa_postal_code; ?> -->
                       </address>
                       <ul class="item-amenities item-amenities-with-icons">
                         <li class="h-beds"><span class="hz-figure"><?php echo $property->pd_bedrooms; ?> <i class="houzez-icon icon-hotel-double-bed-1 ml-1"></i></span> Bedrooms</li>
@@ -176,7 +178,7 @@
         </div><!-- listing-view -->
         <div class="pagination-wrap">
           <nav>
-            <?php echo $pagination; ?>
+            <!-- <?php echo $pagination; ?> -->
           </nav>
         </div>
       </div>
