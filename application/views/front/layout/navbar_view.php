@@ -83,7 +83,7 @@
                     <i class="houzez-icon icon-pin ml-1"></i>
                   </div><!-- header-contact-left -->
                   <div class="header-contact-right">
-                    <div>LAMBERT LANE LALCHOWK</div>
+                    <div>UNiversity</div>
                     <div>SRINAGAR</div>
                   </div><!-- .header-contact-right -->
                 </div><!-- .header-contact -->
