@@ -294,9 +294,76 @@ class Property extends CI_Controller
 
   public function property_image()
   {
+    $pi_id = $this->input->post('pi_id');
+    // Validation
+    $this->form_validation->set_rules('pi_p_id', ('Property'),  'required');
     $data = [];
-    $data['type'] = $this->property_model->getType();
-    $data['content'] = $this->load->view('admin/property/image_view', $data, true);
-    $this->load->view('admin/layout/main_wrapper_view', $data);
+
+    // Upload File 
+    $picture = $this->fileupload->do_upload(
+      'uploads/property/',
+      'pi_file_path'
+    );
+
+    // If uploaded sucessfully do resize
+    if (0 && $picture !== false && $picture != null) {
+      $this->fileupload->do_resize(
+        $picture,
+        350,
+        200
+      );
+    }
+    // $this->fileupload->do_resize(
+    //   $picture,
+    //   350,
+    //   200
+    // );
+    // property_documents_tbl
+
+    $data['input'] = (object)$postDataInp = array(
+      'pi_id' => $this->input->post('pi_id'),
+      'pi_p_id' => $this->input->post('pi_p_id'),
+      'pi_title' => $this->input->post('pi_title'),
+      'pi_path' => $picture,
+      'pi_status' => 1
+    );
+
+    if (empty($pi_id)) {
+      /*-----------CREATE A NEW RECORD-----------*/
+      if ($this->form_validation->run() === true) {
+        if ($this->property_model->createImage($postDataInp)) {
+          #set success message
+          $this->session->set_flashdata('success', 'Property Document Added!');
+          redirect('index.php/admin/property/property_image');
+        } else {
+          #set exception message
+          $this->session->set_flashdata('failure', 'Property Document Not Added!');
+          redirect('index.php/admin/property/property_image');
+        }
+      } else {
+        #------------- Default Form Section Display ---------#
+        $data['propertyList'] = $this->property_model->getProperties();
+        $data['property_documents'] = $this->property_model->readDocuments();
+        $data['content'] = $this->load->view('admin/property/image_view', $data, true);
+        $this->load->view('admin/layout/main_wrapper_view', $data);
+      }
+    } else {
+      /*-----------UPDATE A RECORD-----------*/
+      if ($this->form_validation->run() === true) {
+        if ($this->property_model->updateImage($postDataInp)) {
+          #set success message
+          $this->session->set_flashdata('success', 'Property Document Updated!');
+        } else {
+          #set exception message
+          $this->session->set_flashdata('failure', 'Property Document Not Updated!');
+        }
+        redirect('index.php/admin/property/property_image');
+      } else {
+        #set exception message
+        $this->session->set_flashdata('failure', 'Property Document Not Added!');
+        // redirect('admin/banner/edit/' . $postDataUser['b_id']);
+        redirect('index.php/admin/property/property_image');
+      }
+    }
   }
 }

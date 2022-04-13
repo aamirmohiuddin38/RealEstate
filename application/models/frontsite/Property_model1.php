@@ -116,4 +116,28 @@ class Property_model1 extends CI_Model
 			return $result = $this->db->get()->result();
 		} */
 	}
+
+	public function readImages()
+	{
+		return $this->db->select("*")
+			->from('property_images_tbl')
+			->get()
+			->result();
+	}
+
+	// Houzez
+	public function getImagesByProperty()
+	{
+		$result = $this->readImages();
+
+		$list = [];
+
+		if (valArr($result)) {
+			foreach ($result as $key => $obj_p_image) {
+				ddisplay($obj_p_image);
+				$list[$obj_p_image->pi_p_id] = $obj_p_image;
+			}
+		}
+		return $list;
+	}
 }

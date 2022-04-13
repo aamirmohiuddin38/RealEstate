@@ -134,7 +134,7 @@ class Property_model extends CI_Model
       ->update('property_images_tbl', $data);
   }
 
-  public function deleteImage($pdiid = null)
+  public function deleteImage($pi_id = null)
   {
     $this->db->where('pi_id', $pi_id)
       ->delete('property_images_tbl');

@@ -214,6 +214,7 @@ class Houzez extends CI_Controller
 
 		$this->data['properties'] = $this->p_model->read();
 		print_r($this->data['properties']);
+		$this->data['property_images'] = $this->p_model->getImagesByProperty();
 		$this->data['content'] = $this->load->view('front/grid_default_view', $this->data, true);
 		$this->load->view('front/layout/main_wrapper', $this->data);
 	}
