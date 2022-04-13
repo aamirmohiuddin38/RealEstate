@@ -1,49 +1,48 @@
 <div class="wrapper d-md-flex">
-	<div class="card w-75">
+	<div class="card w-100">
 		<div class="card-header bg-info">
 			Add Images
 		</div>
-		<div class="card-body">
-			<form action="" method="">
+		<form action="<?php echo base_url('index.php/admin/property/property_image'); ?>" method="post" enctype="multipart/form-data">
+			<div class="card-body">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="type">Property</label> <i class="req text-danger"> *</i>
-							<select name="pd_p_id" class="form-control" id="type">
+						<div class="col-md-4 form-group">
+							<label for="pi_p_id">Property</label> <i class="req text-danger"> *</i>
+							<select name="pi_p_id" class="form-control" id="type">
 								<option value="">Select Property Type</option>
-								<?php
-								if (!empty($type)) {
-									foreach ($type as $tp) {
-								?>
-										<option value="<?php echo $tp['type_id']; ?>"><?php echo $tp['type_name']; ?></option>
-								<?php
-									}
-								}
-								?>
+								<?php if (!empty($propertyList)) {
+									foreach ($propertyList as $tp) { ?>
+										<option value="<?php echo $tp['p_id']; ?>" <?php ($input->pi_p_id ?? '' == $tp['p_id']) ? 'selected' : ''; ?>>
+											<?php echo $tp['p_title']; ?>
+										</option>
+								<?php }
+								} ?>
 							</select>
 						</div>
 
-						<div class="col-md-6 form-group">
+						<div class="col-md-4 form-group">
 							<label for="title">Title</label><i class="req text-danger"> *</i>
-							<input type="text" id="title" class="form-control" placeholder="property title">
+							<input type="text" id="title" name="pi_title" class="form-control" placeholder="property title">
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
+						<div class="col-md-4 form-group">
 							<label for="inputGroupFile01">Attach file</label><i class="req text-danger"> *(Note: choose only image)</i>
-							<input type="file" class="form-control" id="inputGroupFile01">
+							<input type="file" class="form-control" id="inputGroupFile01" name="pi_file_path">
 						</div>
-						<div class="col-md-6 form-group text-center pt-4">
-							<button class="btn btn-info" type="submit">Upload <i class="fa-solid fa-cloud-arrow-up"></i></button>
-						</div>
+
 					</div>
 				</div>
 
-			</form>
-		</div>
+			</div>
+			<div class="card-footer">
+				<!-- <div class="col-md-6 form-group text-center pt-4"> -->
+				<button class="btn btn-info pull-right float-right" type="submit">Upload <i class="fa-solid fa-cloud-arrow-up"></i></button>
+				<!-- </div> -->
+			</div>
+		</form>
 	</div>
 	<!-- image Preview -->
-	<div class="card ml-3" style="width: 18rem;">
+	<div class="card ml-3 d-none" style="width: 18rem;">
 		<div class="card-header bg-info">
 			Image Preview
 		</div>

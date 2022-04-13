@@ -112,4 +112,37 @@ class Property_model extends CI_Model
       return false;
     }
   }
+
+
+  // For Image
+  public function createImage($data = [])
+  {
+    return $this->db->insert('property_images_tbl', $data);
+  }
+
+  public function readImages()
+  {
+    return $this->db->select("*")
+      ->from('property_images_tbl')
+      ->get()
+      ->result();
+  }
+
+  public function updateImage($data = [])
+  {
+    return $this->db->where('pi_id', $data['pi_id'])
+      ->update('property_images_tbl', $data);
+  }
+
+  public function deleteImage($pdiid = null)
+  {
+    $this->db->where('pi_id', $pi_id)
+      ->delete('property_images_tbl');
+
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
