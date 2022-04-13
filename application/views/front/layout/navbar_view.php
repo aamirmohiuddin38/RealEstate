@@ -17,7 +17,7 @@
         </ul>
       </li>
       <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page ">
-        <a class="nav-link " href="<?php echo base_url('houzez/services'); ?>">Services</a>
+        <!-- <a class="nav-link " href="<?php echo base_url('houzez/services'); ?>">Services</a> -->
       </li>
 
       <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page ">
@@ -61,7 +61,7 @@
 
               <div class="logo logo-desktop">
                 <a href="<?php echo base_url('houzez/index'); ?>">
-                  <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/HyunkunuLogoYellowTransparent.png" height="50" width="230" alt="logo">
+                  <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logofinal.png" height="100%" width="100%" alt="logo">
                 </a>
               </div>
 
@@ -73,8 +73,8 @@
                     <i class="houzez-icon icon-phone ml-1"></i>
                   </div><!-- header-contact-left -->
                   <div class="header-contact-right">
-                    <div><a href="tel://+917006382025">+91 7006 382025</a></div>
-                    <div><a href="mailto:hyunkunun@gmail.com">hyunkunun@gmail.com</a></div>
+                    <div><a href="tel://+917006382025">+91 7006 112233</a></div>
+                    <div><a href="mailto:hyunkunun@gmail.com">realestate@gmail.com</a></div>
                   </div><!-- .header-contact-right -->
                 </div><!-- .header-contact -->
 
@@ -83,8 +83,8 @@
                     <i class="houzez-icon icon-pin ml-1"></i>
                   </div><!-- header-contact-left -->
                   <div class="header-contact-right">
-                    <div>UNiversity</div>
-                    <div>SRINAGAR</div>
+                    <div>University of Kashmir</div>
+                    <div>HAZRATBAL</div>
                   </div><!-- .header-contact-right -->
                 </div><!-- .header-contact -->
 
@@ -173,7 +173,7 @@
                       <li id='menu-item-81' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width_4_cols'); ?>">Grid Full Width 4 Cols</a> </li> -->
                     </ul>
                   </li>
-                  <li id='menu-item-3' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/services'); ?>">Services</a> </li>
+                  <!-- <li id='menu-item-3' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/services'); ?>">Services</a> </li> -->
                   <li id='menu-item-4' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/contactus'); ?>">Contact</a> </li>
                   <li id='menu-item-5' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/aboutus'); ?>">About Us</a> </li>
                 </ul>
@@ -212,8 +212,8 @@
             <i class="houzez-icon icon-phone ml-1"></i>
           </div><!-- header-contact-left -->
           <div class="header-contact-right">
-            <div><a href="tel://+917006382025">+91 7006 382025</a></div>
-            <div><a href="mailto:hyunkunun@gmail.com">hyunkunun@gmail.com</a></div>
+            <div><a href="tel://+917006382025">+91 7006 112233</a></div>
+            <div><a href="mailto:hyunkunun@gmail.com">realestate@gmail.com</a></div>
           </div><!-- .header-contact-right -->
         </div><!-- .header-contact -->
 
@@ -222,8 +222,8 @@
             <i class="houzez-icon icon-pin ml-1"></i>
           </div><!-- header-contact-left -->
           <div class="header-contact-right">
-            <div>LAMBERT LANE LALCHOWK</div>
-            <div>SRINAGAR</div>
+            <div>University of Kashmir</div>
+            <div>HAZRATBAL</div>
           </div><!-- .header-contact-right -->
         </div><!-- .header-contact -->
 
