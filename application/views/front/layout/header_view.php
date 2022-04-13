@@ -12,7 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no">
-  <title>Hyunkunun &#8211; Highly Customizable Real Estate Work</title>
+  <title>CheckMyProperty: Real Estate Work</title>
   <meta name='robots' content='max-image-preview:large' />
   <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
   <link rel='dns-prefetch' href='http://s.w.org/' />
