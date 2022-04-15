@@ -21,6 +21,8 @@ class Property_model1 extends CI_Model
             property_status.status_name as ps_name,
             countries.country_name,
             property_tbl.p_address,
+			property_tbl.p_state,
+			property_tbl.p_city,
             property_tbl.p_postal_code,
             property_tbl.p_bathrooms as pd_bathrooms,
             property_tbl.p_bedrooms as pd_bedrooms,
@@ -43,10 +45,9 @@ class Property_model1 extends CI_Model
 		$this->db->join('property_type',   	'property_tbl.p_type  = property_type.type_id', 'left');
 		$this->db->join('property_label',   'property_tbl.p_label = property_label.label_id', 'left');
 		$this->db->join('property_status',  'property_tbl.p_status = property_status.status_id', 'left');
-
 		$this->db->join('countries',       'property_tbl.p_country 	= countries.country_id', 'left');
-		// $this->db->join('state',         'property_tbl.p_state 		= state.ID', 'left');
-		// $this->db->join('city',          'property_tbl.p_city 		= city.ID', 'left');
+		$this->db->join('states',         'property_tbl.p_state 		= state_id', 'left');
+		$this->db->join('cities',          'property_tbl.p_city 		= city_id', 'left');
 
 		$this->db->from('property_tbl');
 
@@ -134,7 +135,7 @@ class Property_model1 extends CI_Model
 
 		if (valArr($result)) {
 			foreach ($result as $key => $obj_p_image) {
-				ddisplay($obj_p_image);
+				// ddisplay($obj_p_image);
 				$list[$obj_p_image->pi_p_id] = $obj_p_image;
 			}
 		}

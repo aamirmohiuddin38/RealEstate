@@ -100,7 +100,7 @@
                           <?php
                           $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
                           echo $fmt->formatCurrency($property->p_price, "INR");
-                          echo $property->p_price;
+                          // echo $property->p_price;
                           ?>
                         </li>
                         <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
@@ -157,7 +157,7 @@
                         <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
                       </ul>
                       <address class="item-address">
-                        <!-- <?php echo $property->pa_address . ' ' . $property->city . ', ' . $property->state . ', ' . $property->country . ' ' . $property->pa_postal_code; ?> -->
+                        <?php echo $property->p_address . ' | ' . $property->p_city . ' | ' . $property->p_state . ' | ' . $property->country_name . ' | ' . $property->p_postal_code; ?>
                       </address>
                       <ul class="item-amenities item-amenities-with-icons">
                         <li class="h-beds"><span class="hz-figure"><?php echo $property->pd_bedrooms; ?> <i class="houzez-icon icon-hotel-double-bed-1 ml-1"></i></span> Bedrooms</li>

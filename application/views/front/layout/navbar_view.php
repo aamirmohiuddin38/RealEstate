@@ -61,7 +61,7 @@
 
               <div class="logo logo-desktop">
                 <a href="<?php echo base_url('houzez/index'); ?>">
-                  <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logofinal.png" height="100%" width="100%" alt="logo">
+                  <!-- <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logofinal.png" height="100%" width="100%" alt="logo"> -->
                 </a>
               </div>
 
@@ -302,7 +302,7 @@
       <div class="header-mobile-center flex-grow-1">
         <div class="logo logo-mobile">
           <a href="<?php echo base_url(); ?>">
-            <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/themes/houzez/img/HyunkunuLogoWhite1.png" height="40" width="165" alt="Mobile logo">
+            <!-- <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/moblogo.png" alt="Mobile logo"> -->
           </a>
         </div>
       </div>

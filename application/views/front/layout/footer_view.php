@@ -12,8 +12,8 @@
               <ul>
                 <li><a href="<?php echo base_url('houzez/aboutus'); ?>">About us</a></li>
                 <li><a href="<?php echo base_url('houzez/contactus'); ?>">Contact us</a></li>
-                <li><a href="#">Request Info</a></li>
-                <li><a href="#">Feedback</a></li>
+                <!-- <li><a href="#">Request Info</a></li>
+                <li><a href="#">Feedback</a></li> -->
               </ul>
             </div>
           </div>
@@ -27,14 +27,14 @@
               <div class="widget-content">
                 <p></p>
                 <ul class="list-unstyled contact-list">
-                  <li><i class="houzez-icon icon-pin mr-1"></i> Lambert Lane LalChowk, Srinagar </li>
+                  <li><i class="houzez-icon icon-pin mr-1"></i> University of Kashmir, Srinagar </li>
 
-                  <li><i class="houzez-icon icon-phone mr-1"></i> +91 7006 382025</li>
+                  <li><i class="houzez-icon icon-phone mr-1"></i> +91 7006 112233</li>
 
-                  <li><i class="houzez-icon icon-answer-machine mr-1"></i> 879 456 1349</li>
+                  <li><i class="houzez-icon icon-answer-machine mr-1"></i> 1111 0000</li>
 
                   <li><i class="houzez-icon icon-envelope mr-1"></i>
-                    <a href="mailto:hyunkunun@gmail.com">hyunkunun@gmail.com</a>
+                    <a href="mailto:hyunkunun@gmail.com">realestate@gmail.com</a>
                   </li>
                 </ul>
               </div><!-- widget-content -->
@@ -66,7 +66,7 @@
                     </div>
                   </div>
                 </div>
-                <p class="mt-3">Hyunkunun is a premium theme for Designers & Real Estate Agents.</p>
+                <p class="mt-3">Explore the luxury life @ RealEstate</p>
               </div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1622716694" /><input type="hidden" name="_mc4wp_form_id" value="1251" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
               <div class="mc4wp-response"></div>
             </form><!-- / Mailchimp for WordPress Plugin -->
@@ -91,10 +91,10 @@
             <i class="houzez-icon icon-social-media-twitter mr-2"></i> Twitter </a>
         </span>
 
-        <span>
+        <!-- <span>
           <a class="btn-googleplus" target="_blank" href="#">
             <i class="houzez-icon icon-social-media-google-plus-1 mr-2"></i> Google + </a>
-        </span>
+        </span> -->
 
         <span>
           <a class="btn-linkedin" target="_blank" href="#">
@@ -106,7 +106,7 @@
             <i class="houzez-icon icon-social-instagram mr-2"></i> Instagram </a>
         </span>
 
-        <span>
+        <!-- <span>
           <a class="btn-pinterest" target="_blank" href="#">
             <i class="houzez-icon icon-social-pinterest mr-2"></i> Pinterest </a>
         </span>
@@ -120,18 +120,20 @@
         <span>
           <a class="btn-youtube" target="_blank" href="#">
             <i class="houzez-icon icon-social-video-youtube-clip mr-2"></i> Youtube </a>
-        </span>
+        </span> -->
 
 
       </div>
 
-      <div class="footer_logo logo">
-        <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logo-houzez-color240x45.png" alt="logo">
-      </div><!-- .logo -->
+      <!-- <div class="footer_logo logo">
+        <div class="foot_inner">
+        <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logofinal.png" alt="logo">
+        </div>
+      </div>.logo -->
 
 
       <div class="footer-copyright">
-        &copy; Hyunkunun - All rights reserved</div><!-- footer-copyright -->
+        &copy; RealEstate - All rights reserved</div><!-- footer-copyright -->
 
     </div><!-- container -->
   </div><!-- footer-top-wrap -->
