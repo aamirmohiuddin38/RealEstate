@@ -58,7 +58,6 @@
           <div class="d-flex align-items-center mb-2">
             <div class="listing-tabs flex-grow-1">
               <?php echo $total_property ?? 0; ?> Properties</div><!-- listing-tabs -->
-
             <div class="sort-by">
               <div class="d-flex align-items-center">
                 <div class="sort-by-title">
