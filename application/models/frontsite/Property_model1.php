@@ -13,7 +13,7 @@ class Property_model1 extends CI_Model
 	public function read()
 	{
 		$this->db->select("
-						property_tbl.p_id,
+			property_tbl.p_id,
             property_tbl.p_title,
             property_tbl.p_content,
             property_type.type_name as pt_name,
@@ -136,9 +136,16 @@ class Property_model1 extends CI_Model
 		if (valArr($result)) {
 			foreach ($result as $key => $obj_p_image) {
 				// ddisplay($obj_p_image);
-				$list[$obj_p_image->pi_p_id] = $obj_p_image;
+				$list[$obj_p_image->img_p_id] = $obj_p_image;
 			}
 		}
 		return $list;
+	}
+
+	public function total_properties()
+	{
+		return $this->db
+			->from('property_tbl')
+			->count_all_results();
 	}
 }

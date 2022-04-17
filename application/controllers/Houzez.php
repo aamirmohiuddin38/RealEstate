@@ -123,24 +123,24 @@ class Houzez extends CI_Controller
 
 	public function index()
 	{
-		redirect('houzez/grid_default');
-		$this->load_common_data();
-		$this->load_get_data();
-		$this->data['slider_property'] = $this->p_model->get_slider_properties();
-		$this->data['featured'] = $this->p_model->get_featured_properties();
-		$this->data['services'] = $this->psr_model->read();
-		// $this->data['featured'] = array_merge($this->data['featured'], $this->data['featured']);
+		// redirect('houzez/grid_default');
+		// $this->load_common_data();
+		// $this->load_get_data();
+		// $this->data['slider_property'] = $this->p_model->get_slider_properties();
+		// $this->data['featured'] = $this->p_model->get_featured_properties();
+		// $this->data['services'] = $this->psr_model->read();
+		// // $this->data['featured'] = array_merge($this->data['featured'], $this->data['featured']);
 
-		$arrintSliderPropertyIds = valArr($this->data['slider_property']) ? array_keys(rekeyArray('p_id', $this->data['slider_property'])) : null;
+		// $arrintSliderPropertyIds = valArr($this->data['slider_property']) ? array_keys(rekeyArray('p_id', $this->data['slider_property'])) : null;
 
-		$arrintFeaturedPropertyIds = valArr($this->data['featured']) ? array_keys(rekeyArray('p_id', $this->data['featured'])) : null;
+		// $arrintFeaturedPropertyIds = valArr($this->data['featured']) ? array_keys(rekeyArray('p_id', $this->data['featured'])) : null;
 
-		$arrintFinalPropertyIds = array_unique(array_merge($arrintSliderPropertyIds, $arrintFeaturedPropertyIds));
-		$this->data['property_images'] = rekeyArray('pi_p_id', $this->p_model->read_images_by_property_ids($arrintFinalPropertyIds), false, false);
+		// $arrintFinalPropertyIds = array_unique(array_merge($arrintSliderPropertyIds, $arrintFeaturedPropertyIds));
+		// $this->data['property_images'] = rekeyArray('pi_p_id', $this->p_model->read_images_by_property_ids($arrintFinalPropertyIds), false, false);
 
 
-		$this->data['body_class'] = "home";
-		$this->data['content'] = $this->load->view('front/home', $this->data, true);
+		// $this->data['body_class'] = "home";
+		// $this->data['content'] = $this->load->view('front/home', $this->data, true);
 		$this->load->view('front/layout/main_wrapper', $this->data);
 	}
 
@@ -215,6 +215,7 @@ class Houzez extends CI_Controller
 		$this->data['properties'] = $this->p_model->read();
 		// print_r($this->data['properties']);
 		$this->data['property_images'] = $this->p_model->getImagesByProperty();
+		$this->data['total_property'] = $this->p_model->total_properties();
 		$this->data['content'] = $this->load->view('front/grid_default_view', $this->data, true);
 		$this->load->view('front/layout/main_wrapper', $this->data);
 	}
