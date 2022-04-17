@@ -1,79 +1,144 @@
-<div class="wrapper d-md-flex">
-	<div class="card w-100">
-		<div class="card-header bg-info">
-			Add Images
-		</div>
-		<form action="<?php echo base_url('index.php/admin/property/property_image'); ?>" method="post" enctype="multipart/form-data">
-			<div class="card-body">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 form-group">
-							<label for="pi_p_id">Property</label> <i class="req text-danger"> *</i>
-							<select name="pi_p_id" class="form-control" id="type">
-								<option value="">Select Property Type</option>
-								<?php if (!empty($propertyList)) {
-									foreach ($propertyList as $tp) { ?>
-										<option value="<?php echo $tp['p_id']; ?>" <?php ($input->pi_p_id ?? '' == $tp['p_id']) ? 'selected' : ''; ?>>
-											<?php echo $tp['p_title']; ?>
-										</option>
-								<?php }
+<!-- Flash data Success -->
+<?php if ($this->session->flashdata('success') != null) { ?>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong><?php echo $this->session->flashdata('success'); ?></strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+<?php } ?>
+<!-- Flash data Failure -->
+<?php if ($this->session->flashdata('failure') != null) { ?>
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		<strong><?php echo $this->session->flashdata('failure'); ?></strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+<?php } ?>
+<div class="card">
+	<div class="card-header bg-info">
+		Add Image
+	</div>
+	<div class="card-body">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<form action="<?php echo base_url('index.php/admin/property/image_upload'); ?>" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="type">Property Title</label> <i class="req text-danger"> *</i>
+							<select name="property_title" class="form-control" id="type">
+								<option value="">Select Property</option>
+								<?php
+								if (!empty($type)) {
+									foreach ($type as $tp) {
+								?>
+										<option value="<?php echo $tp['p_id']; ?>"><?php echo $tp['p_title']; ?></option>
+								<?php	}
 								} ?>
 							</select>
+							<span class="badge badge-danger">
+								<?php echo form_error('property_title');
+								?>
+							</span>
 						</div>
-
-						<div class="col-md-4 form-group">
-							<label for="title">Title</label><i class="req text-danger"> *</i>
-							<input type="text" id="title" name="pi_title" class="form-control" placeholder="property title">
-						</div>
-						<div class="col-md-4 form-group">
-							<label for="inputGroupFile01">Attach file</label><i class="req text-danger"> *(Note: choose only image)</i>
-							<input type="file" class="form-control" id="inputGroupFile01" name="pi_file_path">
-						</div>
-
-					</div>
+				</div>
+				<div class="col-md-3 form-group text-black">
+					<label for="title">Image Name</label><i class="req text-danger"> *</i>
+					<input type="text" id="title" class="form-control" placeholder="property title" name="img_title" value="">
+					<span class="badge badge-danger">
+						<?php echo form_error('img_title');
+						?>
+					</span>
 				</div>
 
+				<div class="col-md-4 form-group">
+					<label for="inputGroupFile01">Attach file</label><i class="req text-danger"> *(Note: choose only jpg,png)</i>
+					<input type="file" class="form-control" id="inputGroupFile01" name="img_file_path">
+				</div>
+				<div class="col-md-2 form-group text-center pt-4">
+					<button class="btn btn-info" type="submit">Upload <i class="fa-solid fa-cloud-arrow-up"></i></button>
+				</div>
 			</div>
-			<div class="card-footer">
-				<!-- <div class="col-md-6 form-group text-center pt-4"> -->
-				<button class="btn btn-info pull-right float-right" type="submit">Upload <i class="fa-solid fa-cloud-arrow-up"></i></button>
-				<!-- </div> -->
-			</div>
-		</form>
-	</div>
-	<!-- image Preview -->
-	<div class="card ml-3 d-none" style="width: 18rem;">
-		<div class="card-header bg-info">
-			Image Preview
+			</form>
 		</div>
-		<img class="card-img-top" src="https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg" alt="Card image cap">
 	</div>
 </div>
-<!-- image list -->
-<div class="card">
-	<h6 class="card-header bg-info">Property Images</h6>
-	<div class="card-body">
-		<div class="container border">
-			<div class="row text-center">
-				<div class="col-3 border p-1 bg-light">
-					<h6>ID</h6>
+<!-- Display -->
+<div class="col-sm-12">
+	<div class="card">
+		<div class="card-header bg-info">
+			<h3 class="card-title">
+				Image List
+			</h3>
+			<!-- <a class="btn btn-warning pull-right" href="< ?= base_url('admin/transaction/payment_report/').$search->start_date.'/'.$search->end_date; ?>"><i class="fa fa-print"></i></a> -->
+		</div>
+		<div class="card-body" id="tbl">
+			<div class="card-body">
+				<div class="d-flex">
+					<div class="form-group w-75">
+						<form action="<?php echo base_url('index.php/admin/property/image_list'); ?>" method="post">
+							<label for="type">Property Title</label> <i class="req text-danger"> *</i>
+							<select name="pty_type" class="form-control" id="pt_type">
+								<option value="">Select Property</option>
+								<?php
+								if (!empty($type)) {
+									foreach ($type as $tp) {
+								?>
+										<option value="<?php echo $tp['p_id']; ?>"><?php echo $tp['p_title']; ?></option>
+								<?php	}
+								} ?>
+							</select>
+					</div>
+					<div class="btn mt-4 ml-4">
+						<button class="btn btn-info" type="submit">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+					</div>
+					</form>
 				</div>
-				<div class="col-3 border p-1 bg-light">
-					<h6> Title</h6>
-				</div>
-				<div class="col-3 border p-1 bg-light">
-					<h6> Date</h6>
-				</div>
-				<div class="col-3 border p-1 bg-light">
-					<h6> Action</h6>
-				</div>
-			</div>
+				<div class="form-group">
+					<table width="100%" class="datatable_colvis table table-striped table-bordered table-hover table-sm">
+						<thead>
+							<tr>
+								<th><?php echo ('Unique Id') ?></th>
+								<th><?php echo ('Property Title') ?></th>
+								<th><?php echo ('Image Name') ?></th>
+								<th><?php echo ('Action') ?></th>
+							</tr>
+						</thead>
+						<tbody id="">
+							<?php
+							if (!empty($list)) {
+								$i = 1;
+								foreach ($list as $val1) { ?>
+									<tr>
+										<td> <?php echo $i; ?></td>
+										<?php
+										if (!empty($type)) {
+											foreach ($type as $tp) {
+												if ($tp['p_id'] == $val1['img_p_id']) {
+										?>
+													<td><?php echo $tp['p_title'];
+														}
+													}
+												} ?></td>
+													<td> <?php echo $val1['img_title']; ?></td>
+													<td class="text-center">
+														<a href="<?php echo base_url(); ?>index.php/admin/property/image_delete?id=<?php echo $val1['img_id']; ?>"> <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a>
+														<a href="<?php echo base_url(); ?>index.php/admin/property/document_download?path=<?php echo $val1['img_file_path']; ?>"> <button type="button" class="btn btn-success btn-sm"><i class="fa fa-download"></i></button></a>
+													</td>
+									</tr>
+								<?php
+									$i++;
+								}
+							} else { ?>
+								<tr class="text-center ">
+									<td colspan='4'> No records found!</td>
+								</tr>
+							<?php } ?>
 
-			<div class="row text-center">
-				<div class="col-md-12 p-1">
-					<h6>No data Available!</h6>
-				</div>
 
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-	</div>

@@ -226,7 +226,7 @@ class Property extends CI_Controller
       }
     }
   }
-  public function property_document()
+  /*public function property_document()
   {
     $pd_id = $this->input->post('pd_id');
     // Validation
@@ -251,7 +251,7 @@ class Property extends CI_Controller
 
     if (empty($pd_id)) {
       /*-----------CREATE A NEW RECORD-----------*/
-      if ($this->form_validation->run() === true) {
+  /*  if ($this->form_validation->run() === true) {
         if ($this->property_model->createDocument($postDataInp)) {
           #set success message
           $this->session->set_flashdata('success', 'Property Document Added!');
@@ -270,7 +270,7 @@ class Property extends CI_Controller
       }
     } else {
       /*-----------UPDATE A RECORD-----------*/
-      if ($this->form_validation->run() === true) {
+  /*  if ($this->form_validation->run() === true) {
         if ($this->property_model->createDocument($postDataInp)) {
           #set success message
           $this->session->set_flashdata('success', 'Property Document Updated!');
@@ -286,84 +286,137 @@ class Property extends CI_Controller
         redirect('index.php/admin/property/property_document');
       }
     }
-  }
-
-  public function edit_property_document($pd_id)
+  }*/
+  public function property_document()
   {
-  }
-
-  public function property_image()
-  {
-    $pi_id = $this->input->post('pi_id');
-    // Validation
-    $this->form_validation->set_rules('pi_p_id', ('Property'),  'required');
     $data = [];
-
-    // Upload File 
-    $picture = $this->fileupload->do_upload(
-      'uploads/property/',
-      'pi_file_path'
-    );
-
-    // If uploaded sucessfully do resize
-    if (0 && $picture !== false && $picture != null) {
-      $this->fileupload->do_resize(
-        $picture,
-        350,
-        200
-      );
-    }
-    // $this->fileupload->do_resize(
-    //   $picture,
-    //   350,
-    //   200
-    // );
-    // property_documents_tbl
-
-    $data['input'] = (object)$postDataInp = array(
-      'pi_id' => $this->input->post('pi_id'),
-      'pi_p_id' => $this->input->post('pi_p_id'),
-      'pi_title' => $this->input->post('pi_title'),
-      'pi_path' => $picture,
-      'pi_status' => 1
-    );
-
-    if (empty($pi_id)) {
-      /*-----------CREATE A NEW RECORD-----------*/
-      if ($this->form_validation->run() === true) {
-        if ($this->property_model->createImage($postDataInp)) {
-          #set success message
-          $this->session->set_flashdata('success', 'Property Document Added!');
-          redirect('index.php/admin/property/property_image');
-        } else {
-          #set exception message
-          $this->session->set_flashdata('failure', 'Property Document Not Added!');
-          redirect('index.php/admin/property/property_image');
-        }
+    $data['type'] = $this->property_model->getProperties();
+    $data['list'] = '';
+    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  public function document_upload()
+  {
+    $config = [
+      'upload_path'   => './uploads/property/',
+      'allowed_types' => 'pdf|JPG|JPEG',
+      'max_size'   => '100'
+    ];
+    //  validation rules
+    $this->form_validation->set_rules('property_type', 'Property Type', 'required');
+    $this->form_validation->set_rules('pd_title', 'Document Title', 'required');
+    if ($this->form_validation->run() == true) {
+      $data = $this->upload->data();
+      $image_path = base_url("uploads/property/" . $data['raw_name'] . $data['file_ext']);
+      $data['input'] = (object) $postData = [
+        "pd_id"          => null,
+        "pd_title"       => ucfirst($this->input->post('pd_title')),
+        "pd_file_path"   => $image_path,
+        "pd_p_id"        => $this->input->post('property_type'),
+      ];
+      if ($this->property_model->upload_Documents($postData)) {
+        $this->session->set_flashdata('success', 'Document uploaded');
+        redirect('index.php/admin/property/property_document');
       } else {
-        #------------- Default Form Section Display ---------#
-        $data['propertyList'] = $this->property_model->getProperties();
-        $data['property_documents'] = $this->property_model->readDocuments();
-        $data['content'] = $this->load->view('admin/property/image_view', $data, true);
-        $this->load->view('admin/layout/main_wrapper_view', $data);
+        $this->session->set_flashdata('failure', 'Document Not Uploaded Try Again!!!!!');
+        redirect('index.php/admin/property/property_document');
       }
     } else {
-      /*-----------UPDATE A RECORD-----------*/
-      if ($this->form_validation->run() === true) {
-        if ($this->property_model->updateImage($postDataInp)) {
-          #set success message
-          $this->session->set_flashdata('success', 'Property Document Updated!');
-        } else {
-          #set exception message
-          $this->session->set_flashdata('failure', 'Property Document Not Updated!');
-        }
+      $this->property_document();
+    }
+  }
+
+  // Property images 
+  public function property_image()
+  {
+    $data = [];
+    $data['type'] = $this->property_model->getProperties();
+    $data['content'] = $this->load->view('admin/property/image_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  public function image_upload()
+  {
+    $picture = $this->fileupload->do_upload(
+      'uploads/images/',
+      'img_file_path'
+    );
+    // validation rules
+    $this->form_validation->set_rules('property_title', 'Property Title', 'required');
+    $this->form_validation->set_rules('img_title', 'Image Title', 'required');
+    if ($this->form_validation->run() == true) {
+      $data = $this->upload->data();
+      $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
+      $data['input'] = (object) $postData = [
+        "img_id"          => null,
+        "img_title"       => ucfirst($this->input->post('img_title')),
+        "img_file_path"   => $image_path,
+        "img_p_id"        => $this->input->post('property_title'),
+      ];
+      if ($this->property_model->upload_images($postData)) {
+        $this->session->set_flashdata('success', 'Image uploaded');
         redirect('index.php/admin/property/property_image');
       } else {
-        #set exception message
-        $this->session->set_flashdata('failure', 'Property Document Not Added!');
-        // redirect('admin/banner/edit/' . $postDataUser['b_id']);
+        $this->session->set_flashdata('failure', 'Image Not Uploaded Try Again!!!!!');
         redirect('index.php/admin/property/property_image');
       }
+    } else {
+      $this->property_image();
     }
+  }
+  public function document_list()
+  {
+    $title = $this->input->post('pty_type');
+    $data = [];
+    $data['type'] = $this->property_model->getProperties();
+    $data['list'] = $this->property_model->doc_list($title);
+    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  public function document_delete()
+  {
+    $id = $_GET['id'];
+    // echo $id;
+    if ($this->property_model->doc_delete($id)) {
+      $this->session->set_flashdata('success', 'Record Deleted');
+      redirect('index.php/admin/property/document_list');
+    } else {
+      $this->session->set_flashdata('failure', 'Record Not Deleted');
+      redirect('index.php/admin/property/document_list');
+    }
+  }
+  public function document_download()
+  {
+    $this->load->helper('download');
+    $path = $_GET['path'];
+    $file = str_replace('http://[::1]/realestate', '.', $path);
+    force_download($file, NULL);
+  }
+  public function image_list()
+  {
+    $title = $this->input->post('pty_type');
+    $data = [];
+    $data['type'] = $this->property_model->getProperties();
+    $data['list'] = $this->property_model->img_list($title);
+    $data['content'] = $this->load->view('admin/property/image_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  public function image_delete()
+  {
+    $id = $_GET['id'];
+    // echo $id;
+    if ($this->property_model->img_delete($id)) {
+      $this->session->set_flashdata('success', 'Record Deleted');
+      redirect('index.php/admin/property/image_list');
+    } else {
+      $this->session->set_flashdata('failure', 'Record Not Deleted');
+      redirect('index.php/admin/property/image_list');
+    }
+  }
+  public function image_download()
+  {
+    $this->load->helper('download');
+    $path = $_GET['path'];
+    $file = str_replace('http://[::1]/realestate', '.', $path);
+    force_download($file, NULL);
   }
 }
