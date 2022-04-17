@@ -82,67 +82,49 @@ class Property_model extends CI_Model
   }
 
   // For Document
-  public function createDocument($data = [])
+  public function upload_documents($data = [])
   {
     return $this->db->insert('property_documents_tbl', $data);
   }
-
-  public function readDocuments()
+  public function doc_list($id)
   {
-    return $this->db->select("*")
+    $result = $this->db
+      ->select("*")
       ->from('property_documents_tbl')
+      ->where('pd_p_id', $id)
       ->get()
-      ->result();
+      ->result_array();
+    // echo '<pre>';
+    // print_r($result);
+    return $result;
   }
-
-  public function updateDocument($data = [])
+  public function doc_delete($id)
   {
-    return $this->db->where('b_id', $data['b_id'])
-      ->update('property_documents_tbl', $data);
+    $this->db->where('pd_id', $id);
+    return $this->db->delete('property_documents_tbl');
   }
-
-  public function deleteDocument($pd_id = null)
+  // for images
+  public function upload_images($data = [])
   {
-    $this->db->where('pd_id', $pd_id)
-      ->delete('property_documents_tbl');
-
-    if ($this->db->affected_rows() > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-
-  // For Image
-  public function createImage($data = [])
-  {
+    print_r($data);
     return $this->db->insert('property_images_tbl', $data);
   }
-
-  public function readImages()
+  public function img_list($id)
   {
-    return $this->db->select("*")
+    $result = $this->db
+      ->select("*")
       ->from('property_images_tbl')
+      ->where('img_p_id', $id)
       ->get()
-      ->result();
+      ->result_array();
+    // echo '<pre>';
+    // print_r($result);
+    return $result;
   }
-
-  public function updateImage($data = [])
+  public function img_delete($id)
   {
-    return $this->db->where('pi_id', $data['pi_id'])
-      ->update('property_images_tbl', $data);
+    $this->db->where('img_id', $id);
+    return $this->db->delete('property_images_tbl');
   }
-
-  public function deleteImage($pi_id = null)
-  {
-    $this->db->where('pi_id', $pi_id)
-      ->delete('property_images_tbl');
-
-    if ($this->db->affected_rows() > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // for images
 }
