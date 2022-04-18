@@ -124,7 +124,7 @@
 													<td> <?php echo $val1['img_title']; ?></td>
 													<td class="text-center">
 														<a href="<?php echo base_url(); ?>index.php/admin/property/image_delete?id=<?php echo $val1['img_id']; ?>"> <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a>
-														<a href="<?php echo base_url(); ?>index.php/admin/property/document_download?path=<?php echo $val1['img_file_path']; ?>"> <button type="button" class="btn btn-success btn-sm"><i class="fa fa-download"></i></button></a>
+														<a href="<?php echo base_url(); ?>index.php/admin/property/image_download?path=<?php echo $val1['img_file_path']; ?>"> <button type="button" class="btn btn-success btn-sm"><i class="fa fa-download"></i></button></a>
 													</td>
 									</tr>
 								<?php

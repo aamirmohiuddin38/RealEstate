@@ -295,24 +295,25 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/document_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
+
   public function document_upload()
   {
     $config = [
-      'upload_path'   => './uploads/property/',
-      'allowed_types' => 'pdf|JPG|JPEG',
+      'upload_path'   => './uploads/docs/',
+      'allowed_types' => 'pdf|jpg|jpeg',
       'max_size'   => '100'
     ];
+    $this->load->library('upload', $config);
     //  validation rules
     $this->form_validation->set_rules('property_type', 'Property Type', 'required');
     $this->form_validation->set_rules('pd_title', 'Document Title', 'required');
-    $this->load->library('upload', $config);
-    if ($this->form_validation->run() == true) {
+    if ($this->form_validation->run() == true && $this->upload->do_upload('pd_file_path')) {
       $data = $this->upload->data();
-      $file_path = base_url("uploads/property/" . $data['raw_name'] . $data['file_ext']);
+      $image_path = base_url("uploads/docs/" . $data['raw_name'] . $data['file_ext']);
       $data['input'] = (object) $postData = [
         "pd_id"          => null,
         "pd_title"       => ucfirst($this->input->post('pd_title')),
-        "pd_file_path"   => $file_path,
+        "pd_file_path"   => $image_path,
         "pd_p_id"        => $this->input->post('property_type'),
       ];
       if ($this->property_model->upload_Documents($postData)) {
@@ -335,18 +336,53 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/image_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
+  // public function image_upload()
+  // {
+  //   $picture = $this->fileupload->do_upload(
+  //     'uploads/images',
+  //     'img_file_path'
+  //   );
+  //   // validation rules
+  //   $this->form_validation->set_rules('property_title', 'Property Title', 'required');
+  //   $this->form_validation->set_rules('img_title', 'Image Title', 'required');
+  //   if ($this->form_validation->run() == true) {
+  //     $data = $this->upload->data();
+  //     print_r($data);
+  //     $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
+  //     echo $image_path;
+  //     $data['input'] = (object) $postData = [
+  //       "img_id"          => null,
+  //       "img_title"       => ucfirst($this->input->post('img_title')),
+  //       "img_file_path"   => $image_path,
+  //       "img_p_id"        => $this->input->post('property_title'),
+  //     ];
+  //     if ($this->property_model->upload_images($postData)) {
+  //       $this->session->set_flashdata('success', 'Image uploaded');
+  //       redirect('index.php/admin/property/property_image');
+  //     } else {
+  //       $this->session->set_flashdata('failure', 'Image Not Uploaded Try Again!!!!!');
+  //       redirect('index.php/admin/property/property_image');
+  //     }
+  //   } else {
+  //     $this->property_image();
+  //   }
+  // }
   public function image_upload()
   {
-    $picture = $this->fileupload->do_upload(
-      'uploads/images/',
-      'img_file_path'
-    );
-    // validation rules
+    $config = [
+      'upload_path'   => './uploads/images/',
+      'allowed_types' => 'jpg|jpeg|png',
+
+    ];
+    $this->load->library('upload', $config);
+    //  validation rules
     $this->form_validation->set_rules('property_title', 'Property Title', 'required');
     $this->form_validation->set_rules('img_title', 'Image Title', 'required');
     if ($this->form_validation->run() == true) {
+      $this->upload->do_upload('img_file_path');
       $data = $this->upload->data();
       $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
+      // echo $image_path;
       $data['input'] = (object) $postData = [
         "img_id"          => null,
         "img_title"       => ucfirst($this->input->post('img_title')),
@@ -389,6 +425,7 @@ class Property extends CI_Controller
   {
     $this->load->helper('download');
     $path = $_GET['path'];
+    echo $path;
     $file = str_replace('http://[::1]/realestate', '.', $path);
     force_download($file, NULL);
   }
