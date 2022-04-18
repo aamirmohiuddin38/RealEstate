@@ -305,13 +305,14 @@ class Property extends CI_Controller
     //  validation rules
     $this->form_validation->set_rules('property_type', 'Property Type', 'required');
     $this->form_validation->set_rules('pd_title', 'Document Title', 'required');
+    $this->load->library('upload', $config);
     if ($this->form_validation->run() == true) {
       $data = $this->upload->data();
-      $image_path = base_url("uploads/property/" . $data['raw_name'] . $data['file_ext']);
+      $file_path = base_url("uploads/property/" . $data['raw_name'] . $data['file_ext']);
       $data['input'] = (object) $postData = [
         "pd_id"          => null,
         "pd_title"       => ucfirst($this->input->post('pd_title')),
-        "pd_file_path"   => $image_path,
+        "pd_file_path"   => $file_path,
         "pd_p_id"        => $this->input->post('property_type'),
       ];
       if ($this->property_model->upload_Documents($postData)) {
