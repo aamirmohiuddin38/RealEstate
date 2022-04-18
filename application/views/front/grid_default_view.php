@@ -77,7 +77,7 @@
           <?php if (!empty($properties)) {
             // ddisplay($properties[0]);
             foreach ($properties as $key => $property) { ?>
-              <div class="item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->pi_path) ? base_url($property_images[$property->p_id]->pi_path) : base_url('uploads/noimage_front.png'); ?>]">
+              <div class="item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>]">
                 <div class="item-wrap item-wrap-v2 item-wrap-no-frame h-100">
                   <div class="d-flex align-items-center h-100">
                     <div class="item-header">
@@ -129,7 +129,7 @@
                       <div class="listing-image-wrap">
                         <div class="listing-thumb">
                           <a href="<?php echo base_url('houzez/property/' . $property->p_id) ?>" class="listing-featured-thumb hover-effect">
-                            <img width="592" height="444" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20592%20444%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="<?php echo !empty($property_images[$property->p_id]->pi_path) ? base_url($property_images[$property->p_id]->pi_path) : base_url('uploads/noimage_front.png'); ?>" class="houzez-lazyload img-fluid wp-post-image" alt="" loading="lazy" srcset="" data-srcset="<?php echo !empty($property_images[$property->p_id]->pi_path) ? base_url($property_images[$property->p_id]->pi_path) : base_url('uploads/noimage_front.png'); ?> 592w" /> </a><!-- hover-effect -->
+                            <img width="592" height="444" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20592%20444%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>" class="houzez-lazyload img-fluid wp-post-image" alt="" loading="lazy" srcset="" data-srcset="<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?> 592w" /> </a><!-- hover-effect -->
                         </div>
                       </div>
                       <div class="preview_loader"></div>
