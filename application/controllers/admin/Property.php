@@ -51,6 +51,9 @@ class Property extends CI_Controller
   {
     $data = [];
     $data['properties'] = $this->property_model->read();
+    $data['status'] = $this->property_model->getStatus();
+    $data['type'] = $this->property_model->getType();
+    $data['label'] = $this->property_model->getLabel();
     //echo"<pre>";
     //print_r($data['properties']);
     //echo "</pre>";  
@@ -64,9 +67,9 @@ class Property extends CI_Controller
     $this->form_validation->set_rules('type', 'Type', 'required');
     $this->form_validation->set_rules('label', 'Property Label', 'required');
     $this->form_validation->set_rules('area_size', 'Area Size', 'required|numeric');
-    $this->form_validation->set_rules('size_postfix', 'Size Postfix', 'required|numeric');
+    $this->form_validation->set_rules('size_postfix', 'Size Postfix', 'required');
     $this->form_validation->set_rules('land_area', 'Land Area', 'required|numeric');
-    $this->form_validation->set_rules('land_area_postfix', 'Land Area Postfix', 'required|numeric');
+    $this->form_validation->set_rules('land_area_postfix', 'Land Area Postfix', 'required');
     $this->form_validation->set_rules('year_built', 'Year Built', 'required|numeric');
     $this->form_validation->set_rules('country', 'Country', 'required');
     $this->form_validation->set_rules('state', 'State', 'required');
@@ -102,9 +105,6 @@ class Property extends CI_Controller
         "p_price"        => $this->input->post('price'),
         "p_front_facing" => $this->input->post('front_facing'),
         "p_private_note" => $this->input->post('private_note'),
-        "p_featured"     => $this->input->post('featured'),
-        "p_published"    => $this->input->post('published'),
-
       ];
 
 
@@ -127,6 +127,9 @@ class Property extends CI_Controller
     $data['state'] = $this->Common_model->getStateName($data['result']->p_state);
     $data['city'] = $this->Common_model->getCityName($data['result']->p_city);
     $data['property_facing'] = $this->Common_model->getPropertyFacing($data['result']->p_front_facing);
+    $data['status'] = $this->property_model->getStatus();
+    $data['type'] = $this->property_model->getType();
+    $data['label'] = $this->property_model->getLabel();
     // echo "<pre>" ;
     // print_r($data['result']);
     //echo $data['result'][]
@@ -170,9 +173,9 @@ class Property extends CI_Controller
     $this->form_validation->set_rules('type', 'Type', 'required');
     $this->form_validation->set_rules('label', 'Property Label', 'required');
     $this->form_validation->set_rules('area_size', 'Area Size', 'required|numeric');
-    $this->form_validation->set_rules('size_postfix', 'Size Postfix', 'required|numeric');
+    $this->form_validation->set_rules('size_postfix', 'Size Postfix', 'required');
     $this->form_validation->set_rules('land_area', 'Land Area', 'required|numeric');
-    $this->form_validation->set_rules('land_area_postfix', 'Land Area Postfix', 'required|numeric');
+    $this->form_validation->set_rules('land_area_postfix', 'Land Area Postfix', 'required');
     $this->form_validation->set_rules('year_built', 'Year Built', 'required|numeric');
     $this->form_validation->set_rules('country', 'Country', 'required');
     $this->form_validation->set_rules('state', 'State', 'required');
@@ -211,9 +214,6 @@ class Property extends CI_Controller
         "p_price"        => $this->input->post('price'),
         "p_front_facing" => $this->input->post('front_facing'),
         "p_private_note" => $this->input->post('private_note'),
-        "p_featured"     => $this->input->post('featured'),
-        "p_published"    => $this->input->post('published'),
-
       ];
 
 

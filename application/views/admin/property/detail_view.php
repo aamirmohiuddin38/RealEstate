@@ -159,43 +159,43 @@
 								<h6><strong>Area Size</strong></h6>
 							</div>
 							<div class="col-md-3 text-center">
-								<?php echo $result->p_area_unit; ?>
+								<?php echo $result->p_area; ?>
 							</div>
 							<div class="col-md-3 text-center">
-								<h6><strong>Land Area</strong></h6>
+								<h6><strong>Area Unit</strong></h6>
 							</div>
 							<div class="col-md-3 text-right">
-								<?php echo $result->p_land; ?>
+								<?php echo $result->p_area_unit; ?>
 							</div>
 						</div>
 						<!-- row 3 land area postfix,garage-->
 						<div class="row mb-3">
 							<div class="col-md-3 ">
-								<h6><strong>Land Area Postfix</strong></h6>
+								<h6><strong>Land Area</strong></h6>
 							</div>
 							<div class="col-md-3 text-center">
-								<?php echo $result->p_land_unit; ?>
+								<?php echo $result->p_land; ?>
 							</div>
 							<div class="col-md-3 text-center">
-								<h6><strong>Garages</strong></h6>
+								<h6><strong>Land Area Unit</strong></h6>
 							</div>
 							<div class="col-md-3 text-right">
-								<?php echo $result->p_garage; ?>
+								<?php echo $result->p_land_unit; ?>
 							</div>
 						</div>
 						<!-- row 4 garage size ,year-->
 						<div class="row mb-3">
 							<div class="col-md-3 ">
+								<h6><strong>Garage</strong></h6>
+							</div>
+							<div class="col-md-3 text-center">
+								<?php echo $result->p_garage; ?>
+							</div>
+							<div class="col-md-3 text-center">
 								<h6><strong>Garage Size</strong></h6>
 							</div>
-							<div class="col-md-3 text-center">
-								<?php echo $result->p_garages_unit; ?>
-							</div>
-							<div class="col-md-3 text-center">
-								<h6><strong>Year Built</strong></h6>
-							</div>
 							<div class="col-md-3 text-right">
-								<?php echo $result->p_year; ?>
+								<?php echo $result->p_garages_unit; ?>
 							</div>
 						</div>
 						<!-- row 5 front facing-->
@@ -205,6 +205,12 @@
 							</div>
 							<div class="col-md-3 text-center">
 								<?php echo $property_facing; ?>
+							</div>
+							<div class="col-md-3 text-center">
+								<b>Year Built</b>
+							</div>
+							<div class="col-md-3  text-right">
+								<?php echo $result->p_year; ?>
 							</div>
 
 						</div>

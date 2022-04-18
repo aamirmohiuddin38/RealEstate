@@ -67,7 +67,7 @@
 					<div class="icon">
 						<i class="fas fa-building"></i>
 					</div>
-					<a href="http://property.nasdev.in/admin/property" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+
 				</div>
 			</div>
 
@@ -83,7 +83,7 @@
 					<div class="icon">
 						<i class="fas fa-building"></i>
 					</div>
-					<a href="http://property.nasdev.in/admin/property" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+
 				</div>
 			</div>
 
@@ -98,7 +98,7 @@
 					<div class="icon">
 						<i class="fas fa-chart-pie"></i>
 					</div>
-					<a href="http://property.nasdev.in/admin/property" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+
 				</div>
 			</div>
 		</div> <!-- content END -->
