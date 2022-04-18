@@ -300,22 +300,28 @@ class Property extends CI_Controller
   {
     $config = [
       'upload_path'   => './uploads/docs/',
-      'allowed_types' => 'pdf|jpg|jpeg',
+      'allowed_types' => 'jpeg',
       'max_size'   => '100'
     ];
     $this->load->library('upload', $config);
     //  validation rules
     $this->form_validation->set_rules('property_type', 'Property Type', 'required');
     $this->form_validation->set_rules('pd_title', 'Document Title', 'required');
-    if ($this->form_validation->run() == true && $this->upload->do_upload('pd_file_path')) {
-      $data = $this->upload->data();
-      $image_path = base_url("uploads/docs/" . $data['raw_name'] . $data['file_ext']);
-      $data['input'] = (object) $postData = [
-        "pd_id"          => null,
-        "pd_title"       => ucfirst($this->input->post('pd_title')),
-        "pd_file_path"   => $image_path,
-        "pd_p_id"        => $this->input->post('property_type'),
-      ];
+    if ($this->form_validation->run() == true) {
+      if ($this->upload->do_upload('pd_file_path')) {
+        $data = $this->upload->data();
+        $image_path = base_url("uploads/docs/" . $data['raw_name'] . $data['file_ext']);
+        $data['input'] = (object) $postData = [
+          "pd_id"          => null,
+          "pd_title"       => ucfirst($this->input->post('pd_title')),
+          "pd_file_path"   => $image_path,
+          "pd_p_id"        => $this->input->post('property_type'),
+        ];
+      } else {
+        $this->session->set_flashdata('failure', 'Document Format Not Supported!');
+        redirect('index.php/admin/property/property_document');
+      }
+
       if ($this->property_model->upload_Documents($postData)) {
         $this->session->set_flashdata('success', 'Document uploaded');
         redirect('index.php/admin/property/property_document');
@@ -336,37 +342,7 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/image_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
-  // public function image_upload()
-  // {
-  //   $picture = $this->fileupload->do_upload(
-  //     'uploads/images',
-  //     'img_file_path'
-  //   );
-  //   // validation rules
-  //   $this->form_validation->set_rules('property_title', 'Property Title', 'required');
-  //   $this->form_validation->set_rules('img_title', 'Image Title', 'required');
-  //   if ($this->form_validation->run() == true) {
-  //     $data = $this->upload->data();
-  //     print_r($data);
-  //     $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
-  //     echo $image_path;
-  //     $data['input'] = (object) $postData = [
-  //       "img_id"          => null,
-  //       "img_title"       => ucfirst($this->input->post('img_title')),
-  //       "img_file_path"   => $image_path,
-  //       "img_p_id"        => $this->input->post('property_title'),
-  //     ];
-  //     if ($this->property_model->upload_images($postData)) {
-  //       $this->session->set_flashdata('success', 'Image uploaded');
-  //       redirect('index.php/admin/property/property_image');
-  //     } else {
-  //       $this->session->set_flashdata('failure', 'Image Not Uploaded Try Again!!!!!');
-  //       redirect('index.php/admin/property/property_image');
-  //     }
-  //   } else {
-  //     $this->property_image();
-  //   }
-  // }
+
   public function image_upload()
   {
     $config = [
@@ -379,16 +355,21 @@ class Property extends CI_Controller
     $this->form_validation->set_rules('property_title', 'Property Title', 'required');
     $this->form_validation->set_rules('img_title', 'Image Title', 'required');
     if ($this->form_validation->run() == true) {
-      $this->upload->do_upload('img_file_path');
-      $data = $this->upload->data();
-      $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
-      // echo $image_path;
-      $data['input'] = (object) $postData = [
-        "img_id"          => null,
-        "img_title"       => ucfirst($this->input->post('img_title')),
-        "img_file_path"   => $image_path,
-        "img_p_id"        => $this->input->post('property_title'),
-      ];
+      if ($this->upload->do_upload('img_file_path')) {
+        $data = $this->upload->data();
+        $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
+        // echo $image_path;
+        $data['input'] = (object) $postData = [
+          "img_id"          => null,
+          "img_title"       => ucfirst($this->input->post('img_title')),
+          "img_file_path"   => $image_path,
+          "img_p_id"        => $this->input->post('property_title'),
+        ];
+      } else {
+        $this->session->set_flashdata('failure', 'Image File Format Not Supported');
+        redirect('index.php/admin/property/property_image');
+      }
+
       if ($this->property_model->upload_images($postData)) {
         $this->session->set_flashdata('success', 'Image uploaded');
         redirect('index.php/admin/property/property_image');
