@@ -34,7 +34,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-12">
-                    <h5 class="card-title float-none text-center text-primary font-weight-bold mb-4"><?php echo $property->p_title; ?></h5>
+                    <h5 class="card-title float-none text-center text-primary font-weight-bold mb-2"><?php echo $property->p_title; ?></h5>
                   </div>
                 </div>
                 <!-- <p class="card-text d-none">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
@@ -87,23 +87,29 @@
                 </div>
               </div>
 
-              <div class="row text-center">
+              <div class="row text-center mb-2">
                 <div class="col-sm-6">Price</div>
                 <div class="col-sm-6">
                   <strong><?php echo $property->p_price; ?></strong>
                 </div>
               </div>
               <!-- footer -->
-            </div>
-            <div class="card-footer">
-              <div class="row mt-2">
+              <div class="row mt-4 mb-4">
                 <div class="col-sm-12 text-center">
                   <span class="dtr-data">
+                    <!-- edit -->
                     <a href="<?php echo base_url(); ?>index.php/admin/property/edit?id=<?php echo $property->p_id; ?>">
                       <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
                     </a>
-                    <button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file"></i></button>
-                    <button type="button" class="btn btn-success btn-sm"><i class="fa fa-image"></i></button>
+                    <!-- add document -->
+                    <a href="<?php echo base_url(); ?>index.php/admin/property/property_document">
+                      <button type="button" class="btn btn-warning btn-sm"><i class="fa fa-file"></i></button>
+                    </a>
+                    <!-- add image -->
+                    <a href="<?php echo base_url(); ?>index.php/admin/property/property_image">
+                      <button type="button" class="btn btn-success btn-sm"><i class="fa fa-image"></i></button>
+                    </a>
+                    <!-- delete -->
                     <a href="<?php echo base_url(); ?>index.php/admin/property/delete?id=<?php echo $property->p_id ?>">
                       <button type="button" class="btn btn-danger btn-sm" onclick="return confirm('Are You Sure') "><i class="fa fa-trash"></i></button>
                     </a>
@@ -111,6 +117,7 @@
                 </div>
               </div>
             </div>
+
           </div>
     </div>
     <?php /*<div class="col-sm-12 col-md-6 col-lg-4">

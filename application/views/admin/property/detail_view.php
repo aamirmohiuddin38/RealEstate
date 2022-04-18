@@ -49,8 +49,28 @@
 				</p>
 				<hr>
 			</div>
+			<!-- image Caserol -->
 			<div class="m-5 ">
-				<img src="<?php echo base_url('assets/images/property_image.jpg'); ?>" class="img-fluid w-100" alt="property image">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<?php foreach ($images as $value) {
+								$file = str_replace('http://[::1]/realestate', '.', $path);
+								force_download($file, NULL);
+							?>
+								<img src="..." class="d-block w-100" alt="...">
+							<?php } ?>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
 			</div>
 		</div>
 

@@ -123,6 +123,7 @@ class Property extends CI_Controller
   {
     $id = $_GET['id'];
     $data['result'] = $this->property_model->get($id);
+    $data['images'] = $this->property_model->img_list($id);
     $data['country'] = $this->Common_model->getCountryName($data['result']->p_country);
     $data['state'] = $this->Common_model->getStateName($data['result']->p_state);
     $data['city'] = $this->Common_model->getCityName($data['result']->p_city);
@@ -130,10 +131,6 @@ class Property extends CI_Controller
     $data['status'] = $this->property_model->getStatus();
     $data['type'] = $this->property_model->getType();
     $data['label'] = $this->property_model->getLabel();
-    // echo "<pre>" ;
-    // print_r($data['result']);
-    //echo $data['result'][]
-    // echo "</pre>" ;
     $data['content'] = $this->load->view('admin/property/detail_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
@@ -357,7 +354,7 @@ class Property extends CI_Controller
     if ($this->form_validation->run() == true) {
       if ($this->upload->do_upload('img_file_path')) {
         $data = $this->upload->data();
-        $image_path = base_url("uploads/images/" . $data['raw_name'] . $data['file_ext']);
+        $image_path = "uploads/images/" . $data['raw_name'] . $data['file_ext'];
         // echo $image_path;
         $data['input'] = (object) $postData = [
           "img_id"          => null,
@@ -435,7 +432,6 @@ class Property extends CI_Controller
   {
     $this->load->helper('download');
     $path = $_GET['path'];
-    $file = str_replace('http://[::1]/realestate', '.', $path);
-    force_download($file, NULL);
+    force_download($path, NULL);
   }
 }
