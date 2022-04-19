@@ -16,18 +16,18 @@
 					?>
 
 					<!-- Explore lifestyle -->
-					<?php //$this->load->view('front/parts/explore_lifestyle_part'); 
+					<?php // $this->load->view('front/parts/explore_lifestyle_part'); 
 					?>
 
 					<!-- Properties for sale -->
-					<?php $this->load->view('front/parts/properties_for_sale_part'); ?>
+					<?php // $this->load->view('front/parts/properties_for_sale_part'); ?>
 
 					<!-- Explore cities -->
 					<?php //  $this->load->view('front/parts/explore_cities_part'); 
 					?>
 
 					<!-- Get in touch with us -->
-					<?php // $this->load->view('front/parts/get_in_touch_part'); 
+					<?php  // $this->load->view('front/parts/get_in_touch_part'); 
 					?>
 
 					<!-- Brands -->

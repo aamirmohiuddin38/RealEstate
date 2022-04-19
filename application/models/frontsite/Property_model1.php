@@ -118,6 +118,53 @@ class Property_model1 extends CI_Model
 		} */
 	}
 
+	public function read_slider($limit, $start = 0, $onlyPublished = false, $returnAsArray = false)
+	{
+		$this->db->select(
+			"property_tbl.p_id, 
+			property_tbl.p_title, 
+			property_tbl.p_content, 
+			property_tbl.p_price, 
+			property_tbl.p_featured, 
+			property_tbl.p_status, 
+			property_tbl.p_doc, 
+			property_tbl.p_dou, 
+			property_type.type_id, 
+			property_type.type_name, 
+			property_label.label_id, 
+			property_label.label_name, 
+			property_status.status_id, 
+			property_status.status_name, 
+			
+			property_address_tbl.pa_address, 
+			property_address_tbl.pa_postal_code"
+		);
+
+		$this->db->from($this->table);
+		$this->db->where('p_slider', 1);
+		$this->db->join('property_type',    'property_tbl.p_type= property_type.type_id', 'left');
+		$this->db->join('property_label',   'property_tbl.p_label= property_label.label_id', 'left');
+		$this->db->join('property_status',  'property_tbl.p_status= property_status.status_id', 'left');
+		// $this->db->join('property_details_tbl', 'property_tbl.p_pd_id= property_details_tbl.pd_id', 'left');
+		$this->db->join('property_address_tbl', 'property_tbl.p_postal_code= property_address_tbl.pa_postal_code', 'left');
+		// $this->db->join('helper_country',       'property_address_tbl.pa_country = helper_country.ID', 'left');
+		// $this->db->join('helper_state',         'property_address_tbl.pa_state = helper_state.ID', 'left');
+		// $this->db->join('helper_city',          'property_address_tbl.pa_city = helper_city.ID', 'left');
+		if ($onlyPublished == TRUE) {
+			$this->db->where('property_tbl.p_status', 1);
+		}
+
+		$this->db->order_by('property_tbl.p_dou', 'DESC');
+
+		$this->db->limit($limit, $start);
+		// echo $this->db->get_compiled_select();
+		if ($returnAsArray == true) {
+			return $result = $this->db->get()->result_array();
+		} else {
+			return $result = $this->db->get()->result();
+		}
+	}
+
 	public function readImages()
 	{
 		return $this->db->select("*")
@@ -147,5 +194,64 @@ class Property_model1 extends CI_Model
 		return $this->db
 			->from('property_tbl')
 			->count_all_results();
+	}
+
+	// Property type
+	public function read_type_as_list()
+	{
+		$result = $this->db->select("*")
+			->from('property_type')
+			//->where('page_name',$page_name)
+			->order_by('type_id', 'asc')
+			->get()
+			->result();
+		$list[''] = display('select_property_type');
+		foreach ($result as $row) {
+			$list[$row->type_id] = $row->type_name; //." - ".$row->firstname;
+		}
+		return $list;
+	}
+
+	// Property Status
+	public function read_status_as_list()
+	{
+		$result = $this->db->select("*")
+			->from('property_status')
+			//->where('page_name',$page_name)
+			->order_by('status_id', 'asc')
+			->get()
+			->result();
+		$list[''] = display('select_property_type');
+		foreach ($result as $row) {
+			$list[$row->status_id] = $row->status_name; //." - ".$row->firstname;
+		}
+		return $list;
+	}
+
+	// Property Label
+	public function read_label_as_list()
+	{
+		$result = $this->db->select("*")
+			->from('property_label')
+			//->where('page_name',$page_name)
+			->order_by('label_id', 'asc')
+			->get()
+			->result();
+		$list[''] = display('select_property_type');
+		foreach ($result as $row) {
+			$list[$row->label_id] = $row->label_name; //." - ".$row->firstname;
+		}
+		return $list;
+	}
+
+	//Slider Properties
+	public function get_slider_properties($intLimit = 20)
+	{
+		// $this->load->model('property_images_model', 'pi_model');
+		$data = $this->read_slider($intLimit, 0, true, false);
+		// foreach ($data as $key => $property) {
+		// 	$data[$key]['images'] = $this->pi_model->read_by_property_id($property['p_id']);
+		// }
+		return $data;
 	}
 }
