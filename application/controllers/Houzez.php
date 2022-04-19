@@ -73,9 +73,9 @@ class Houzez extends CI_Controller
 		parse_str(substr(strrchr($_SERVER['REQUEST_URI'], "?"), 1), $_GET);
 
 		// Load common data from database
-		$this->data['type'] 			= $this->p_model->read_type_as_list();
+		$this->data['type'] 	    = $this->p_model->read_type_as_list();
 		$this->data['status'] 		= $this->p_model->read_status_as_list();
-		$this->data['label'] 			= $this->p_model->read_label_as_list();
+		$this->data['label'] 	    = $this->p_model->read_label_as_list();
 		$this->data['bedrooms'] 	= [1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5];
 		$this->data['bathrooms'] 	= [1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5];
 		$this->data['sort_by']		= [
@@ -85,16 +85,16 @@ class Houzez extends CI_Controller
 			'a_date' => 'Date - Old to New',
 			'd_date' => 'Date - New to Old',
 		];
-		$this->data['features'] 	= $this->p_model->read_features_as_list();
+		// $this->data['features'] 	= $this->p_model->read_features_as_list();
 		$country = 101;
 		// $country = $this->input->post('country');
 		$state = $this->input->get('state');
 		// $this->data['country_list'] = $this->address_model->read_country_as_list();
 		// show($this->data['country_list']);
-		$this->data['state_list']   = $this->address_model->read_state_country_as_list($country);
+		// $this->data['state_list']   = $this->address_model->read_state_country_as_list($country);
 		// show($this->data['state_list']);
 
-		$this->data['city_list']    = $this->address_model->read_city_state_as_list($state ?? $this->data['state_list'][1]);
+		// $this->data['city_list']    = $this->address_model->read_city_state_as_list($state ?? $this->data['state_list'][1]);
 	}
 
 	private function load_get_data()
@@ -124,14 +124,14 @@ class Houzez extends CI_Controller
 	public function index()
 	{
 		// redirect('houzez/grid_default');
-		// $this->load_common_data();
-		// $this->load_get_data();
-		// $this->data['slider_property'] = $this->p_model->get_slider_properties();
+		$this->load_common_data();
+		$this->load_get_data();
+		$this->data['slider_property'] = $this->p_model->get_slider_properties();
 		// $this->data['featured'] = $this->p_model->get_featured_properties();
 		// $this->data['services'] = $this->psr_model->read();
 		// // $this->data['featured'] = array_merge($this->data['featured'], $this->data['featured']);
 
-		// $arrintSliderPropertyIds = valArr($this->data['slider_property']) ? array_keys(rekeyArray('p_id', $this->data['slider_property'])) : null;
+		$arrintSliderPropertyIds = valArr($this->data['slider_property']) ? array_keys(rekeyArray('p_id', $this->data['slider_property'])) : null;
 
 		// $arrintFeaturedPropertyIds = valArr($this->data['featured']) ? array_keys(rekeyArray('p_id', $this->data['featured'])) : null;
 
@@ -139,8 +139,8 @@ class Houzez extends CI_Controller
 		// $this->data['property_images'] = rekeyArray('pi_p_id', $this->p_model->read_images_by_property_ids($arrintFinalPropertyIds), false, false);
 
 
-		// $this->data['body_class'] = "home";
-		// $this->data['content'] = $this->load->view('front/home', $this->data, true);
+		$this->data['body_class'] = "home";
+		$this->data['content'] = $this->load->view('front/home', $this->data, true);
 		$this->load->view('front/layout/main_wrapper', $this->data);
 	}
 

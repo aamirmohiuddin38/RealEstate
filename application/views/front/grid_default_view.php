@@ -148,8 +148,8 @@
                       <ul class="item-price-wrap hide-on-list">
                         <li class="item-price">
                           <?php
-                          // $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
-                          // echo $fmt->formatCurrency($property->p_price, "INR");
+                          $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+                          echo $fmt->formatCurrency($property->p_price, "INR");
                           echo $property->p_price;
                           ?>
                         </li>
@@ -183,7 +183,7 @@
       </div>
       <!-- bt-content-wrap -->
       <!-- Right Sidebar featured view  -->
-      <?php $this->load->view('front/parts/right_sidebar_featured_view'); ?>
+      <!-- <?php $this->load->view('front/parts/right_sidebar_featured_view'); ?> -->
       <!-- bt-sidebar-wrap -->
     </div><!-- row -->
   </div><!-- container -->
