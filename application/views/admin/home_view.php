@@ -60,7 +60,11 @@
 							<span class="info-box-text">Total Properties Value</span>
 							<div class="info-box-number">
 								<span class="info-box-number">
-									<?php echo ('₹' . $total_value);  ?></span>
+									<?php
+									$fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+									echo $fmt->formatCurrency($total_value, "INR");
+									?>
+								</span>
 							</div>
 						</div>
 						<!-- /.info-box-content -->
@@ -75,7 +79,11 @@
 						<div class="info-box-content">
 							<span class="info-box-text">Unsold Properties Value</span>
 							<span class="info-box-number">
-								<?php echo ('₹' . $un_sold_price);  ?></span>
+								<?php
+								$fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY, 1);
+								echo $fmt->formatCurrency($un_sold_price, "INR");
+
+								?></span>
 						</div>
 						<!-- /.info-box-content -->
 					</div>
@@ -92,7 +100,9 @@
 						<div class="info-box-content">
 							<span class="info-box-text">Sold Properties Value</span>
 							<span class="info-box-number">
-								<?php echo ('₹' . $sold_price);  ?></span>
+								<?php $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+								echo $fmt->formatCurrency($sold_price, "INR");
+								?></span>
 						</div>
 						<!-- /.info-box-content -->
 					</div>

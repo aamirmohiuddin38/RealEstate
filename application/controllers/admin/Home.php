@@ -10,7 +10,7 @@ class Home extends CI_Controller
 		// $this->load->database();
 		$this->load->library('session');
 		// $this->load->library('form_validation');
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper(array('form', 'url', 'number'));
 
 
 		// if ($this->session->userdata('isLogin') != true) {
