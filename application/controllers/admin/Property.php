@@ -307,11 +307,11 @@ class Property extends CI_Controller
     if ($this->form_validation->run() == true) {
       if ($this->upload->do_upload('pd_file_path')) {
         $data = $this->upload->data();
-        $image_path = base_url("uploads/docs/" . $data['raw_name'] . $data['file_ext']);
+        $doc_path = "uploads/docs/" . $data['raw_name'] . $data['file_ext'];
         $data['input'] = (object) $postData = [
           "pd_id"          => null,
           "pd_title"       => ucfirst($this->input->post('pd_title')),
-          "pd_file_path"   => $image_path,
+          "pd_file_path"   => $doc_path,
           "pd_p_id"        => $this->input->post('property_type'),
         ];
       } else {
@@ -329,6 +329,33 @@ class Property extends CI_Controller
     } else {
       $this->property_document();
     }
+  }
+  public function document_delete()
+  {
+    $id = $_GET['id'];
+    // echo $id;
+    if ($this->property_model->doc_delete($id)) {
+      $this->session->set_flashdata('success', 'Record Deleted');
+      redirect('index.php/admin/property/document_list');
+    } else {
+      $this->session->set_flashdata('failure', 'Record Not Deleted');
+      redirect('index.php/admin/property/document_list');
+    }
+  }
+  public function document_download()
+  {
+    $this->load->helper('download');
+    $path = $_GET['path'];
+    force_download($path, NULL);
+  }
+  public function document_list()
+  {
+    $title = $this->input->post('pty_type');
+    $data = [];
+    $data['type'] = $this->property_model->getProperties();
+    $data['list'] = $this->property_model->doc_list($title);
+    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
   }
 
   // Property images 
@@ -377,35 +404,6 @@ class Property extends CI_Controller
     } else {
       $this->property_image();
     }
-  }
-  public function document_list()
-  {
-    $title = $this->input->post('pty_type');
-    $data = [];
-    $data['type'] = $this->property_model->getProperties();
-    $data['list'] = $this->property_model->doc_list($title);
-    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
-    $this->load->view('admin/layout/main_wrapper_view', $data);
-  }
-  public function document_delete()
-  {
-    $id = $_GET['id'];
-    // echo $id;
-    if ($this->property_model->doc_delete($id)) {
-      $this->session->set_flashdata('success', 'Record Deleted');
-      redirect('index.php/admin/property/document_list');
-    } else {
-      $this->session->set_flashdata('failure', 'Record Not Deleted');
-      redirect('index.php/admin/property/document_list');
-    }
-  }
-  public function document_download()
-  {
-    $this->load->helper('download');
-    $path = $_GET['path'];
-    echo $path;
-    $file = str_replace('http://[::1]/realestate', '.', $path);
-    force_download($file, NULL);
   }
   public function image_list()
   {
