@@ -8,8 +8,8 @@
     <?php if (valArr($slider_property)) {
       foreach ($slider_property as  $property) { ?>
         <div class="property-slider-item-wrap" style="background-image: url(
-          <?php echo !empty($property_images[$property->p_id]->pi_path) ?
-            base_url($property_images[$property->p_id]->pi_path) :
+          <?php echo !empty($property_images[$property->p_id]->img_file_path) ?
+            base_url($property_images[$property->p_id]->img_file_path) :
             base_url('uploads/noimage_front.png'); ?>);">
           <a href="#" class="property-slider-link"></a>
           <div class="property-slider-item">

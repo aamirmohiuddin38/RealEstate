@@ -20,7 +20,7 @@ class Houzez extends CI_Controller
 			// 'contactus_model',
 			// 'address_model',
 			'frontsite/property_model1' => 'p_model',
-			// 'property_service_model' => 'psr_model',
+			//'property_service_model' => 'psr_model',
 			// 'admin/property_type_model' => 'pt_model',
 			// 'admin/property_status_model' => 'ps_model',
 			// 'admin/property_label_model' => 'pl_model',

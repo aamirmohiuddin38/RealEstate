@@ -141,7 +141,7 @@ class Property_model1 extends CI_Model
 		);
 
 		$this->db->from($this->table);
-		$this->db->where('p_slider', 1);
+		// $this->db->where('p_slider', 1);
 		$this->db->join('property_type',    'property_tbl.p_type= property_type.type_id', 'left');
 		$this->db->join('property_label',   'property_tbl.p_label= property_label.label_id', 'left');
 		$this->db->join('property_status',  'property_tbl.p_status= property_status.status_id', 'left');
