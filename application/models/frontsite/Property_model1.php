@@ -207,4 +207,17 @@ class Property_model1 extends CI_Model
 		// }
 		return $data;
 	}
+
+	// Sale Properties
+	public function read_sale()
+	{
+		return $this->db->select("*")
+			->from($this->table)
+			//->order_by('firstname', 'asc')
+			//->join($this->pro_status, 'p_ps_id=ps_id', 'left')
+			->where('p_ps_id', 2)
+			->limit(5)
+			->get()
+			->result_array();
+	}
 }

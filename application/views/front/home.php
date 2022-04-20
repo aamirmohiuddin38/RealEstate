@@ -9,7 +9,7 @@
 					<?php $this->load->view('front/parts/welcome_services_part'); ?>
 
 					<!-- Featured listing -->
-					<?php $this->load->view('front/parts/featured_listing_part'); ?>
+					<!-- <?php //$this->load->view('front/parts/featured_listing_part'); ?> -->
 
 					<!-- Why Hyunkunun is perfect choice -->
 					<?php // $this->load->view('front/parts/perfect_choice_part'); 
@@ -20,7 +20,7 @@
 					?>
 
 					<!-- Properties for sale -->
-					<?php // $this->load->view('front/parts/properties_for_sale_part'); ?>
+					<?php $this->load->view('front/parts/properties_for_sale_part'); ?>
 
 					<!-- Explore cities -->
 					<?php //  $this->load->view('front/parts/explore_cities_part'); 

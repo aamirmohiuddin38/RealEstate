@@ -27,9 +27,9 @@
                         <div class="elementor-element elementor-element-4ada2a05 animated-slow elementor-invisible elementor-widget elementor-widget-houzez_elementor_section_title" data-id="4ada2a05" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="houzez_elementor_section_title.default">
                           <div class="elementor-widget-container">
                             <div class="houzez_section_title_wrap section-title-module">
-                              <h2 class="houzez_section_title">Welcome To Hyunkunun </h2>
+                              <h2 class="houzez_section_title">Welcome To HomeSphere </h2>
 
-                              <p class="houzez_section_subtitle">Road to your dream </p>
+                              <p class="houzez_section_subtitle">Explore the Real Estate </p>
                             </div>
                           </div>
                         </div>

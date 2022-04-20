@@ -23,7 +23,7 @@
                             <div class="houzez_section_title_wrap section-title-module">
                               <h2 class="houzez_section_title">Properties For Sale</h2>
 
-                              <p class="houzez_section_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing </p>
+                              <p class="houzez_section_subtitle"> Explore the Properties on Sale </p>
                             </div>
                           </div>
                         </div>
