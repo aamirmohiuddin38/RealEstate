@@ -25,7 +25,8 @@
 			<div class="bg-white shadow-sm p-3 mb-5 bg-white rounded">
 				<div class=" d-flex justify-content-between">
 					<h3 class="ml-3 mt-2"> <strong><i><?php echo $result->p_title; ?></i></strong></h3>
-					<h3 class="mt-3 mr-3"><?php echo $result->p_price; ?></h3>
+					<h3 class="mt-3 mr-3"><?php $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+																echo $fmt->formatCurrency($result->p_price, "INR"); ?></h3>
 				</div>
 				<div class="d-flex ml-3 justify-content-between">
 					<div class="d-flex">
