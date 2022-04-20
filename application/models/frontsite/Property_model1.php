@@ -36,8 +36,6 @@ class Property_model1 extends CI_Model
             property_tbl.p_price,
             property_tbl.p_front_facing,
             property_tbl.p_private_note,
-            property_tbl.p_featured,
-            property_tbl.p_published,
             property_tbl.p_doc,
             property_tbl.p_dou
 		");
@@ -80,8 +78,6 @@ class Property_model1 extends CI_Model
             property_tbl.p_price,
             property_tbl.p_front_facing,
             property_tbl.p_private_note,
-            property_tbl.p_featured,
-            property_tbl.p_published,
             property_tbl.p_doc,
             property_tbl.p_dou
 		");
