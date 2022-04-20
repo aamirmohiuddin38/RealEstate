@@ -25,7 +25,10 @@
 			<div class="bg-white shadow-sm p-3 mb-5 bg-white rounded">
 				<div class=" d-flex justify-content-between">
 					<h3 class="ml-3 mt-2"> <strong><i><?php echo $result->p_title; ?></i></strong></h3>
-					<h3 class="mt-3 mr-3">$&nbsp;<?php echo $result->p_price; ?></h3>
+					<h3 class="mt-3 mr-3">$&nbsp; <?php
+																				$fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+																				echo $fmt->formatCurrency($result->p_price, "INR");
+																				?></h3>
 				</div>
 				<div class="d-flex ml-3 justify-content-between">
 					<div class="d-flex">
@@ -34,7 +37,7 @@
 						<h5><span class="badge badge-success mr-2">For Sale</span></h5>
 					</div>
 
-					<div class="mr-4">
+					<div class="mr-4 ">
 						<a href="<?php echo base_url(); ?>index.php/admin/property/edit?id=<?php echo $result->p_id; ?>">
 							<button type="button p-5" class="btn btn-info"><i class="fa-solid fa-pen-to-square mr-3"></i>Edit</button>
 						</a>
@@ -78,7 +81,7 @@
 							foreach ($images as $value) {
 								$path = base_url() . $value['img_file_path'];
 								if ($i == 1) {
-									echo 'hello'
+
 							?>
 									<div class="carousel-item active">
 										<img src="<?php echo $path; ?>" class="d-block w-100" alt="property image">
@@ -86,7 +89,7 @@
 
 								<?php $i--;
 								} else {
-									echo "hello"; ?>
+								?>
 
 									<div class="carousel-item">
 										<img src="<?php echo $path; ?>" class="d-block w-100" alt="property image">

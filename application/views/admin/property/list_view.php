@@ -116,7 +116,11 @@
                   <div class="row text-center mb-2">
                     <div class="col-sm-6">Price</div>
                     <div class="col-sm-6">
-                      <strong><?php echo $property->p_price; ?></strong>
+                      <strong> <?php
+                                $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
+                                echo $fmt->formatCurrency($property->p_price, "INR");
+                                ?>
+                      </strong>
                     </div>
                   </div>
                   <!-- footer -->
