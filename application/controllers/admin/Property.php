@@ -57,9 +57,10 @@ class Property extends CI_Controller
       $data['status'] = $this->property_model->getStatus();
       $data['type'] = $this->property_model->getType();
       $data['label'] = $this->property_model->getLabel();
-      //echo"<pre>";
-      //print_r($data['properties']);
-      //echo "</pre>";  
+      $data['images'] = $this->property_model->front_img_list();
+      //echo "<pre>";
+      // print_r($data['images']);
+      //echo "</pre>";
       $data['content'] = $this->load->view('admin/property/list_view', $data, true);
       $this->load->view('admin/layout/main_wrapper_view', $data);
     }

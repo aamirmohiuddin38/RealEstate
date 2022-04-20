@@ -4,7 +4,6 @@
 
 <section class="content bg-light p-2">
   <div class="container-fluid ">
-    <?php echo validation_errors(); ?>
     <?php echo !empty($content) ? $content : null; ?>
   </div><!-- /.container-fluid -->
 </section>

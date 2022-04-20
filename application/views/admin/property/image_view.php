@@ -36,7 +36,7 @@
 		</div>
 	<?php } ?>
 	<div class="card">
-		<div class="card-header bg-info">
+		<div class="card-header bg-primary">
 			Add Image
 		</div>
 		<div class="card-body">
@@ -86,7 +86,7 @@
 	<!-- Display -->
 	<div class="col-sm-12">
 		<div class="card">
-			<div class="card-header bg-info">
+			<div class="card-header bg-primary">
 				<h3 class="card-title">
 					Image List
 				</h3>

@@ -121,6 +121,15 @@ class Property_model extends CI_Model
     // print_r($result);
     return $result;
   }
+  public function front_img_list()
+  {
+    $result = $this->db
+      ->select("*")
+      ->from('property_images_tbl')
+      ->get()
+      ->result_array();
+    return $result;
+  }
   public function img_delete($id)
   {
     $this->db->where('img_id', $id);
