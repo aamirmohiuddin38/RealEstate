@@ -27,9 +27,9 @@
                         <div class="elementor-element elementor-element-4ada2a05 animated-slow elementor-widget elementor-widget-houzez_elementor_section_title animated fadeIn" data-id="4ada2a05" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="houzez_elementor_section_title.default">
                           <div class="elementor-widget-container">
                             <div class="houzez_section_title_wrap section-title-module">
-                              <h2 class="houzez_section_title">Welcome To Hyunkunun </h2>
+                              <h2 class="houzez_section_title">Welcome To HomeSphere </h2>
 
-                              <p class="houzez_section_subtitle">Road to your dream </p>
+                              <p class="houzez_section_subtitle">Explore the Real Estate </p>
                             </div>
                           </div>
                         </div>
@@ -52,7 +52,7 @@
                                   <figure class="elementor-image-box-img"><img width="592" height="444" src="http://property.nasdev.in/uploads\services\resi_commerial.jpg" data-src="http://property.nasdev.in/uploads\services\resi_commerial.jpg" class="elementor-animation-shrink attachment-houzez-item-image-1 size-houzez-item-image-1" alt="" loading="lazy" srcset="http://property.nasdev.in/uploads\services\resi_commerial.jpg 592w," data-srcset="http://property.nasdev.in/uploads\services\resi_commerial.jpg 592w," sizes="(max-width: 592px) 100vw, 592px"></figure>
                                   <div class="elementor-image-box-content">
                                     <h3 class="elementor-image-box-title">Commercial or Residential land or Structure. </h3><br>
-                                    <p class="elementor-image-box-description">At HYUN KUNUN; we have wide range of options to choose from, for both LAND &amp; BUILTUP STRUCTURES. We also provide service to assist for all documentation processes.</p>
+                                    <p class="elementor-image-box-description">At HOMESPHERE; we have wide range of options to choose from, for both LAND &amp; BUILTUP STRUCTURES. We also provide service to assist for all documentation processes.</p>
                                   </div>
                                 </div>
                               </div>

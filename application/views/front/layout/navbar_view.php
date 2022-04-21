@@ -60,7 +60,7 @@
             <div class="navbar d-flex align-items-center">
 
               <div class="logo logo-desktop">
-                <a href="<?php echo base_url('houzez/index'); ?>">
+                <a href="<?php echo base_url('index.php/houzez/index'); ?>">
                   <img src="<?php echo base_url('uploads/logo/logoheader.png'); ?>" height="100px" width="120px" alt="logo">
                 </a>
               </div>
@@ -163,19 +163,19 @@
 
               <nav class="main-nav on-hover-menu navbar-expand-lg flex-grow-1">
                 <ul id="main-nav" class="navbar-nav ">
-                  <li id='menu-item-1' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/index'); ?>">Home</a> </li>
+                  <li id='menu-item-1' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('index.php/houzez/index'); ?>">Home</a> </li>
 
                   <li id='menu-item-2' class="nav-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown"><a class="nav-link dropdown-toggle" href="#">Properties</a>
                     <ul class="dropdown-menu">
-                      <li id='menu-item-84' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_default'); ?>">Grid Default</a> </li>
+                      <li id='menu-item-84' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('index.php/houzez/grid_default'); ?>">Grid Default</a> </li>
                       <!-- <li id='menu-item-83' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width'); ?>">Grid Full Width 3 Cols</a> </li>
                       <li id='menu-item-82' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width_2_cols'); ?>">Grid Full Width 2 Cols</a> </li>
                       <li id='menu-item-81' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width_4_cols'); ?>">Grid Full Width 4 Cols</a> </li> -->
                     </ul>
                   </li>
                   <!-- <li id='menu-item-3' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/services'); ?>">Services</a> </li> -->
-                  <li id='menu-item-4' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/contactus'); ?>">Contact</a> </li>
-                  <li id='menu-item-5' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('houzez/aboutus'); ?>">About Us</a> </li>
+                  <li id='menu-item-4' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('index.php/houzez/contactus'); ?>">Contact</a> </li>
+                  <li id='menu-item-5' class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="nav-link " href="<?php echo base_url('index.php/houzez/aboutus'); ?>">About Us</a> </li>
                 </ul>
               </nav><!-- main-nav -->
 

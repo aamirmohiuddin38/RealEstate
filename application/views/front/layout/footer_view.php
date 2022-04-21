@@ -10,8 +10,8 @@
             </div>
             <div class="widget-body">
               <ul>
-                <li><a href="<?php echo base_url('houzez/aboutus'); ?>">About us</a></li>
-                <li><a href="<?php echo base_url('houzez/contactus'); ?>">Contact us</a></li>
+                <li><a href="<?php echo base_url('index.php/houzez/aboutus'); ?>">About us</a></li>
+                <li><a href="<?php echo base_url('index.php/houzez/contactus'); ?>">Contact us</a></li>
                 <!-- <li><a href="#">Request Info</a></li>
                 <li><a href="#">Feedback</a></li> -->
               </ul>
@@ -79,8 +79,6 @@
     <div class="container">
 
       <div class="footer-social">
-
-
         <span>
           <a class="btn-facebook" target="_blank" href="#">
             <i class="houzez-icon icon-social-media-facebook mr-2"></i> Facebook </a>
@@ -90,11 +88,6 @@
           <a class="btn-twitter" target="_blank" href="#">
             <i class="houzez-icon icon-social-media-twitter mr-2"></i> Twitter </a>
         </span>
-
-        <!-- <span>
-          <a class="btn-googleplus" target="_blank" href="#">
-            <i class="houzez-icon icon-social-media-google-plus-1 mr-2"></i> Google + </a>
-        </span> -->
 
         <span>
           <a class="btn-linkedin" target="_blank" href="#">
@@ -106,30 +99,7 @@
             <i class="houzez-icon icon-social-instagram mr-2"></i> Instagram </a>
         </span>
 
-        <!-- <span>
-          <a class="btn-pinterest" target="_blank" href="#">
-            <i class="houzez-icon icon-social-pinterest mr-2"></i> Pinterest </a>
-        </span>
-
-        <span>
-          <a class="btn-yelp" target="_blank" href="#">
-            <i class="houzez-icon icon-social-media-yelp mr-2"></i> Yelp </a>
-        </span>
-
-
-        <span>
-          <a class="btn-youtube" target="_blank" href="#">
-            <i class="houzez-icon icon-social-video-youtube-clip mr-2"></i> Youtube </a>
-        </span> -->
-
-
       </div>
-
-      <!-- <div class="footer_logo logo">
-        <div class="foot_inner">
-        <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logofinal.png" alt="logo">
-        </div>
-      </div>.logo -->
 
 
       <div class="footer-copyright">
@@ -153,7 +123,7 @@
 </div>
 
 <!-- FIXME: Not used  -->
-<div class="modal fade login-register-form" id="login-register-form" tabindex="-1" role="dialog">
+<!-- <div class="modal fade login-register-form" id="login-register-form" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -225,7 +195,7 @@
       </div><!-- modal-body -->
     </div><!-- modal-content -->
   </div><!-- modal-dialog -->
-</div><!-- login-register-form -->
+</div>login-register-form -->
 <!-- FIXME: Not used  -->
 
 <div class="modal fade reset-password-form" id="reset-password-form" tabindex="-1" role="dialog">
