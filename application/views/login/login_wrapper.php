@@ -23,7 +23,16 @@ $settings = $this->db->select("*,site_align")
 </head>
 
 <body class="hold-transition login-page">
+
 	<div class="login-box">
+		<?php if ($this->session->flashdata('success') != null) { ?>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong><?php echo $this->session->flashdata('success'); ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php } ?>
 		<!-- /.login-logo -->
 		<div class="card card-outline card-primary">
 			<div class="card-header text-center">
@@ -77,7 +86,13 @@ $settings = $this->db->select("*,site_align")
 				</div>
 
 				<div class="input-group mb-3">
-					<?php echo form_dropdown('user_role', $user_role_list, 1/*$user->user_role*/, 'class="form-control" id="user_role" '); ?>
+					<select name="user_role" class="form-control" id="user_role">
+						<option value="" selected="selected">Select User Role</option>
+						<option value="1">Admin</option>
+						<option value="2">User</option>
+					</select>
+
+
 					<!-- <div class="input-group-append">
 						<div class="input-group-text">
 							<span class="fas fa-lock"></span>
@@ -86,19 +101,18 @@ $settings = $this->db->select("*,site_align")
 				</div>
 
 				<div class="row">
-					<!-- <div class="col-8">
-						<div class="icheck-primary">
-							<input type="checkbox" id="remember">
-							<label for="remember">
-								Remember Me
-							</label>
-						</div>
-					</div> -->
-					<!-- /.col -->
-					<div class="col-4 offset-8">
+					<div class="col-4 offset-4">
 						<button type="submit" class="btn btn-primary btn-block">Sign In</button>
 					</div>
-					<!-- /.col -->
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-12">
+						<p class="text-center">
+							<strong>
+								If Not A User Please <a href="<?php echo base_url('index.php/Login/register'); ?>">Register</a> Here</strong>
+						</p>
+					</div>
 				</div>
 				</form>
 

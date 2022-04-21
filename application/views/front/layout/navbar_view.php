@@ -39,12 +39,12 @@
       <li class="login-link">
         <a href="#" data-toggle="modal" data-target="#login-register-form"><i class="houzez-icon icon-lock-5 mr-1"></i> Login</a>
       </li><!-- .has-chil -->
+      <ul class="logged-in-nav">
+        <li class="register-link">
+          <a href="#" data-toggle="modal" data-target="#login-register-form"><i class="houzez-icon icon-single-neutral-circle mr-1"></i> Register</a>
+        </li>
 
-      <li class="register-link">
-        <a href="#" data-toggle="modal" data-target="#login-register-form"><i class="houzez-icon icon-single-neutral-circle mr-1"></i> Register</a>
-      </li>
-
-    </ul><!-- .main-nav -->
+      </ul><!-- .main-nav -->
   </nav><!-- .navi -->
 
 
@@ -183,12 +183,11 @@
                 <ul class="login-register-nav">
 
                   <li class="login-link">
-                    <a href="<?php echo base_url('login'); ?>" ddata-toggle="modal" data-target="#login-register-form">Login</a>
+                    <a href="<?php echo base_url('index.php/login'); ?>" ddata-toggle="modal" data-target="#login-register-form">Login</a>
                   </li>
-
-                  <!-- <li class="register-link">
+                  <!--<li class="register-link">
                     <a href="#" data-toggle="modal" data-target="#login-register-form">Register</a>
-                  </li> -->
+                  </li>-->
 
 
                   <!-- <li>

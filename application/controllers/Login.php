@@ -22,7 +22,7 @@ class Login extends CI_Controller
 	{
 
 		if ($this->session->userdata('isLogIn'))
-			$this->redirectTo($this->session->userdata('user_role'));
+			$this->user_redirect($this->session->userdata('user_role'));
 
 		$this->form_validation->set_rules('email', display('email'), 'required|max_length[50]|valid_email');
 		$this->form_validation->set_rules('password', display('password'), 'required|max_length[32]|md5');
@@ -64,29 +64,27 @@ class Login extends CI_Controller
 					'favicon'          => (!empty($setting->favicon) ? $setting->favicon : null),
 					'footer_text'     => (!empty($setting->footer_text) ? $setting->footer_text : null),
 				]);
-				$this->redirectTo($postData['user_role']);
+				$this->user_redirect($postData['user_role']);
 				// can directy redirect here
 			} else {
 				$this->session->set_flashdata('exception', display('incorrect_email_password'));
 				redirect('index.php/login');
 			}
 		} else {
-			$data['user_role_list'] = $this->common_model->get_user_roles();
-
 			$this->load->view('login/login_wrapper', $data);
 		}
 	}
 
-	public function redirectTo($user_role = null)
+	public function user_redirect($user_role)
 	{
 		//$this->save_login_time();
 		switch ($user_role) {
 			case 1:
 				redirect('index.php/admin/home/index');    // Admin
 				break;
-				// case 2:
-				//     redirect('dashboard_worker/home/index');     // worker
-				//     break;
+			case 2:
+				redirect('index.php/houzez');     // worker
+				break;
 			default:
 				$this->logout();
 				//redirect('login');
@@ -103,5 +101,37 @@ class Login extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect('index.php/login');
+	}
+	public function register()
+	{
+		$this->load->view('login/register_view');
+	}
+	public function register_data()
+	{
+		//print_r($_POST); ( [uname] => zaid [uemail] => zaid@123 [upass] => zaid [uphone] => 99999 [uaddr] => zjs )
+		$this->form_validation->set_rules('uname', 'UserName', 'required|max_length[30]');
+		$this->form_validation->set_rules('uemail', 'email', 'required|max_length[50]|valid_email');
+		$this->form_validation->set_rules('upass', 'password', 'required|max_length[32]');
+		$this->form_validation->set_rules('uphone', 'Phone No', 'required');
+		$this->form_validation->set_rules('uaddr', 'Address ', 'required');
+		if ($this->form_validation->run() == true) {
+			$data = array(
+				'username' => $this->input->post('uname'),
+				'password' => md5($this->input->post('upass')),
+				'email' => $this->input->post('uemail'),
+				'address' => $this->input->post('uaddr'),
+				'mobile' => $this->input->post('uphone'),
+				'user_role' => 2
+			);
+			if ($this->login_model->register($data)) {
+				$this->session->set_flashdata('success', 'User Added!');
+				redirect('index.php/login');
+			} else {
+				$this->session->set_flashdata('failure', 'Unable to Add!');
+				$this->register();
+			}
+		} else {
+			$this->register();
+		}
 	}
 }

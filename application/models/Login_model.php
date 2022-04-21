@@ -36,4 +36,9 @@ class Login_model extends CI_Model
 	{
 		return $this->read_by_id($user_id);
 	}
+	public function register($data)
+	{
+		//print_r($data);
+		return $this->db->insert($this->table, $data);
+	}
 }
