@@ -1130,7 +1130,7 @@
   <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed0c61.html?url=https%3A%2F%2Fdemo03.houzez.co%2F" />
   <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed40d9.html?url=https%3A%2F%2Fdemo03.houzez.co%2F&amp;format=xml" />
   <meta name="framework" content="Redux 4.1.26" /><!-- Favicon -->
-  <link rel="shortcut icon" href="<?php echo base_url('houzez_assets/'); ?>wp-content/themes/houzez/img/favicon.png">
+  <link rel="shortcut icon" href="<?php echo base_url('./assets/images/favicon.ico'); ?>" type="image/x-icon">
   <meta name="generator" content="Powered by Slider Revolution 6.4.11 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
   <script type="text/javascript">
     function setREVStartSize(e) {

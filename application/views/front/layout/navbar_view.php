@@ -61,7 +61,7 @@
 
               <div class="logo logo-desktop">
                 <a href="<?php echo base_url('houzez/index'); ?>">
-                  <!-- <img src="<?php echo base_url('houzez_assets/'); ?>wp-content/uploads/2020/02/logofinal.png" height="100%" width="100%" alt="logo"> -->
+                  <img src="<?php echo base_url('uploads/logo/logoheader.png'); ?>" height="100px" width="120px" alt="logo">
                 </a>
               </div>
 

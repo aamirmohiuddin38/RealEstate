@@ -38,7 +38,7 @@ $settings = $this->db->select("*,site_align")
 			<div class="card-header text-center">
 				<a href="<?php echo base_url('login'); ?>" class="h1">
 					<!-- <b>< ?php echo $settings->title ?></b> -->
-					<img style="margin: auto 5%;height: 12rem;" src="<?php echo base_url($settings->logo);
+					<img style="margin: auto 5%;height: 12rem;" src="<?php echo base_url("uploads\logo\logoheader.png");
 																														//echo (!empty($logo)?base_url($logo):base_url("assets/images/logo.png"))
 																														?>" alt="Logo">
 				</a>
