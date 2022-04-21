@@ -2,7 +2,7 @@
   <div class="main-nav navbar slideout-menu slideout-menu-left" id="nav-mobile">
     <ul id="mobile-main-nav" class="navbar-nav mobile-navbar-nav">
       <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page ">
-        <a class="nav-link " href="<?php echo base_url('houzez/index'); ?>">Home</a>
+        <a class="nav-link " href="<?php echo base_url('index.php/houzez/index'); ?>">Home</a>
       </li>
       <li class="nav-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
         <a class="nav-link " href="#">Properties</a>
@@ -10,22 +10,22 @@
           <i class="houzez-icon arrow-down-1"></i>
         </span>
         <ul class="dropdown-menu">
-          <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_default'); ?>">Grid Default</a> </li>
+          <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('index.php/houzez/grid_default'); ?>">Grid Default</a> </li>
           <!-- <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width'); ?>">Grid Full Width 3 Cols</a> </li>
           <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width_2_cols'); ?>">Grid Full Width 2 Cols</a> </li>
           <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page "><a class="dropdown-item " href="<?php echo base_url('houzez/grid_full_width_4_cols'); ?>">Grid Full Width 4 Cols</a> </li> -->
         </ul>
       </li>
       <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page ">
-        <!-- <a class="nav-link " href="<?php echo base_url('houzez/services'); ?>">Services</a> -->
+        <!-- <a class="nav-link " href="<?php echo base_url('index.php/houzez/services'); ?>">Services</a> -->
       </li>
 
       <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page ">
-        <a class="nav-link " href="<?php echo base_url('houzez/contactus'); ?>">Contact</a>
+        <a class="nav-link " href="<?php echo base_url('index.php/houzez/contactus'); ?>">Contact</a>
       </li>
 
       <li class="nav-item menu-item menu-item-type-post_type menu-item-object-page ">
-        <a class="nav-link " href="<?php echo base_url('houzez/aboutus'); ?>">About Us</a>
+        <a class="nav-link " href="<?php echo base_url('index.php/houzez/aboutus'); ?>">About Us</a>
       </li>
     </ul>
   </div><!-- main-nav -->

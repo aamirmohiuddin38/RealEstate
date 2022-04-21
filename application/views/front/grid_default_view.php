@@ -48,7 +48,7 @@
     </div><!-- page-title-wrap -->
 
     <div class="row">
-      <div class="col-lg-8 col-md-12 bt-content-wrap ">
+      <div class=""> <!--col-lg-8 col-md-12 bt-content-wrap -->
 
         <article class="post-28 page type-page status-publish hentry">
         </article>
@@ -73,11 +73,11 @@
           </div><!-- d-flex -->
         </div><!-- listing-tools-wrap -->
 
-        <div class="listing-view grid-view card-deck">
+        <div class="row listing-view grid-view card-deck">
           <?php if (!empty($properties)) {
             // ddisplay($properties[0]);
             foreach ($properties as $key => $property) { ?>
-              <div class="item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>]">
+              <div class="col-lg-4 item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>]">
                 <div class="item-wrap item-wrap-v2 item-wrap-no-frame h-100">
                   <div class="d-flex align-items-center h-100">
                     <div class="item-header">

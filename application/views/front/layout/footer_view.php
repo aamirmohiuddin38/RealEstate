@@ -123,7 +123,7 @@
 </div>
 
 <!-- FIXME: Not used  -->
-<!-- <div class="modal fade login-register-form" id="login-register-form" tabindex="-1" role="dialog">
+  <div class="modal fade login-register-form" id="login-register-form" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -137,8 +137,8 @@
               <a class="modal-toggle-2 nav-link" data-toggle="tab" href="#register-form-tab" role="tab">Register</a>
             </li>
           </ul>
-        </div><!-- login-register-tabs -->
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </div>  login-register-tabs -->
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
           <span aria-hidden="true">&times;</span>
         </button>
       </div><!-- modal-header -->
@@ -195,7 +195,7 @@
       </div><!-- modal-body -->
     </div><!-- modal-content -->
   </div><!-- modal-dialog -->
-</div>login-register-form -->
+</div>
 <!-- FIXME: Not used  -->
 
 <div class="modal fade reset-password-form" id="reset-password-form" tabindex="-1" role="dialog">
