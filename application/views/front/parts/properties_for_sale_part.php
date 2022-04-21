@@ -39,13 +39,13 @@
 
                               <div class="listing-view grid-view">
                                 <div id="houzez-properties-carousel-n4K5T" data-token="n4K5T" class="houzez-properties-carousel-js houzez-all-slider-wrap card-deck">
-                                  <?php if (valArr($featured)) {
-                                    foreach ($featured as $index => $property) { ?>
-                                      <div class="item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->pi_path) ? base_url($property_images[$property->p_id]->pi_path) : base_url('uploads/noimage_front.png'); ?>]">
+                                  <?php if (valArr($sale_property)) {
+                                    foreach ($sale_property as $index => $property) { ?>
+                                      <div class="item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.png'); ?>]">
                                         <div class="item-wrap item-wrap-v2 item-wrap-no-frame h-100">
                                           <div class="d-flex align-items-center h-100">
                                             <div class="item-header">
-                                              <span class="label-featured label"><?php echo $property->p_featured ? "Featured" : ""; ?></span>
+                                              <span class="label-featured label"><?php //echo $property->p_featured ? "Featured" : ""; ?></span>
                                               <div class="labels-wrap labels-right">
 
                                                 <a href="#status/for-sale/index.html" class="label-status label status-color-18">
@@ -87,7 +87,7 @@
                                               <div class="listing-image-wrap">
                                                 <div class="listing-thumb">
                                                   <a href="<?php echo base_url('houzez/property/' . $property->p_id) ?>" class="listing-featured-thumb hover-effect">
-                                                    <img width="592" height="444" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20592%20444%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="<?php echo !empty($property_images[$property->p_id]->pi_path) ? base_url($property_images[$property->p_id]->pi_path) : base_url('uploads/noimage_front.png'); ?>" class="houzez-lazyload img-fluid wp-post-image" alt="" loading="lazy" srcset="" data-srcset="<?php echo !empty($property_images[$property->p_id]->pi_path) ? base_url($property_images[$property->p_id]->pi_path) : base_url('uploads/noimage_front.png'); ?> 592w" sizes="(max-width: 592px) 100vw, 592px" /> </a><!-- hover-effect -->
+                                                    <img width="592" height="444" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20592%20444%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.png'); ?>" class="houzez-lazyload img-fluid wp-post-image" alt="" loading="lazy" srcset="" data-srcset="<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.png'); ?> 592w" sizes="(max-width: 592px) 100vw, 592px" /> </a><!-- hover-effect -->
                                                 </div>
                                               </div>
                                               <div class="preview_loader"></div>
@@ -112,7 +112,7 @@
                                                 <!-- <li class="item-sub-price">$3,700/sq ft</li> -->
                                               </ul>
                                               <address class="item-address">
-                                                <?php echo $property->pa_address . ' ' . $property->city . ', ' . $property->state . ', ' . $property->country . ' ' . $property->pa_postal_code; ?>
+                                                <?php echo $property->p_address . ' ' . $property->city_name . ', ' . $property->state_name . ', ' . $property->country_name . ' ' . $property->p_postal_code; ?>
                                               </address>
                                               <ul class="item-amenities item-amenities-with-icons">
                                                 <li class="h-beds"><span class="hz-figure"><?php echo $property->pd_bedrooms; ?> <i class="houzez-icon icon-hotel-double-bed-1 ml-1"></i></span> Bedrooms</li>

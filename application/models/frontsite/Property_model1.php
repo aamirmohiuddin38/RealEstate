@@ -39,16 +39,15 @@ class Property_model1 extends CI_Model
             property_tbl.p_doc,
             property_tbl.p_dou
 		");
-
+		$this->db->from('property_tbl');
 		$this->db->join('property_type',   	'property_tbl.p_type  = property_type.type_id', 'left');
 		$this->db->join('property_label',   'property_tbl.p_label = property_label.label_id', 'left');
 		$this->db->join('property_status',  'property_tbl.p_status = property_status.status_id', 'left');
 		$this->db->join('countries',       'property_tbl.p_country 	= countries.country_id', 'left');
 		$this->db->join('states',         'property_tbl.p_state 		= state_id', 'left');
 		$this->db->join('cities',          'property_tbl.p_city 		= city_id', 'left');
-
-		$this->db->from('property_tbl');
-
+        
+		$this->db->group_by('property_tbl.p_id');
 		return $this->db->get()->result();
 	}
 
@@ -90,10 +89,58 @@ class Property_model1 extends CI_Model
 		$this->db->join('states',         'property_tbl.p_state 		= state_id', 'left');
 		$this->db->join('cities',          'property_tbl.p_city 		= city_id', 'left');
 
-		
-
+		$this->db->group_by('property_tbl.p_id');
 		$this->db->order_by('property_tbl.p_dou', 'DESC');
+		$this->db->limit($limit, $start);
+		// echo $this->db->get_compiled_select(); //For displaying db query
+		if ($returnAsArray == true) {
+			return $result = $this->db->get()->result_array();
+		} else {
+			return $result = $this->db->get()->result();
+		}
+	}
 
+	public function read_sale_property($limit, $start = 0, $onlyPublished = false, $returnAsArray = false)
+	{
+		$this->db->select("
+			property_tbl.p_id,
+            property_tbl.p_title,
+            property_tbl.p_content,
+            property_type.type_name as pt_name,
+            property_label.label_name as pl_name,
+            property_status.status_name as ps_name,
+            countries.country_name,
+            property_tbl.p_address,
+			states.state_name,
+			cities.city_name,
+            property_tbl.p_postal_code,
+            property_tbl.p_bathrooms as pd_bathrooms,
+            property_tbl.p_bedrooms as pd_bedrooms,
+            property_tbl.p_area as pd_area_size,
+            property_tbl.p_area_unit as pd_area_size_unit,
+            property_tbl.p_land,
+            property_tbl.p_land_unit,
+            property_tbl.p_garage,
+            property_tbl.p_garages_unit,
+            property_tbl.p_year,
+            property_tbl.p_price,
+            property_tbl.p_front_facing,
+            property_tbl.p_private_note,
+            property_tbl.p_doc,
+            property_tbl.p_dou
+		");
+		$this->db->from('property_tbl');
+
+		$this->db->join('property_type',   	'property_tbl.p_type  = property_type.type_id', 'left');
+		$this->db->join('property_label',   'property_tbl.p_label = property_label.label_id', 'left');
+		$this->db->join('property_status',  'property_tbl.p_status = property_status.status_id', 'left');
+		$this->db->join('countries',       'property_tbl.p_country 	= countries.country_id', 'left');
+		$this->db->join('states',         'property_tbl.p_state 		= state_id', 'left');
+		$this->db->join('cities',          'property_tbl.p_city 		= city_id', 'left');
+
+		$this->db->where('p_status',2);
+		$this->db->order_by('property_tbl.p_dou', 'DESC');
+		$this->db->group_by('property_tbl.p_id');
 		$this->db->limit($limit, $start);
 		// echo $this->db->get_compiled_select(); //For displaying db query
 		if ($returnAsArray == true) {

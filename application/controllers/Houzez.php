@@ -127,6 +127,7 @@ class Houzez extends CI_Controller
 		$this->load_common_data();
 		$this->load_get_data();
 		$this->data['slider_property'] = $this->p_model->get_slider_properties(20);
+		$this->data['sale_property'] = $this->p_model->read_sale_property(4);
 		// ddisplay($this->data['slider_property'] );
 		// $this->data['featured'] = $this->p_model->get_featured_properties();
 		//$this->data['services'] = $this->psr_model->read();
@@ -205,13 +206,12 @@ class Houzez extends CI_Controller
 		// ddisplay($arrintFeaturedPropertyIds);
 		// show($arrintFinalPropertyIds);
 		// $this->data['property_images'] = rekeyArray('pi_p_id', $this->p_model->read_images_by_property_ids($arrintFinalPropertyIds), false, false);
-
 		// $this->data['total_property'] = $this->p_config['total_rows'];
-		// ddisplay($this->data);
+		
 
 		$this->data['properties'] = $this->p_model->read();
+		// ddisplay($this->data['properties']);
 		$this->data['property_images'] = $this->p_model->getImagesByProperty();
-		// ddisplay($this->data);
 		$this->data['total_property'] = $this->p_model->total_properties();
 		$this->data['content'] = $this->load->view('front/grid_default_view', $this->data, true);
 		$this->load->view('front/layout/main_wrapper', $this->data);
