@@ -32,7 +32,7 @@
               <li class="h-baths"><i class="houzez-icon icon-bathroom-shower-1 mr-1"></i><span class="item-amenities-text">Baths:</span> <span class="hz-figure"><?php echo $property->pd_bathrooms ?? 0; ?></span></li>
               <li class="h-area"><i class="houzez-icon icon-ruler-triangle mr-1"></i><span class="hz-figure"><?php echo $property->pd_area_size ?? 0; ?></span> <span class="area_postfix"><?php echo $property->pd_area_size_unit ?? 0; ?></span></li>
               <li class="h-type"><span><?php echo $property->pt_name; ?></span></li>
-            </ul> <a class="btn btn-primary btn-item" href="<?php echo base_url('houzez/property/' . $property->p_id) ?>">
+            </ul> <a class="btn btn-primary btn-item" href="<?php echo base_url('index.php/houzez/property/' . $property->p_id) ?>">
               Details</a><!-- btn-item -->
           </div><!-- property-slider-item -->
         </div><!-- property-slider-item-wrap -->

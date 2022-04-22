@@ -260,8 +260,8 @@ class Houzez extends CI_Controller
 
 		$this->data['property_documents']	= $this->p_model->read_document_by_property_id($property_id);
 		$this->data['property_images']		= $this->p_model->read_image_by_property_id($property_id);
-		$this->data['property_features']   = $this->p_model->read_feature_by_property_id($property_id);
-		$this->data['additional_details'] = $this->p_model->read_additinal_details_by_property_id($property_id);
+		// $this->data['property_features']   = $this->p_model->read_feature_by_property_id($property_id);
+		// $this->data['additional_details'] = $this->p_model->read_additinal_details_by_property_id($property_id);
 
 		// ddisplay($this->data);
 		// $arrintFinalPropertyIds = valArr($this->data['featured']) ? array_keys(rekeyArray('p_id', $this->data['featured'])) : null;

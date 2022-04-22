@@ -100,6 +100,51 @@ class Property_model1 extends CI_Model
 		}
 	}
 
+	public function read_by_id_full($p_id = null)
+	{
+		$this->db->select("
+		property_tbl.p_id,
+		property_tbl.p_title, 
+		property_tbl.p_content, 
+		property_tbl.p_price, 
+		property_tbl.p_status, 
+		property_tbl.p_doc, 
+		property_tbl.p_dou, 
+		property_type.type_id, 
+		property_type.type_name, 
+		property_label.label_id, 
+		property_label.label_name, 
+		property_status.status_id, 
+		property_status.status_name,  
+		property_address_tbl.pa_address, 
+		property_address_tbl.pa_area, 
+		property_address_tbl.pa_postal_code, 
+		countries.country_name as country, 
+		states.state_name,
+		cities.city_name,");
+		$this->db->from($this->table);
+		$this->db->join('property_facing',  'facing_id= p_front_facing', 'left');
+		$this->db->join('property_type',    			'property_tbl.p_type= property_type.type_id', 'left');
+		$this->db->join('property_label',   			'property_tbl.p_label= property_label.label_id', 'left');
+		$this->db->join('property_status',  			'property_tbl.p_status= property_status.status_id', 'left');
+		$this->db->join('property_address_tbl', 			'property_tbl.p_address= property_address_tbl.pa_id', 'left');
+		$this->db->join('countries',       'property_tbl.p_country 	= countries.country_id', 'left');
+		$this->db->join('states',         'property_tbl.p_state 		= state_id', 'left');
+		$this->db->join('cities',          'property_tbl.p_city 		= city_id', 'left');
+		$this->db->where('property_tbl.p_id', $p_id);
+		// $this->db->where('property_tbl.p_status', 1);
+
+		$this->db->group_by('property_tbl.p_id');
+		$this->db->order_by('property_tbl.p_doc', 'DESC');
+
+		// $this->db->limit($limit, $start);
+		// echo $this->db->get_compiled_select();
+		// die();
+		return $result = $this->db->get()->row();
+		// print_r($result);
+		// die();
+	}
+
 	public function read_sale_property($limit, $start = 0, $onlyPublished = false, $returnAsArray = false)
 	{
 		$this->db->select("
@@ -169,6 +214,26 @@ class Property_model1 extends CI_Model
 	{
 		return $this->db->select("*")
 			->from('property_images_tbl')
+			->get()
+			->result();
+	}
+
+    // Property document
+    public function read_document_by_property_id($p_id)
+    {
+	return $this->db->select("*")
+		->from('property_documents_tbl')
+		->where('pd_p_id', $p_id)
+		->get()
+		->result();
+    }
+
+	// Property Images
+	public function read_image_by_property_id($p_id)
+	{
+		return $this->db->select("*")
+			->from('property_images_tbl')
+			->where('img_p_id', $p_id)
 			->get()
 			->result();
 	}
