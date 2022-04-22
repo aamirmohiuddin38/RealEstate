@@ -431,4 +431,9 @@ class Property extends CI_Controller
     $path = $_GET['path'];
     force_download($path, NULL);
   }
+  public function app_setting()
+  {
+    $data['content'] = $this->load->view('admin/property/app_setting', '', true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
 }
