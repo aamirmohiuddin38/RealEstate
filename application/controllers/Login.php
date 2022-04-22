@@ -24,14 +24,13 @@ class Login extends CI_Controller
 		if ($this->session->userdata('isLogIn'))
 			$this->user_redirect($this->session->userdata('user_role'));
 
-		$this->form_validation->set_rules('email', display('email'), 'required|max_length[50]|valid_email');
-		$this->form_validation->set_rules('password', display('password'), 'required|max_length[32]|md5');
-		$this->form_validation->set_rules('user_role', display('user_role'), 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|max_length[50]|valid_email');
+		$this->form_validation->set_rules('password', 'Password', 'required|max_length[32]|md5');
+		$this->form_validation->set_rules('user_role', 'User Role', 'required');
 
 		#-------------------------------#
 		$setting = $this->setting_model->read();
 		$data['title']   = (!empty($setting->title) ? $setting->title : null);
-
 		$data['logo']    = (!empty($setting->logo) ? $setting->logo : null);
 		$data['favicon'] = (!empty($setting->favicon) ? $setting->favicon : null);
 		$data['footer_text'] = (!empty($setting->footer_text) ? $setting->footer_text : null);

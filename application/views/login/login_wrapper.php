@@ -14,6 +14,8 @@ $settings = $this->db->select("*,site_align")
 	<title><?= display('login') ?> - <?php echo (!empty($title) ? $title : null) ?></title>
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	<!-- favicon -->
+	<link rel="shortcut icon" href="<?php echo base_url('./assets/images/favicon.ico'); ?>" type="image/x-icon">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/'); ?>plugins/fontawesome-free/css/all.min.css">
 	<!-- icheck bootstrap -->

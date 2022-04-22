@@ -19,22 +19,30 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
-		$this->load->model('Home_model');
-		$temp['message'] = $this->Home_model->getData();
-		$temp['value'] = $this->property_model->read();
-		// print_r($temp);
-		$temp['content'] = $this->load->view('admin/home_view', $temp, true);
-		$this->load->view('admin/layout/main_wrapper_view', $temp);
-		//echo var_dump($temp);
+		if (!($this->session->userdata('isLogIn')))
+			redirect('index.php/login');
+		else {
+			$this->load->model('Home_model');
+			$temp['message'] = $this->Home_model->getData();
+			$temp['value'] = $this->property_model->read();
+			// print_r($temp);
+			$temp['content'] = $this->load->view('admin/home_view', $temp, true);
+			$this->load->view('admin/layout/main_wrapper_view', $temp);
+			//echo var_dump($temp);
+		}
 	}
 
 	public function form()
 	{
-		$this->load->model('Home_model');
-		$temp['message'] = $this->Home_model->getData();
-		$temp['tableData'] = $this->Home_model->getTableData();
-		$temp['content'] = $this->load->view('admin/form', '', true);
-		$this->load->view('admin/layout/main_wrapper_view', $temp);
-		//echo var_dump($temp);
+		if (!($this->session->userdata('isLogIn')))
+			redirect('index.php/login');
+		else {
+			$this->load->model('Home_model');
+			$temp['message'] = $this->Home_model->getData();
+			$temp['tableData'] = $this->Home_model->getTableData();
+			$temp['content'] = $this->load->view('admin/form', '', true);
+			$this->load->view('admin/layout/main_wrapper_view', $temp);
+			//echo var_dump($temp);
+		}
 	}
 }
