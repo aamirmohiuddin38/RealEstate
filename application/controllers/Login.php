@@ -46,7 +46,7 @@ class Login extends CI_Controller
 		if ($this->form_validation->run() === true) {
 			$check_user = $this->login_model->check_user($postData);
 			//print_r($check_user->row());die;
-			if ($check_user->num_rows() === 1) {
+			if ($check_user->num_rows() === 1) { // if this user exist set session data..//
 				$this->session->set_userdata([
 					'isLogIn'       => true,
 					'user_id'       => $check_user->row()->user_id,
@@ -99,11 +99,13 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
+		// Destroy the session and redirect to login function..//
 		$this->session->sess_destroy();
 		redirect('index.php/login');
 	}
 	public function register()
 	{
+		// loading the register view...//
 		$this->load->view('login/register_view');
 	}
 	public function register_data()
@@ -124,9 +126,10 @@ class Login extends CI_Controller
 				'user_role' => 2
 			);
 			if ($this->login_model->register($data)) {
+				//if registered successfully then redirect to login 
 				$this->session->set_flashdata('success', 'User Added!');
 				redirect('index.php/login');
-			} else {
+			} else {  // otherwise redirect to register...//
 				$this->session->set_flashdata('failure', 'Unable to Add!');
 				$this->register();
 			}

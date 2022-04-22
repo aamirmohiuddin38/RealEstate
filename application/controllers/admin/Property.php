@@ -29,6 +29,7 @@ class Property extends CI_Controller
   }
   public function getStates()
   {
+    //calling model to get the states of a perticular country...//
     $country_id = $this->input->post('country_id');
     $states = $this->property_model->getStatesOfCountry($country_id);
     $data = [];
@@ -39,6 +40,7 @@ class Property extends CI_Controller
   }
   public function getCities()
   {
+    // calling model to get the cities of a perticular state...// 
     $state_id = $this->input->post('state_id');
     $cities = $this->property_model->getCitiesOfState($state_id);
     $data = [];
@@ -88,7 +90,7 @@ class Property extends CI_Controller
     if ($this->form_validation->run() == FALSE) {
       $this->index();
     } else {
-
+      // Prepare data and send to model for insert in database//
       $data['input'] = (object) $postData = [
         "p_id"           => null,
         "p_title"        => ucfirst($this->input->post('property_title')),
@@ -129,6 +131,7 @@ class Property extends CI_Controller
 
   public function detail()
   {
+    //...getting the details of a perticular Id and then sent to detail view ...//
 
     if (!($this->session->userdata('isLogIn')))
       redirect('index.php/login');
@@ -153,7 +156,7 @@ class Property extends CI_Controller
     if (!($this->session->userdata('isLogIn')))
       redirect('index.php/login');
     else {
-
+      // edit the detail of a perticular Id ...//
       $id = $_GET['id'];
       $data = [];
       $data['result'] = $this->property_model->get($id);
@@ -172,6 +175,7 @@ class Property extends CI_Controller
   }
   public function delete()
   {
+    //Delete the record of a perticular Id ...//
     if (!($this->session->userdata('isLogIn')))
       redirect('index.php/login');
 
@@ -259,7 +263,6 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/document_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
-
   public function document_upload()
   {
     if (!($this->session->userdata('isLogIn')))
@@ -426,5 +429,10 @@ class Property extends CI_Controller
     $this->load->helper('download');
     $path = $_GET['path'];
     force_download($path, NULL);
+  }
+  public function app_setting()
+  {
+    $data['content'] = $this->load->view('admin/property/app_setting', '', true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
   }
 }
