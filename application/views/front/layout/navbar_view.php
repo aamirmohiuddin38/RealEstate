@@ -309,7 +309,7 @@
       <div class="header-mobile-right">
 
         <buttont class="btn toggle-button-right">
-          <a href="<?php echo base_url('login'); ?>" data-toggle="modal-REMOVED" data-target="#login-register-form-REMOVED">
+          <a href="<?php echo base_url('index.php/login'); ?>" data-toggle="modal-REMOVED" data-target="#login-register-form-REMOVED">
             <i class="houzez-icon icon-single-neutral-circle ml-1" style="color: white;"></i></a>
         </buttont><!-- toggle-button-right -->
       </div><!-- .header-mobile-right -->

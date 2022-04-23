@@ -77,7 +77,7 @@
           <?php if (!empty($properties)) {
             // ddisplay($properties[0]);
             foreach ($properties as $key => $property) { ?>
-              <div class="col-lg-4 item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>]">
+              <div class="item-listing-wrap hz-item-gallery-js card" data-images="[<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>]">
                 <div class="item-wrap item-wrap-v2 item-wrap-no-frame h-100">
                   <div class="d-flex align-items-center h-100">
                     <div class="item-header">
@@ -104,31 +104,10 @@
                         </li>
                         <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
                       </ul>
-                      <?php /*
-                      <ul class="item-tools">
 
-                        <li class="item-tool item-preview">
-                          <span class="hz-show-lightbox-js" data-listid="2803" data-toggle="tooltip" data-placement="top" title="Preview">
-                            <i class="houzez-icon icon-expand-3"></i>
-                          </span><!-- item-tool-favorite -->
-                        </li><!-- item-tool -->
-
-                        <li class="item-tool item-favorite">
-                          <span class="add-favorite-js item-tool-favorite" data-toggle="tooltip" data-placement="top" title="Favourite" data-listid="2803">
-                            <i class="houzez-icon icon-love-it "></i>
-                          </span><!-- item-tool-favorite -->
-                        </li><!-- item-tool -->
-
-                        <li class="item-tool item-compare">
-                          <span class="houzez_compare compare-2803 item-tool-compare show-compare-panel" data-toggle="tooltip" data-placement="top" title="Add to Compare" data-listing_id="2803">
-                            <i class="houzez-icon icon-add-circle"></i>
-                          </span><!-- item-tool-compare -->
-                        </li><!-- item-tool -->
-                      </ul><!-- item-tools -->
-                      */ ?>
                       <div class="listing-image-wrap">
                         <div class="listing-thumb">
-                          <a href="<?php echo base_url('houzez/property/' . $property->p_id) ?>" class="listing-featured-thumb hover-effect">
+                          <a href="<?php echo base_url('index.php/houzez/property/' . $property->p_id) ?>" class="listing-featured-thumb hover-effect">
                             <img width="592" height="444" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20592%20444%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?>" class="houzez-lazyload img-fluid wp-post-image" alt="" loading="lazy" srcset="" data-srcset="<?php echo !empty($property_images[$property->p_id]->img_file_path) ? base_url($property_images[$property->p_id]->img_file_path) : base_url('uploads/noimage_front.jpg'); ?> 592w" /> </a><!-- hover-effect -->
                         </div>
                       </div>
@@ -150,10 +129,9 @@
                           <?php
                           $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY);
                           echo $fmt->formatCurrency($property->p_price, "INR");
-                          echo $property->p_price;
+                          // echo $property->p_price;
                           ?>
                         </li>
-                        <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
                       </ul>
                       <address class="item-address">
                         <?php echo $property->p_address . ' | ' . $property->p_city . ' | ' . $property->p_state . ' | ' . $property->country_name . ' | ' . $property->p_postal_code; ?>
