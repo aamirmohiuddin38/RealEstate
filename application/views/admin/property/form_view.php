@@ -34,7 +34,7 @@
 
         <!-- property_title, content, Property type, status, label -->
         <div class="card">
-          <div class="card-header bg-dark">
+          <div class="card-header bg-danger">
             <h3 class="card-title"> Add Property</h3>
             <div class="card-tools">
               <!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
@@ -143,7 +143,7 @@
           </div>
         </div>
         <div class="card ">
-          <div class="card-header bg-dark">
+          <div class="card-header bg-primary">
             <h3 class="card-title"> Location</h3>
             <div class="card-tools">
               <!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
@@ -240,7 +240,7 @@
         <!-- Bedrooms, Bathrooms, area size -->
         <!-- Bedrooms, Bathrooms, area size -->
         <div class="card">
-          <div class="card-header bg-dark">
+          <div class="card-header bg-info">
             <h3 class="card-title"> Property Details</h3>
             <div class="card-tools">
               <!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
@@ -392,7 +392,7 @@
 
         <!-- Private Note -->
         <div class="card">
-          <div class="card-header bg-dark">
+          <div class="card-header bg-success">
             <h3 class="card-title"> Property Setting</h3>
             <div class="card-tools">
               <!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
