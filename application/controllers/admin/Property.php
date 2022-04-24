@@ -313,10 +313,10 @@ class Property extends CI_Controller
       $id = $_GET['id'];
       // echo $id;
       if ($this->property_model->doc_delete($id)) {
-        $this->session->set_flashdata('success', 'Record Deleted');
+        $this->session->set_flashdata('success', 'Document Deleted');
         redirect('index.php/admin/property/document_list');
       } else {
-        $this->session->set_flashdata('failure', 'Record Not Deleted');
+        $this->session->set_flashdata('failure', 'Document Not Deleted');
         redirect('index.php/admin/property/document_list');
       }
     }
