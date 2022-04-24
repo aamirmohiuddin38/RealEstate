@@ -11,6 +11,10 @@
     top: 17px;
     left: 20px;
   }
+
+  @media(max-width:520px){
+    .row.listing-view.grid-view.card-deck{display: block;}
+  }
 </style>
 
 <!-- Listing -->
@@ -48,28 +52,11 @@
     </div><!-- page-title-wrap -->
 
     <div class="row">
-      <div class=""> <!--col-lg-8 col-md-12 bt-content-wrap -->
-
-        <article class="post-28 page type-page status-publish hentry">
-        </article>
-
-
+      <div class="">
         <div class="listing-tools-wrap">
           <div class="d-flex align-items-center mb-2">
             <div class="listing-tabs flex-grow-1">
               <?php echo $total_property ?? 0; ?> Properties</div><!-- listing-tabs -->
-            <div class="sort-by">
-              <div class="d-flex align-items-center">
-                <div class="sort-by-title">
-                  Sort by: </div><!-- sort-by-title -->
-                <select id="sort_properties" class="selectpicker form-control bs-select-hidden" title="Default Order" data-live-search="false" data-dropdown-align-right="auto">
-                  <option value="">Default Order</option>
-                  <?php
-                  echo generate_simple_drop_down($sort_by, $input->sortby);
-                  ?>
-                </select><!-- selectpicker -->
-              </div><!-- d-flex -->
-            </div><!-- sort-by -->
           </div><!-- d-flex -->
         </div><!-- listing-tools-wrap -->
 
@@ -102,7 +89,6 @@
                           // echo $property->p_price;
                           ?>
                         </li>
-                        <!-- <li class="item-sub-price">$15,000/sq ft</li> -->
                       </ul>
 
                       <div class="listing-image-wrap">
@@ -159,10 +145,6 @@
           </nav>
         </div>
       </div>
-      <!-- bt-content-wrap -->
-      <!-- Right Sidebar featured view  -->
-      <!-- <?php $this->load->view('front/parts/right_sidebar_featured_view'); ?> -->
-      <!-- bt-sidebar-wrap -->
     </div><!-- row -->
   </div><!-- container -->
 </section><!-- listing-wrap -->
