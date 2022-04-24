@@ -20,12 +20,11 @@ class Property extends CI_Controller
       redirect('index.php/login');
     } else {
       $data = [];
-      $countries = $this->property_model->getCountries();
       $data['status'] = $this->property_model->getStatus();
       $data['type'] = $this->property_model->getType();
       $data['label'] = $this->property_model->getLabel();
       $data['facing_directions'] = $this->property_model->getFacingDirections();
-      $data['countries'] = $countries;
+      $data['countries'] = $this->property_model->getCountries();
       $data['content'] = $this->load->view('admin/property/form_view', $data, true);
 
       $this->load->view('admin/layout/main_wrapper_view', $data);
@@ -33,20 +32,22 @@ class Property extends CI_Controller
   }
   public function getStates()
   {
+    if (!($this->session->userdata('isLogIn')))
+      redirect('index.php/login');
     $country_id = $this->input->post('country_id');
-    $states = $this->property_model->getStatesOfCountry($country_id);
     $data = [];
-    $data['states'] = $states;
+    $data['states'] = $this->property_model->getStatesOfCountry($country_id);
     $statesStr = $this->load->view('admin/property/states_view', $data, true);
     $response['states'] = $statesStr;
     echo json_encode($response);
   }
   public function getCities()
   {
+    if (!($this->session->userdata('isLogIn')))
+      redirect('index.php/login');
     $state_id = $this->input->post('state_id');
-    $cities = $this->property_model->getCitiesOfState($state_id);
     $data = [];
-    $data['cities'] = $cities;
+    $data['cities'] = $this->property_model->getCitiesOfState($state_id);
     $citiesStr = $this->load->view('admin/property/cities_view', $data, true);
     $response['cities'] = $citiesStr;
     echo json_encode($response);
@@ -161,8 +162,7 @@ class Property extends CI_Controller
       $id = $_GET['id'];
       $data = [];
       $data['result'] = $this->property_model->get($id);
-      $States = $this->property_model->getStatesOfCountry($data['result']->p_country);
-      $data['States'] = $States;
+      $data['States'] = $this->property_model->getStatesOfCountry($data['result']->p_country);
       $data['country'] = $this->Common_model->getCountryName($data['result']->p_country);
       $data['city'] = $this->Common_model->getCityName($data['result']->p_city);
       $data['facing_directions'] = $this->property_model->getFacingDirections();
