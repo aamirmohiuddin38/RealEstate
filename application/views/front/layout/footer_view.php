@@ -34,7 +34,7 @@
                   <li><i class="houzez-icon icon-answer-machine mr-1"></i> 1111 0000</li>
 
                   <li><i class="houzez-icon icon-envelope mr-1"></i>
-                    <a href="mailto:hyunkunun@gmail.com">realestate@gmail.com</a>
+                    <a href="mailto:hyunkunun@gmail.com">homesphere@gmail.com</a>
                   </li>
                 </ul>
               </div><!-- widget-content -->
@@ -66,7 +66,7 @@
                     </div>
                   </div>
                 </div>
-                <p class="mt-3">Explore the luxury life @ RealEstate</p>
+                <p class="mt-3">Explore the luxury life @ HOMESPHERE</p>
               </div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1622716694" /><input type="hidden" name="_mc4wp_form_id" value="1251" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
               <div class="mc4wp-response"></div>
             </form><!-- / Mailchimp for WordPress Plugin -->
@@ -103,7 +103,7 @@
 
 
       <div class="footer-copyright">
-        &copy; RealEstate - All rights reserved</div><!-- footer-copyright -->
+        &copy; HomeSphere - All rights reserved</div><!-- footer-copyright -->
 
     </div><!-- container -->
   </div><!-- footer-top-wrap -->

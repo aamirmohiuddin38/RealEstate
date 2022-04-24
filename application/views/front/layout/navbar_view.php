@@ -74,7 +74,7 @@
                   </div><!-- header-contact-left -->
                   <div class="header-contact-right">
                     <div><a href="tel://+91 7006112233">+91 7006 112233</a></div>
-                    <div><a href="mailto:realestate@gmail.com">realestate@gmail.com</a></div>
+                    <div><a href="mailto:homesphere@gmail.com">homesphere@gmail.com</a></div>
                   </div><!-- .header-contact-right -->
                 </div><!-- .header-contact -->
 
@@ -211,8 +211,8 @@
             <i class="houzez-icon icon-phone ml-1"></i>
           </div><!-- header-contact-left -->
           <div class="header-contact-right">
-            <div><a href="tel://+917006382025">+91 7006 112233</a></div>
-            <div><a href="mailto:hyunkunun@gmail.com">realestate@gmail.com</a></div>
+            <div><a href="tel://+917006112233">+91 7006 112233</a></div>
+            <div><a href="mailto:homesphere@gmail.com">homesphere@gmail.com</a></div>
           </div><!-- .header-contact-right -->
         </div><!-- .header-contact -->
 
