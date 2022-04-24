@@ -13,7 +13,7 @@ class Property extends CI_Controller
     ));
     $this->load->library('form_validation', 'session');
   }
-
+  // add property
   public function index()
   {
     if (!($this->session->userdata('isLogIn'))) {
@@ -188,6 +188,7 @@ class Property extends CI_Controller
       redirect('index.php/admin/property/list');
     }
   }
+  // after editing property directed to modify
   public function modify()
   {
     if (!($this->session->userdata('isLogIn')))
@@ -272,7 +273,7 @@ class Property extends CI_Controller
       $config = [
         'upload_path'   => './uploads/docs/',
         'allowed_types' => 'jpeg',
-        'max_size'   => '100'
+        'max_size'   => '2048'
       ];
       $this->load->library('upload', $config);
       //  validation rules
@@ -289,8 +290,16 @@ class Property extends CI_Controller
             "pd_p_id"        => $this->input->post('property_type'),
           ];
         } else {
-          $this->session->set_flashdata('failure', 'Document Format Not Supported!');
-          redirect('index.php/admin/property/property_document');
+          $data2 = $this->upload->data();
+          if ($data2['file_ext'] == '.jpg' || $data2['file_ext'] == '.jpeg' || $data2['file_ext'] == '.pdf') {
+            if ($data2['file_size'] > 2048) {
+              $this->session->set_flashdata('failure', 'Document Size Must be Less than 2MB');
+              redirect('index.php/admin/property/property_document');
+            }
+          } else {
+            $this->session->set_flashdata('failure', 'Document Format Not Supported Try Again!');
+            redirect('index.php/admin/property/property_document');
+          }
         }
 
         if ($this->property_model->upload_Documents($postData)) {
@@ -362,6 +371,7 @@ class Property extends CI_Controller
       $config = [
         'upload_path'   => './uploads/images/',
         'allowed_types' => 'jpg|jpeg|png',
+        'max_size'      => '2048'
 
       ];
       $this->load->library('upload', $config);

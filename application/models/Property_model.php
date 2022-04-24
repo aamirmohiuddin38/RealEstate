@@ -24,9 +24,6 @@ class Property_model extends CI_Model
       ->get()
       ->row();
     return $result;
-    // echo("<pre>");
-    // print_r($result);  
-    // echo("</pre>");
   }
 
   public function update_data($data = [], $id)
