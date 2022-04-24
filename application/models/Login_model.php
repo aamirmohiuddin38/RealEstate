@@ -13,7 +13,8 @@ class Login_model extends CI_Model
 			->where('password', $data['password'])
 			->where('user_role', $data['user_role'])
 			->where('status', 1)
-			->get();
+			->get()
+			->row();
 	}
 
 	public function read_by_id($user_id = null)

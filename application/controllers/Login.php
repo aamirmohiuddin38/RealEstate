@@ -9,9 +9,8 @@ class Login extends CI_Controller
 		parent::__construct();
 
 		$this->load->model(array(
-			'common_model',
+
 			'login_model',
-			'setting_model',
 		));
 	}
 	public function index()
@@ -24,17 +23,12 @@ class Login extends CI_Controller
 		if ($this->session->userdata('isLogIn'))
 			$this->user_redirect($this->session->userdata('user_role'));
 
+		// validation rules
 		$this->form_validation->set_rules('email', 'Email', 'required|max_length[50]|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|max_length[32]|md5');
 		$this->form_validation->set_rules('user_role', 'User Role', 'required');
 
-		#-------------------------------#
-		$setting = $this->setting_model->read();
-		$data['title']   = (!empty($setting->title) ? $setting->title : null);
-		$data['logo']    = (!empty($setting->logo) ? $setting->logo : null);
-		$data['favicon'] = (!empty($setting->favicon) ? $setting->favicon : null);
-		$data['footer_text'] = (!empty($setting->footer_text) ? $setting->footer_text : null);
-
+		//preparing data
 		$data['user'] = (object)$postData = [
 			'email'     => $this->input->post('email', true),
 			'password'  => md5($this->input->post('password', true)),
@@ -42,26 +36,16 @@ class Login extends CI_Controller
 		];
 		#-------------------------------#
 
-		if ($this->form_validation->run() === true) {
+		if ($this->form_validation->run() == true) {
 			$check_user = $this->login_model->check_user($postData);
-			//print_r($check_user->row());die;
-			if ($check_user->num_rows() === 1) { // if this user exist set session data..//
+
+			if (!empty($check_user)) {
+				// setting session 
 				$this->session->set_userdata([
 					'isLogIn'       => true,
-					'user_id'       => $check_user->row()->user_id,
-					'acc_id'         => $check_user->row()->acc_id,
-					'email'         => $check_user->row()->email,
-					'fullname'      => $check_user->row()->firstname,
-					'user_role'     => $check_user->row()->user_role,
-					// Fixme:
-					'picture'       => !empty($check_user->row()->picture) ? $check_user->row()->picture : 'uploads/noimageold.png',
-					'create_date'     => $check_user->row()->doc,
-					/* Saving Setting Into Session*/
-					'title'         => (!empty($setting->title) ? $setting->title : null),
-					'address'       => (!empty($setting->description) ? $setting->description : null),
-					'logo'          => (!empty($setting->logo) ? $setting->logo : null),
-					'favicon'          => (!empty($setting->favicon) ? $setting->favicon : null),
-					'footer_text'     => (!empty($setting->footer_text) ? $setting->footer_text : null),
+					'user_id'       => $check_user->user_id,
+					'email'         => $check_user->email,
+					'fullname'      => $check_user->username,
 				]);
 				$this->user_redirect($postData['user_role']);
 				// can directy redirect here
@@ -76,13 +60,13 @@ class Login extends CI_Controller
 
 	public function user_redirect($user_role)
 	{
-		//$this->save_login_time();
+
 		switch ($user_role) {
 			case 1:
-				redirect('index.php/admin/home/index');    // Admin
+				redirect('index.php/admin/home/index');
 				break;
 			case 2:
-				redirect('index.php/houzez');     // worker
+				redirect('index.php/houzez');
 				break;
 			default:
 				$this->logout();
@@ -109,13 +93,14 @@ class Login extends CI_Controller
 	}
 	public function register_data()
 	{
-		//print_r($_POST); ( [uname] => zaid [uemail] => zaid@123 [upass] => zaid [uphone] => 99999 [uaddr] => zjs )
+		// validation rules
 		$this->form_validation->set_rules('uname', 'UserName', 'required|max_length[30]');
 		$this->form_validation->set_rules('uemail', 'email', 'required|max_length[50]|valid_email');
 		$this->form_validation->set_rules('upass', 'password', 'required|max_length[32]');
 		$this->form_validation->set_rules('uphone', 'Phone No', 'required');
 		$this->form_validation->set_rules('uaddr', 'Address ', 'required');
 		if ($this->form_validation->run() == true) {
+			// preparing data
 			$data = array(
 				'username' => $this->input->post('uname'),
 				'password' => md5($this->input->post('upass')),
