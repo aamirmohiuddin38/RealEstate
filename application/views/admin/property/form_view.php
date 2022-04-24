@@ -1,7 +1,13 @@
 <style>
-    .badge-danger{background-color: transparent; color:red;}
-    .badge-danger p{font-size:10px;}
-  </style>
+  .badge-danger {
+    background-color: transparent;
+    color: red;
+  }
+
+  .badge-danger p {
+    font-size: 10px;
+  }
+</style>
 <!-- !-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -434,7 +440,6 @@
       $('#country').change(function() {
         var country_id = $(this).val();
         $.ajax({
-
           url: '<?php echo base_url('index.php/admin/property/getStates'); ?>',
           type: 'POST',
           data: {
@@ -452,7 +457,6 @@
         var state_id = $(this).val();
         //alert(state_id);
         $.ajax({
-
           url: '<?php echo base_url('index.php/admin/property/getCities'); ?>',
           type: 'POST',
           data: {

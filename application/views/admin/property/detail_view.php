@@ -55,7 +55,6 @@
 						}
 						?>
 					</div>
-
 					<div class="mr-4">
 						<a href="<?php echo base_url(); ?>index.php/admin/property/edit?id=<?php echo $result->p_id; ?>">
 							<button type="button p-5" class="btn btn-info"><i class="fa-solid fa-pen-to-square mr-3"></i>Edit</button>
@@ -136,7 +135,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card border-top border-warning">
-					<div div class="card-header">
+					<div div class="card-header bg-danger">
 						<h3 class="card-title">Description</h3>
 					</div>
 					<div class="card-body">
@@ -156,7 +155,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card border-top border-warning">
-					<div div class="card-header">
+					<div div class="card-header bg-primary">
 						<h3 class="card-title">Address Details</h3>
 					</div>
 					<div class="card-body">
@@ -204,115 +203,116 @@
 				</div>
 			</div>
 		</div>
-		<!-- Other Details -->
-		<div class="container-fluid mt-5">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card border-top border-warning">
-						<div div class="card-header">
-							<h3 class="card-title">Other Details</h3>
+	</div>
+	<!-- Other Details -->
+	<div class="container-fluid mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top border-warning">
+					<div div class="card-header bg-info">
+						<h3 class="card-title">Other Details</h3>
+					</div>
+					<div class="card-body">
+						<!-- row 1 bedrooms,bathrooms-->
+						<div class="row mb-3">
+							<div class="col-6 col-sm-3 ">
+								<h6><strong>Bedrooms</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<?php echo $result->p_bedrooms; ?>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<h6><strong>washrooms</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-right">
+								<?php echo $result->p_bathrooms; ?>
+							</div>
 						</div>
-						<div class="card-body">
-							<!-- row 1 bedrooms,bathrooms-->
-							<div class="row mb-3">
-								<div class="col-6 col-sm-3 ">
-									<h6><strong>Bedrooms</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<?php echo $result->p_bedrooms; ?>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<h6><strong>washrooms</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-right">
-									<?php echo $result->p_bathrooms; ?>
-								</div>
+						<!--row 2  area size,land area-->
+						<div class="row mb-3">
+							<div class="col-6 col-sm-3 ">
+								<h6><strong>Area Size</strong></h6>
 							</div>
-							<!--row 2  area size,land area-->
-							<div class="row mb-3">
-								<div class="col-6 col-sm-3 ">
-									<h6><strong>Area Size</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<?php echo $result->p_area; ?>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<h6><strong>Area Unit</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-right">
-									<?php echo $result->p_area_unit; ?>
-								</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<?php echo $result->p_area; ?>
 							</div>
-							<!-- row 3 land area postfix,garage-->
-							<div class="row mb-3">
-								<div class="col-6 col-sm-3 ">
-									<h6><strong>Land Area</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<?php echo $result->p_land; ?>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<h6><strong>Land Area Unit</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-right">
-									<?php echo $result->p_land_unit; ?>
-								</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<h6><strong>Area Unit</strong></h6>
 							</div>
-							<!-- row 4 garage size ,year-->
-							<div class="row mb-3">
-								<div class="col-6 col-sm-3 ">
-									<h6><strong>Garage</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<?php echo $result->p_garage; ?>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<h6><strong>Garage Size</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-right">
-									<?php echo $result->p_garages_unit; ?>
-								</div>
+							<div class="col-6 col-sm-3 text-sm-right">
+								<?php echo $result->p_area_unit; ?>
 							</div>
-							<!-- row 5 front facing-->
-							<div class="row ">
-								<div class="col-6 col-sm-3 ">
-									<h6><strong>Front Facing</strong></h6>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<?php echo $property_facing; ?>
-								</div>
-								<div class="col-6 col-sm-3 text-sm-left">
-									<b>Year Built</b>
-								</div>
-								<div class="col-6 col-sm-3  text-sm-right">
-									<?php echo $result->p_year; ?>
-								</div>
+						</div>
+						<!-- row 3 land area postfix,garage-->
+						<div class="row mb-3">
+							<div class="col-6 col-sm-3 ">
+								<h6><strong>Land Area</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<?php echo $result->p_land; ?>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<h6><strong>Land Area Unit</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-right">
+								<?php echo $result->p_land_unit; ?>
+							</div>
+						</div>
+						<!-- row 4 garage size ,year-->
+						<div class="row mb-3">
+							<div class="col-6 col-sm-3 ">
+								<h6><strong>Garage</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<?php echo $result->p_garage; ?>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<h6><strong>Garage Size</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-right">
+								<?php echo $result->p_garages_unit; ?>
+							</div>
+						</div>
+						<!-- row 5 front facing-->
+						<div class="row ">
+							<div class="col-6 col-sm-3 ">
+								<h6><strong>Front Facing</strong></h6>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<?php echo $property_facing; ?>
+							</div>
+							<div class="col-6 col-sm-3 text-sm-left">
+								<b>Year Built</b>
+							</div>
+							<div class="col-6 col-sm-3  text-sm-right">
+								<?php echo $result->p_year; ?>
+							</div>
 
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--private note  -->
-		<div class="container-fluid mt-5">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card border-top border-warning">
-						<div div class="card-header">
-							<h3 class="card-title">Private Note</h3>
-						</div>
-						<div class="card-body">
-							<?php if ($result->p_private_note == null) {
+	</div>
+	<!--private note  -->
+	<div class="container-fluid mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-top border-warning">
+					<div div class="card-header bg-success">
+						<h3 class="card-title">Private Note</h3>
+					</div>
+					<div class="card-body">
+						<?php if ($result->p_private_note == null) {
 
-								echo 'No Private Note Available!';
-							} else {
-								echo $result->p_private_note;
-							}
-							?>
-						</div>
+							echo 'No Private Note Available!';
+						} else {
+							echo $result->p_private_note;
+						}
+						?>
 					</div>
 				</div>
 			</div>
 		</div>
-		</section>
+	</div>
+	</section>
