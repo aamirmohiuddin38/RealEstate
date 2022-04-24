@@ -390,8 +390,16 @@ class Property extends CI_Controller
             "img_p_id"        => $this->input->post('property_title'),
           ];
         } else {
-          $this->session->set_flashdata('failure', 'Image File Format Not Supported');
-          redirect('index.php/admin/property/property_image');
+          $data2 = $this->upload->data();
+          if ($data2['file_ext'] == '.jpg' || $data2['file_ext'] == '.jpeg' || $data2['file_ext'] == '.png') {
+            if ($data2['file_size'] > 2048) {
+              $this->session->set_flashdata('failure', 'Image Size Must be Less than 2MB');
+              redirect('index.php/admin/property/property_image');
+            }
+          } else {
+            $this->session->set_flashdata('failure', 'Image Format Not Supported Try Again!');
+            redirect('index.php/admin/property/property_image');
+          }
         }
 
         if ($this->property_model->upload_images($postData)) {
