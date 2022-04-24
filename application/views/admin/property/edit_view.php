@@ -412,7 +412,7 @@
 				<!-- Private Note -->
 				<div class="card">
 					<div class="card-header bg-success">
-						<h3 class="card-title"> Property Setting</h3>
+						<h3 class="card-title"> Private Note</h3>
 						<div class="card-tools">
 							<!-- <span title="3 New Messages" class="badge badge-primary">3</span> -->
 							<button type="button" class="btn btn-tool" data-card-widget="collapse">

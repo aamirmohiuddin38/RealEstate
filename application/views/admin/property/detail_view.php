@@ -99,7 +99,7 @@
 							foreach ($images as $value) {
 								$path = base_url() . $value['img_file_path'];
 								if ($i == 1) {
-									echo 'hello'
+
 							?>
 									<div class="carousel-item active">
 										<img src="<?php echo $path; ?>" class="d-block w-100" alt="property image">
@@ -107,7 +107,7 @@
 
 								<?php $i--;
 								} else {
-									echo "hello"; ?>
+								?>
 
 									<div class="carousel-item">
 										<img src="<?php echo $path; ?>" class="d-block w-100" alt="property image">
