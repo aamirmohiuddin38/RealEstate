@@ -417,10 +417,10 @@ class Property extends CI_Controller
       $id = $_GET['id'];
       // echo $id;
       if ($this->property_model->img_delete($id)) {
-        $this->session->set_flashdata('success', 'Record Deleted');
+        $this->session->set_flashdata('success', 'Image Deleted');
         redirect('index.php/admin/property/image_list');
       } else {
-        $this->session->set_flashdata('failure', 'Record Not Deleted');
+        $this->session->set_flashdata('failure', 'Image Not Deleted');
         redirect('index.php/admin/property/image_list');
       }
     }
