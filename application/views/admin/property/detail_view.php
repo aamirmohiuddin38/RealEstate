@@ -30,9 +30,30 @@
 				</div>
 				<div class="d-flex ml-3 justify-content-between">
 					<div class="d-flex">
-						<h5><span class="badge badge-primary mr-2">Featured</span></h5>
-						<h5><span class="badge badge-danger mr-2">Hot Offer</span></h5>
-						<h5><span class="badge badge-success mr-2">For Sale</span></h5>
+						<?php
+						foreach ($status as $value) {
+							if ($value['status_id'] == $result->p_status) {
+						?>
+								<h5><span class="badge badge-primary mr-2"><?php echo $value['status_name'] ?></span></h5>
+						<?php	}
+						}
+						?>
+						<?php
+						foreach ($type as $value) {
+							if ($value['type_id'] == $result->p_type) {
+						?>
+								<h5><span class="badge badge-danger mr-2"><?php echo $value['type_name'] ?></span></h5>
+						<?php	}
+						}
+						?>
+						<?php
+						foreach ($label as $value) {
+							if ($value['label_id'] == $result->p_label) {
+						?>
+								<h5><span class="badge badge-success mr-2"><?php echo $value['label_name'] ?></span></h5>
+						<?php	}
+						}
+						?>
 					</div>
 
 					<div class="mr-4">
