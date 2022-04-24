@@ -62,28 +62,7 @@
                                                 </li>
                                                 <!-- <li class="item-sub-price">$3,700/sq ft</li> -->
                                               </ul>
-                                              <?php /*
-                                              <ul class="item-tools">
-
-                                                <li class="item-tool item-preview">
-                                                  <span class="hz-show-lightbox-js" data-listid="282" data-toggle="tooltip" data-placement="top" title="Preview">
-                                                    <i class="houzez-icon icon-expand-3"></i>
-                                                  </span><!-- item-tool-favorite -->
-                                                </li><!-- item-tool -->
-
-                                                <li class="item-tool item-favorite">
-                                                  <span class="add-favorite-js item-tool-favorite" data-toggle="tooltip" data-placement="top" title="Favourite" data-listid="282">
-                                                    <i class="houzez-icon icon-love-it "></i>
-                                                  </span><!-- item-tool-favorite -->
-                                                </li><!-- item-tool -->
-
-                                                <li class="item-tool item-compare">
-                                                  <span class="houzez_compare compare-282 item-tool-compare show-compare-panel" data-toggle="tooltip" data-placement="top" title="Add to Compare" data-listing_id="282">
-                                                    <i class="houzez-icon icon-add-circle"></i>
-                                                  </span><!-- item-tool-compare -->
-                                                </li><!-- item-tool -->
-                                              </ul><!-- item-tools -->
-                                              */ ?>
+            
                                               <div class="listing-image-wrap">
                                                 <div class="listing-thumb">
                                                   <a href="<?php echo base_url('index.php/houzez/property/' . $property->p_id) ?>" class="listing-featured-thumb hover-effect">

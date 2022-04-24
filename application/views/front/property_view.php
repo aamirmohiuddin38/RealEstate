@@ -128,17 +128,6 @@
                     </a>
                   </li>
 
-                  <!-- <li class="nav-item">
-                    <a class="nav-link " id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map" aria-selected="true">
-                      <i class="houzez-icon icon-maps"></i>
-                    </a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link " id="pills-street-view-tab" data-toggle="pill" href="#pills-street-view" role="tab" aria-controls="pills-street-view" aria-selected="false">
-                      <i class="houzez-icon icon-location-user"></i>
-                    </a>
-                  </li> -->
                 </ul><!-- nav -->
                 <ul class="item-tools">
 
@@ -299,8 +288,7 @@
             <div class="block-wrap">
               <div class="block-title-wrap d-flex justify-content-between align-items-center">
                 <h2>Details</h2>
-                <span class="small-text grey"><i class="houzez-icon icon-calendar-3 mr-1"></i> Updated on April 4,
-                  2020 at 5:19 pm</span>
+                <span class="small-text grey"><i class="houzez-icon icon-calendar-3 mr-1"></i> Created On <?php echo $property->p_doc; ?></span>
               </div><!-- block-title-wrap -->
               <div class="block-content-wrap">
                 <div class="detail-wrap">
