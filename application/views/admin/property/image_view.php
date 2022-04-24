@@ -1,3 +1,7 @@
+<style>
+    .badge-danger{background-color: transparent; color:red;}
+    .badge-danger p{font-size:10px;}
+  </style>
 <!-- !-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
