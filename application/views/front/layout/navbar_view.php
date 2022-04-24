@@ -183,7 +183,7 @@
                 <ul class="login-register-nav">
 
                   <li class="login-link">
-                    <a href="<?php echo base_url('index.php/login'); ?>" ddata-toggle="modal" data-target="#login-register-form">Login</a>
+                    <a href="<?php echo base_url('index.php/login/logout'); ?>" ddata-toggle="modal" data-target="#login-register-form">Logout</a>
                   </li>
                   <!--<li class="register-link">
                     <a href="#" data-toggle="modal" data-target="#login-register-form">Register</a>
