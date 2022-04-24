@@ -9,6 +9,10 @@
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/'); ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/'); ?>dist/css/adminlte.min.css">
+  <style>
+    .badge-danger{background-color: transparent; color:red;}
+    .badge-danger p{font-size:10px;}
+  </style>
 </head>
 
 <body style="background-color:#EDE6DB;">
