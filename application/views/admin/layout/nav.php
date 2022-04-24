@@ -6,7 +6,7 @@
        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
      </li>
      <li class="nav-item d-sm-inline-block">
-       <a href="../../index3.html" class="nav-link"><strong>Home</strong></a>
+       <a href="<?php echo base_url('index.php/admin/home'); ?>" class="nav-link"><strong>Home</strong></a>
      </li>
      <li class="nav-item d-sm-inline-block">
        <a href="<?php echo base_url('index.php/login/logout'); ?>" class="nav-link"><strong>Logout</strong></a>
