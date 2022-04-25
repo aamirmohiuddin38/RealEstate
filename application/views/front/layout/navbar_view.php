@@ -105,7 +105,7 @@
                     <ul class="list-inline">
 
                       <li class="list-inline-item">
-                        <a target="_blank" class="btn-square btn-facebook" href="https://www.facebook.com/Al-Azhar-Group-2010907719024865">
+                        <a target="_blank" class="btn-square btn-facebook" href="#">
                           <i class="houzez-icon icon-social-media-facebook"></i>
                         </a>
                       </li><!-- .facebook -->
@@ -120,7 +120,7 @@
 
 
                       <li class="list-inline-item">
-                        <a target="_blank" class="btn-square btn-instagram" href="https://www.instagram.com/hyunkunun/">
+                        <a target="_blank" class="btn-square btn-instagram" href="#">
                           <i class="houzez-icon icon-social-instagram"></i>
                         </a>
                       </li><!-- .instagram -->
