@@ -123,6 +123,9 @@ class Houzez extends CI_Controller
 
 	public function index()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		// redirect('houzez/grid_default');
 		$this->load_common_data();
 		$this->load_get_data();
@@ -144,6 +147,9 @@ class Houzez extends CI_Controller
 
 	function search_results()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$this->load_common_data();
 
 		$this->load_get_data();
@@ -179,6 +185,9 @@ class Houzez extends CI_Controller
 
 	public function grid_default()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		// $this->load_common_data();
 
 		// $this->load_get_data();
@@ -207,7 +216,7 @@ class Houzez extends CI_Controller
 		// show($arrintFinalPropertyIds);
 		// $this->data['property_images'] = rekeyArray('pi_p_id', $this->p_model->read_images_by_property_ids($arrintFinalPropertyIds), false, false);
 		// $this->data['total_property'] = $this->p_config['total_rows'];
-		
+
 
 		$this->data['properties'] = $this->p_model->read();
 		// ddisplay($this->data['properties']);
@@ -219,6 +228,9 @@ class Houzez extends CI_Controller
 
 	public function grid_full_width()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$data['body_class'] = "";
 		$data['content'] = "<h1>Grid Full Width</h1>";
 		$data['content'] = $this->load->view('front/grid_full_width_view', $data, true);
@@ -227,6 +239,9 @@ class Houzez extends CI_Controller
 
 	public function grid_full_width_2_cols()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$data['body_class'] = "";
 		$data['content'] = "<h1>Grid Full Width 2 Cols</h1>";
 		$data['content'] = $this->load->view('front/grid_full_width_2_cols_view', $data, true);
@@ -235,6 +250,9 @@ class Houzez extends CI_Controller
 
 	public function grid_full_width_4_cols()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$data['body_class'] = "";
 		$data['content'] = "<h1>Grid Full Width 4 Cols</h1>";
 		$data['content'] = $this->load->view('front/grid_full_width_4_cols_view', $data, true);
@@ -243,6 +261,9 @@ class Houzez extends CI_Controller
 
 	public function property($property_id = null)
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		if (empty($property_id) || null == $property_id) {
 			$redirectTo =  $this->agent->referrer();
 			redirect(!empty($redirectTo) ? $redirectTo : 'houzez/index');
@@ -273,6 +294,9 @@ class Houzez extends CI_Controller
 
 	public function services()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$data['body_class'] = "";
 		$data['content'] = "<h1>Services</h1>";
 		$data['content'] = $this->load->view('front/services_view', $data, true);
@@ -281,6 +305,9 @@ class Houzez extends CI_Controller
 
 	public function contactus()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		// $data['captcha'] = _generateCaptcha($this);
 		$data['body_class'] = "";
 		$data['content'] = $this->load->view('front/contactus', $data, true);
@@ -289,6 +316,9 @@ class Houzez extends CI_Controller
 
 	public function save_message()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$this->form_validation->set_rules('first_name', display('first_name'), 'required|max_length[50]');
 		$this->form_validation->set_rules('last_name', display('last_name'), 'required|max_length[50]');
 		$this->form_validation->set_rules('email', display('email'), 'required|valid_email');
@@ -326,6 +356,9 @@ class Houzez extends CI_Controller
 
 	public function aboutus()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$data['body_class'] = "";
 		$data['content'] = "<h1>Aboutus</h1>";
 		$data['content'] = $this->load->view('front/aboutus', $data, true);
@@ -340,6 +373,9 @@ class Houzez extends CI_Controller
 
 	public function get_city()
 	{
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		}
 		$state_id = $this->input->post('state_id');
 		$state_name = $this->input->post('state_name');
 		return  $this->address_model->read_city_state_as_list_ajax($state_id, true, str_replace(' ', '_', $state_name), $state_name);
