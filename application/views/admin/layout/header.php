@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin | Dashboard</title>
   <!-- favicon -->
-  <link rel="shortcut icon" href="<?php echo base_url('./assets/images/favicon.ico'); ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo base_url() . $setting->favicon; ?>" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

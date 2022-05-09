@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2022 at 08:09 PM
+-- Generation Time: May 09, 2022 at 01:46 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -96718,52 +96718,6 @@ INSERT INTO `cities` (`city_id`, `city_name`, `state_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contactus`
---
-
-CREATE TABLE `contactus` (
-  `f_id` int(11) NOT NULL,
-  `f_name` varchar(30) NOT NULL,
-  `f_email` varchar(50) NOT NULL,
-  `f_phone` varchar(15) NOT NULL,
-  `f_subject` varchar(100) NOT NULL,
-  `f_message` text NOT NULL,
-  `f_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `f_read` tinyint(1) NOT NULL DEFAULT 0,
-  `f_status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contactus`
---
-
-INSERT INTO `contactus` (`f_id`, `f_name`, `f_email`, `f_phone`, `f_subject`, `f_message`, `f_date`, `f_read`, `f_status`) VALUES
-(22, 'MOSFER', 'mosfer@gmail.com', '', '', 'Tesyujj', '2021-09-03 19:51:48', 1, 1),
-(23, 'Kerri Walker', 'walker8294@gmail.com', '', '', 'It looks like you\'ve misspelled the word \"elit\" on your website.  I thought you would like to know :).  Silly mistakes can ruin your site\'s credibility.  I\'ve used a tool called SpellScan.com in the past to keep mistakes off of my website.\r\n\r\n-Kerri', '2021-09-04 09:24:42', 1, 1),
-(24, 'Aamir', 'eraamirsofi@gmail.com', '+917006939', 'zxczx', 'xzcxzc', '2021-12-05 18:12:47', 1, 1),
-(25, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939', 'Hey Fasil, Give me details of property XYZ', 'Please provide me more details about the property XYZ.', '2021-12-06 21:12:37', 1, 1),
-(26, 'Aamir Bashir', 'eraamirsofi@gmail.com', '7006939042', 'Hey Fasil, Give me details of property XYZ', 'xsdsfsdfsd', '2021-12-26 18:12:41', 1, 1),
-(27, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', '', 'Hello, I am interested in [Renovated apartment at last floor]', '2022-01-08 20:01:53', 1, 1),
-(28, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'cxvxcvxcvxc', 'xcvxcvxvxc', '2022-01-08 20:01:18', 1, 1),
-(29, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'dsfsdf', 'Hello, I am interested in [Renovated apartment at last floor]', '2022-01-08 20:01:28', 1, 1),
-(30, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', '', 'Hello, I am interested in [<a href=\"http://localhost/hyunkununfinal/admin/property/view/59\"></a>Property Title Updated1</a>]', '2022-01-09 12:01:33', 1, 1),
-(31, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'fdsfsd', 'Hello, I am interested in [<a href=\"http://localhost/hyunkununfinal/admin/property/view/59\">Property Title Updated1</a>]', '2022-01-09 12:01:15', 1, 1),
-(32, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'Hey Fasil, Give me details of property XYZ', 'Hello, I am interested in [Property Title Updated1]', '2022-01-09 13:01:50', 1, 1),
-(22, 'MOSFER', 'mosfer@gmail.com', '', '', 'Tesyujj', '2021-09-03 19:51:48', 1, 1),
-(23, 'Kerri Walker', 'walker8294@gmail.com', '', '', 'It looks like you\'ve misspelled the word \"elit\" on your website.  I thought you would like to know :).  Silly mistakes can ruin your site\'s credibility.  I\'ve used a tool called SpellScan.com in the past to keep mistakes off of my website.\r\n\r\n-Kerri', '2021-09-04 09:24:42', 1, 1),
-(24, 'Aamir', 'eraamirsofi@gmail.com', '+917006939', 'zxczx', 'xzcxzc', '2021-12-05 18:12:47', 1, 1),
-(25, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939', 'Hey Fasil, Give me details of property XYZ', 'Please provide me more details about the property XYZ.', '2021-12-06 21:12:37', 1, 1),
-(26, 'Aamir Bashir', 'eraamirsofi@gmail.com', '7006939042', 'Hey Fasil, Give me details of property XYZ', 'xsdsfsdfsd', '2021-12-26 18:12:41', 1, 1),
-(27, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', '', 'Hello, I am interested in [Renovated apartment at last floor]', '2022-01-08 20:01:53', 1, 1),
-(28, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'cxvxcvxcvxc', 'xcvxcvxvxc', '2022-01-08 20:01:18', 1, 1),
-(29, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'dsfsdf', 'Hello, I am interested in [Renovated apartment at last floor]', '2022-01-08 20:01:28', 1, 1),
-(30, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', '', 'Hello, I am interested in [<a href=\"http://localhost/hyunkununfinal/admin/property/view/59\"></a>Property Title Updated1</a>]', '2022-01-09 12:01:33', 1, 1),
-(31, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'fdsfsd', 'Hello, I am interested in [<a href=\"http://localhost/hyunkununfinal/admin/property/view/59\">Property Title Updated1</a>]', '2022-01-09 12:01:15', 1, 1),
-(32, 'Aamir Bashir', 'eraamirsofi@gmail.com', '+917006939042', 'Hey Fasil, Give me details of property XYZ', 'Hello, I am interested in [Property Title Updated1]', '2022-01-09 13:01:50', 1, 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `countries`
 --
 
@@ -97427,7 +97381,8 @@ INSERT INTO `property_images_tbl` (`img_id`, `img_p_id`, `img_title`, `img_file_
 (58, 24, 'Kitchen', 'uploads/images/kitchen khib.jpg', '2022-04-24 17:18:53', NULL, 1),
 (59, 25, 'Studio1', 'uploads/images/studio.jpeg', '2022-04-24 17:31:05', NULL, 1),
 (60, 25, 'Studio2', 'uploads/images/Studio2.jpg', '2022-04-24 17:31:19', NULL, 1),
-(61, 25, 'Studio3', 'uploads/images/studio3.jpg', '2022-04-24 17:31:33', NULL, 1);
+(61, 25, 'Studio3', 'uploads/images/studio3.jpg', '2022-04-24 17:31:33', NULL, 1),
+(62, 26, 'Property', 'uploads/images/studio31.jpg', '2022-04-26 11:37:29', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -97513,8 +97468,7 @@ CREATE TABLE `property_tbl` (
 INSERT INTO `property_tbl` (`p_id`, `p_title`, `p_content`, `p_type`, `p_label`, `p_status`, `p_country`, `p_state`, `p_city`, `p_address`, `p_postal_code`, `p_bathrooms`, `p_bedrooms`, `p_area`, `p_area_unit`, `p_land`, `p_land_unit`, `p_garage`, `p_garages_unit`, `p_year`, `p_price`, `p_front_facing`, `p_private_note`, `p_doc`, `p_dou`) VALUES
 (21, 'David\'s Villa', 'This 3 Bedroom W/ 2 Full Bathroom Ranch Home Is Immaculate & Full Of Upgrades! Enjoy The Open Floor Plan W/ Vaulted 15ft Ceilings & Large Windows Throughout. The Beautiful Kitchen Is The Heart Of The Home Complete With Large Customized Granite Island & Stainless Steel Appliances. Updated Lighting Throughout The Entire Home. Fully Updated Guest Bathroom And Laundry Room. This Floorplan Includes 2′ Extension On Every Side Increasing The Square Footage, Large Extended Patio For Entertaining Right Off The Dining Area. The Large Master Bedroom W/ Large Garden Tub, Double Sinks & Huge Walk-In Closet. Enjoy The Fully Fenced Backyard Perfect For Kids & Pets. The 2.5 Car Extended Garage Allows Room For Extra Storage Or Work Area.', '7', '1', '2', 101, 15, 1341, 'Lal chowk', 190001, 7, 3, 1400, 'sqft', 2, 'kanals', 1, '300', 2015, '29999999', 2, '                                                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.                                                      ', '2022-04-18 11:00:24', '0000-00-00 00:00:00'),
 (22, 'Ashiyana', 'Interested to sell independent house/villa.Placed at iram colony.Nice unfurnished enhancing decorit has spacious 6 bedrooms and 3 bathrooms. .Want to sell it for rs 8500000.It is a 5-10 years old property construction,2 guest room available, 3 two wheeler parking available', '5', '1', '1', 101, 15, 1291, 'Chadoora', 191113, 6, 3, 1600, 'sqft', 3, 'kanals', 1, '500', 2015, '20000', 8, 'survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2022-04-19 04:40:35', '0000-00-00 00:00:00'),
-(24, 'Khibana Mansion', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', '4', '1', '2', 101, 15, 1341, 'Baghat', 190001, 6, 4, 2000, 'sqft', 2, 'kanals', 1, '400', 2010, '15999999', 7, '                                    ', '2022-04-24 17:10:46', '0000-00-00 00:00:00'),
-(25, 'Design studio by Harris', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', '6', '1', '2', 101, 15, 1341, 'Qamarwari', 190066, 1, 0, 600, 'sqft', 600, 'sqft', 0, '0', 2020, '10000000', 6, '                                    ', '2022-04-24 17:30:37', '0000-00-00 00:00:00');
+(24, 'Khibana Mansion', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', '4', '1', '2', 101, 15, 1341, 'Baghat', 190001, 6, 4, 2000, 'sqft', 2, 'kanals', 1, '400', 2010, '15999999', 7, '                                    ', '2022-04-24 17:10:46', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -97556,17 +97510,16 @@ CREATE TABLE `setting` (
   `phone` varchar(20) DEFAULT NULL,
   `logo` varchar(50) DEFAULT NULL,
   `favicon` varchar(100) DEFAULT NULL,
-  `language` varchar(100) DEFAULT NULL,
-  `site_align` varchar(50) DEFAULT NULL,
-  `footer_text` varchar(255) DEFAULT NULL
+  `footer_text_left` varchar(100) DEFAULT NULL,
+  `footer_text_right` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `setting`
 --
 
-INSERT INTO `setting` (`setting_id`, `title`, `description`, `email`, `phone`, `logo`, `favicon`, `language`, `site_align`, `footer_text`) VALUES
-(1, 'Check My Property', 'Bagi Mehtab Srinagar', 'hyunkunun@gmail.com', '7006382025', 'uploads/logo/mainlogo.png', 'uploads/site/logo/2021-08-30/favicon.png', 'english', NULL, '©2021 HYUN KUNUN');
+INSERT INTO `setting` (`setting_id`, `title`, `description`, `email`, `phone`, `logo`, `favicon`, `footer_text_left`, `footer_text_right`) VALUES
+(1, 'HomeSphere', 'Bagi Mehtab Srinagar', 'HomeSphere@gmail.com', '7006382025', 'uploads/images/studio31.jpg', 'uploads/images/Studio21.jpg', 'Copyright © 2021-2022 HomeSphere. All Rights Reserved', 'CS Dept University Of Kashmir');
 
 -- --------------------------------------------------------
 
@@ -101811,13 +101764,13 @@ ALTER TABLE `property_documents_tbl`
 -- AUTO_INCREMENT for table `property_images_tbl`
 --
 ALTER TABLE `property_images_tbl`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `property_tbl`
 --
 ALTER TABLE `property_tbl`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `setting`
