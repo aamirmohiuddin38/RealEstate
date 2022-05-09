@@ -405,29 +405,42 @@ class Property extends CI_Controller
   }
   public function app_setting_data()
   {
+    $setting_data = $this->property_model->app_setting();
+    $config = [
+      'upload_path'   => './assets/images',
+      'allowed_types' => 'jpg|jpeg|png|ico',
+      'max_size'      => '2048'
+
+    ];
+    $this->load->library('upload', $config);
+    if ($this->upload->do_upload('logo')) {
+      $data = $this->upload->data();
+      $logo_path = "uploads/images/" . $data['raw_name'] . $data['file_ext'];
+    } else {
+      $logo_path = $setting_data->logo;
+    }
+    if ($this->upload->do_upload('favicon')) {
+      $data = $this->upload->data();
+      $favicon_path = "uploads/images/" . $data['raw_name'] . $data['file_ext'];
+    } else {
+      $favicon_path = $setting_data->favicon;
+    }
     $data = (array)[
       'title' => $this->input->post('title'),
-      'decription' => $this->input->post('address'),
+      'description' => $this->input->post('address'),
       'email' => $this->input->post('email'),
       'phone' => $this->input->post('phone'),
-      // 'logo' => $this->input->post('favicon'),
-      // 'favicon' => $this->input->post('logo'),
+      'logo' => $logo_path,
+      'favicon' => $favicon_path,
       'footer_text' => $this->input->post('f_text'),
       'language' => $this->input->post('language'),
     ];
     if ($this->property_model->update_app_setting($data)) {
-      $this->session->set_flashdata('success', 'Settiing Upadted');
+      $this->session->set_flashdata('success', 'Setting Updted');
       redirect('index.php/admin/property/app_setting');
     } else {
-      $this->session->set_flashdata('failure', 'Settiing Not Upadted Try Again!!!!');
+      $this->session->set_flashdata('failure', 'Setting Not Updated Try Again!!!!');
       redirect('index.php/admin/property/app_setting');
     }
-    // $config = [
-    //   'upload_path'   => './uploads/docs/',
-    //   'allowed_types' => 'jpeg',
-    //   'max_size'   => '2048'
-    // ];
-    $this->load->library('upload');
-    $this->upload->do_upload('pd_file_path');
   }
 }

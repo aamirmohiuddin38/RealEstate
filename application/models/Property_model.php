@@ -138,5 +138,6 @@ class Property_model extends CI_Model
   }
   public function update_app_setting($data)
   {
+    return $this->db->update('setting', $data);
   }
 }

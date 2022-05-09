@@ -1,10 +1,3 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-//get site_align setting
-$settings = $this->db->select("*,site_align")
-	->get('setting')
-	->row();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
