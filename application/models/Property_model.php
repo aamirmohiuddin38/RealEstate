@@ -136,4 +136,7 @@ class Property_model extends CI_Model
   {
     return $this->db->select('*')->from('setting')->get()->row();
   }
+  public function update_app_setting($data)
+  {
+  }
 }

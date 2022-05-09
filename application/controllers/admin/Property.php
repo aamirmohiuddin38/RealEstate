@@ -403,4 +403,25 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/app_setting', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
+  public function app_setting_data()
+  {
+    $data = (array)[
+      'title' => $this->input->post('title'),
+      'decription' => $this->input->post('address'),
+      'email' => $this->input->post('email'),
+      'phone' => $this->input->post('phone'),
+      'logo' => $this->input->post('favicon'),
+      'description' => $this->input->post('language'),
+      'favicon' => $this->input->post('logo'),
+      'language' => $this->input->post('language'),
+      'description' => $this->input->post('language'),
+    ];
+    if ($this->property_model->update_app_setting($data)) {
+      $this->session->set_flashdata('success', 'Settiing Upadted');
+      redirect('index.php/admin/property/app_setting');
+    } else {
+      $this->session->set_flashdata('failure', 'Settiing Not Upadted Try Again!!!!');
+      redirect('index.php/admin/property/app_setting');
+    }
+  }
 }
