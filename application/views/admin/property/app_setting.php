@@ -44,21 +44,21 @@
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Title</label>
-            <input type="text" class="form-control" id="inputEmail3" name="title" value="<?php echo $setting_data->title; ?>">
+            <input type="text" class="form-control" id="inputEmail3" name="title" value="<?php echo $setting_data->title; ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputPassword3" class="">Address</label>
-            <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo $setting_data->description; ?>">
+            <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo $setting_data->description; ?>" required>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Email</label>
-            <input type="email" class="form-control" id="inputEmail3" name="email" value="<?php echo $setting_data->email; ?>">
+            <input type="email" class="form-control" id="inputEmail3" name="email" value="<?php echo $setting_data->email; ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputPassword3" class="">Phone No</label>
-            <input type="text" class="form-control" id="inputPassword3" name="phone" value="<?php echo $setting_data->phone; ?>">
+            <input type="text" class="form-control" id="inputPassword3" name="phone" value="<?php echo $setting_data->phone; ?>" required>
           </div>
         </div>
 
@@ -81,11 +81,11 @@
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Language</label>
-            <input type="text" class="form-control" id="inputEmail3" name="language" value="<?php echo $setting_data->language; ?>">
+            <input type="text" class="form-control" id="inputEmail3" name="language" value="<?php echo $setting_data->language; ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputPassword3" class="">Footer Text</label>
-            <input type="text" class="form-control" id="inputPassword3" value="<?php echo $setting_data->footer_text; ?>">
+            <input type="text" class="form-control" id="inputPassword3" name="f_text" value="<?php echo $setting_data->footer_text; ?>" required>
           </div>
         </div>
       </div>

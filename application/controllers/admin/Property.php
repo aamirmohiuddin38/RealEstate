@@ -410,11 +410,10 @@ class Property extends CI_Controller
       'decription' => $this->input->post('address'),
       'email' => $this->input->post('email'),
       'phone' => $this->input->post('phone'),
-      'logo' => $this->input->post('favicon'),
-      'description' => $this->input->post('language'),
-      'favicon' => $this->input->post('logo'),
+      // 'logo' => $this->input->post('favicon'),
+      // 'favicon' => $this->input->post('logo'),
+      'footer_text' => $this->input->post('f_text'),
       'language' => $this->input->post('language'),
-      'description' => $this->input->post('language'),
     ];
     if ($this->property_model->update_app_setting($data)) {
       $this->session->set_flashdata('success', 'Settiing Upadted');
@@ -423,5 +422,12 @@ class Property extends CI_Controller
       $this->session->set_flashdata('failure', 'Settiing Not Upadted Try Again!!!!');
       redirect('index.php/admin/property/app_setting');
     }
+    // $config = [
+    //   'upload_path'   => './uploads/docs/',
+    //   'allowed_types' => 'jpeg',
+    //   'max_size'   => '2048'
+    // ];
+    $this->load->library('upload');
+    $this->upload->do_upload('pd_file_path');
   }
 }
