@@ -132,4 +132,8 @@ class Property_model extends CI_Model
     $this->db->where('img_id', $id);
     return $this->db->delete('property_images_tbl');
   }
+  public function app_setting()
+  {
+    return $this->db->select('*')->from('setting')->get()->row();
+  }
 }

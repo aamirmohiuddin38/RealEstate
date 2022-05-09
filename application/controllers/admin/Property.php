@@ -398,7 +398,9 @@ class Property extends CI_Controller
   }
   public function app_setting()
   {
-    $data['content'] = $this->load->view('admin/property/app_setting', '', true);
+    $data = [];
+    $data['setting_data'] = $this->property_model->app_setting();
+    $data['content'] = $this->load->view('admin/property/app_setting', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
 }
