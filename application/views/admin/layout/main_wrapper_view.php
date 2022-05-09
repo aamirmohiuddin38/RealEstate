@@ -9,4 +9,4 @@
 </section>
 <!-- /.content -->
 </div>
-<?php $this->load->view('admin/layout/footer'); ?>
+<?php $this->load->view('admin/layout/footer', $setting); ?>

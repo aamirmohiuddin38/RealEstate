@@ -20,6 +20,7 @@ class Home extends CI_Controller
 	public function index()
 	{
 		$temp['value'] = $this->property_model->read();
+		$temp['setting'] = $this->property_model->app_setting();
 		$temp['content'] = $this->load->view('admin/home_view', $temp, true);
 		$this->load->view('admin/layout/main_wrapper_view', $temp);
 	}

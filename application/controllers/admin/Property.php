@@ -22,6 +22,7 @@ class Property extends CI_Controller
   public function index()
   {
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['status'] = $this->property_model->getStatus();
     $data['type'] = $this->property_model->getType();
     $data['label'] = $this->property_model->getLabel();
@@ -53,6 +54,7 @@ class Property extends CI_Controller
   public function list()
   {
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['properties'] = $this->property_model->read();
     $data['status'] = $this->property_model->getStatus();
     $data['type'] = $this->property_model->getType();
@@ -127,6 +129,7 @@ class Property extends CI_Controller
   public function detail()
   {
     $id = $_GET['id'];
+    $data['setting'] = $this->property_model->app_setting();
     $data['result'] = $this->property_model->get($id);
     $data['images'] = $this->property_model->img_list($id);
     $data['country'] = $this->Common_model->getCountryName($data['result']->p_country);
@@ -145,6 +148,7 @@ class Property extends CI_Controller
 
     $id = $_GET['id'];
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['result'] = $this->property_model->get($id);
     $data['States'] = $this->property_model->getStatesOfCountry($data['result']->p_country);
     $data['country'] = $this->Common_model->getCountryName($data['result']->p_country);
@@ -234,6 +238,7 @@ class Property extends CI_Controller
   public function property_document()
   {
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['type'] = $this->property_model->getProperties();
     $data['list'] = '';
     $data['content'] = $this->load->view('admin/property/document_view', $data, true);
@@ -307,6 +312,7 @@ class Property extends CI_Controller
   {
     $title = $this->input->post('pty_type');
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['type'] = $this->property_model->getProperties();
     $data['list'] = $this->property_model->doc_list($title);
     $data['content'] = $this->load->view('admin/property/document_view', $data, true);
@@ -317,6 +323,7 @@ class Property extends CI_Controller
   public function property_image()
   {
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['type'] = $this->property_model->getProperties();
     $data['content'] = $this->load->view('admin/property/image_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
@@ -373,6 +380,7 @@ class Property extends CI_Controller
   {
     $title = $this->input->post('pty_type');
     $data = [];
+    $data['setting'] = $this->property_model->app_setting();
     $data['type'] = $this->property_model->getProperties();
     $data['list'] = $this->property_model->img_list($title);
     $data['content'] = $this->load->view('admin/property/image_view', $data, true);
@@ -399,7 +407,7 @@ class Property extends CI_Controller
   public function app_setting()
   {
     $data = [];
-    $data['setting_data'] = $this->property_model->app_setting();
+    $data['setting'] = $this->property_model->app_setting();
     $data['content'] = $this->load->view('admin/property/app_setting', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }

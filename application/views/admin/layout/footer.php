@@ -1,7 +1,8 @@
 <!-- /.content-wrapper -->
+<!-- <? //php print_r($setting); 
+      ?> -->
 <footer class="main-footer">
-  <strong>Copyright &copy; 2021-2022 <a href="#">HomeSphere</a>.</strong>
-  All rights reserved.
+  <strong><?php echo $setting->footer_text ?></strong>
   <div class="float-right d-none d-sm-inline-block">
     <b>CS Dept </b>University Of Kashmir
   </div>

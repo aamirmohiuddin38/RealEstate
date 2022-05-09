@@ -44,34 +44,34 @@
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Title</label>
-            <input type="text" class="form-control" id="inputEmail3" name="title" value="<?php echo $setting_data->title; ?>" required>
+            <input type="text" class="form-control" id="inputEmail3" name="title" value="<?php echo $setting->title; ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputPassword3" class="">Address</label>
-            <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo $setting_data->description; ?>" required>
+            <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo $setting->description; ?>" required>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Email</label>
-            <input type="email" class="form-control" id="inputEmail3" name="email" value="<?php echo $setting_data->email; ?>" required>
+            <input type="email" class="form-control" id="inputEmail3" name="email" value="<?php echo $setting->email; ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputPassword3" class="">Phone No</label>
-            <input type="text" class="form-control" id="inputPassword3" name="phone" value="<?php echo $setting_data->phone; ?>" required>
+            <input type="text" class="form-control" id="inputPassword3" name="phone" value="<?php echo $setting->phone; ?>" required>
           </div>
         </div>
 
         <div class="form-group row">
           <div class="col-md-6">
-            <img src="<?php echo base_url() . $setting_data->favicon; ?>" alt="favicon" style="height:40px;width:40px; border:1px solid green; border-radius:25%; padding:5px">
+            <img src="<?php echo base_url() . $setting->favicon; ?>" alt="favicon" style="height:40px;width:40px; border:1px solid green; border-radius:25%; padding:5px">
             <div class="custom-file mt-2">
               <input type="file" class="custom-file-input" id="validatedCustomFile" name="favicon">
               <label class="custom-file-label" for="validatedCustomFile">Choose favicon...</label>
             </div>
           </div>
           <div class="col-md-6">
-            <img src="<?php echo base_url() . $setting_data->logo; ?>" alt="logo" style="height:40px;width:40px; border:1px solid green;border-radius:25%; padding:5px">
+            <img src="<?php echo base_url() . $setting->logo; ?>" alt="logo" style="height:40px;width:40px; border:1px solid green;border-radius:25%; padding:5px">
             <div class="custom-file mt-2">
               <input type="file" class="custom-file-input" id="validatedCustomFile" name="logo">
               <label class="custom-file-label" for="validatedCustomFile">Choose logo...</label>
@@ -81,11 +81,11 @@
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Language</label>
-            <input type="text" class="form-control" id="inputEmail3" name="language" value="<?php echo $setting_data->language; ?>" required>
+            <input type="text" class="form-control" id="inputEmail3" name="language" value="<?php echo $setting->language; ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputPassword3" class="">Footer Text</label>
-            <input type="text" class="form-control" id="inputPassword3" name="f_text" value="<?php echo $setting_data->footer_text; ?>" required>
+            <input type="text" class="form-control" id="inputPassword3" name="f_text" value="<?php echo $setting->footer_text; ?>" required>
           </div>
         </div>
       </div>
