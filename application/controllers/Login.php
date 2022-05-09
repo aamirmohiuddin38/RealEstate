@@ -10,7 +10,7 @@ class Login extends CI_Controller
 
 		$this->load->model(array(
 
-			'login_model',
+			'login_model', 'property_model'
 		));
 	}
 	public function index()
@@ -35,7 +35,7 @@ class Login extends CI_Controller
 			'user_role' => $this->input->post('user_role', true),
 		];
 		#-------------------------------#
-
+		$data['setting'] = $this->property_model->app_setting();
 		if ($this->form_validation->run() == true) {
 			$check_user = $this->login_model->check_user($postData);
 			if (!empty($check_user)) {
