@@ -6,6 +6,11 @@ class Home extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		if (!($this->session->userdata('isLogIn'))) {
+			redirect('index.php/login');
+		} elseif ($this->session->userdata('user_role') != 1) {
+			redirect('index.php/login');
+		}
 		$this->load->model('property_model');
 
 		$this->load->library('session');
@@ -14,12 +19,8 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
-		if (!($this->session->userdata('isLogIn')))
-			redirect('index.php/login');
-		else {
-			$temp['value'] = $this->property_model->read();
-			$temp['content'] = $this->load->view('admin/home_view', $temp, true);
-			$this->load->view('admin/layout/main_wrapper_view', $temp);
-		}
+		$temp['value'] = $this->property_model->read();
+		$temp['content'] = $this->load->view('admin/home_view', $temp, true);
+		$this->load->view('admin/layout/main_wrapper_view', $temp);
 	}
 }

@@ -38,7 +38,6 @@ class Login extends CI_Controller
 
 		if ($this->form_validation->run() == true) {
 			$check_user = $this->login_model->check_user($postData);
-
 			if (!empty($check_user)) {
 				// setting session 
 				$this->session->set_userdata([
@@ -46,7 +45,10 @@ class Login extends CI_Controller
 					'user_id'       => $check_user->user_id,
 					'email'         => $check_user->email,
 					'fullname'      => $check_user->username,
+					'user_role'     => $check_user->user_role,
 				]);
+				// print_r($this->session->userdata());
+				// die();
 				$this->user_redirect($postData['user_role']);
 				// can directy redirect here
 			} else {
