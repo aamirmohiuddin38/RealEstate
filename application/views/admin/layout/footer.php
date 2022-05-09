@@ -2,9 +2,9 @@
 <!-- <? //php print_r($setting); 
       ?> -->
 <footer class="main-footer">
-  <strong><?php echo $setting->footer_text ?></strong>
-  <div class="float-right d-none d-sm-inline-block">
-    <b>CS Dept </b>University Of Kashmir
+  <strong><?php echo $setting->footer_text_left; ?></strong>
+  <div class="float-right d-none d-sm-inline-block text-danger">
+    <b> <?php echo $setting->footer_text_right; ?></b>
   </div>
 </footer>
 

@@ -80,12 +80,12 @@
         </div>
         <div class="form-group row">
           <div class="col-md-6">
-            <label for="inputEmail3" class="">Language</label>
-            <input type="text" class="form-control" id="inputEmail3" name="language" value="<?php echo $setting->language; ?>" required>
+            <label for="inputEmail3" class="">Footer Text Left</label>
+            <input type="text" class="form-control" id="inputEmail3" name="l_text" value="<?php echo $setting->footer_text_left; ?>" required>
           </div>
           <div class="col-md-6">
-            <label for="inputPassword3" class="">Footer Text</label>
-            <input type="text" class="form-control" id="inputPassword3" name="f_text" value="<?php echo $setting->footer_text; ?>" required>
+            <label for="inputPassword3" class="">Footer Text Right</label>
+            <input type="text" class="form-control" id="inputPassword3" name="r_text" value="<?php echo $setting->footer_text_right; ?>" required>
           </div>
         </div>
       </div>

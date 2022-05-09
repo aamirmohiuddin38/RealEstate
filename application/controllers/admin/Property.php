@@ -440,8 +440,8 @@ class Property extends CI_Controller
       'phone' => $this->input->post('phone'),
       'logo' => $logo_path,
       'favicon' => $favicon_path,
-      'footer_text' => $this->input->post('f_text'),
-      'language' => $this->input->post('language'),
+      'footer_text_left' => $this->input->post('l_text'),
+      'footer_text_right' => $this->input->post('r_text'),
     ];
     if ($this->property_model->update_app_setting($data)) {
       $this->session->set_flashdata('success', 'Setting Updted');
