@@ -3,7 +3,7 @@
 	<div class="row upper-header">
 		<div class="logo-container-wrap">
 			<div class="logo-inner">
-				<img class="logo-img" src="Images/logomain.png" alt="logo not found"/>
+				<img class="logo-img" src="<?php echo base_url(); ?>front_assets/Images/logomain.png" alt="logo not found"/>
 			</div>
 		</div>
 

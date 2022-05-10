@@ -24,16 +24,16 @@
 	     	  	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							  <div class="carousel-inner">
 							    <div class="carousel-item active">
-							      <img class="d-block w-100" src="Images/Khibana_prop.jpg" alt="First slide">
+							      <img class="d-block w-100" src="<?php echo base_url(); ?>front_assets/Images/Khibana_prop.jpg" alt="First slide">
 							    </div>
 							    <div class="carousel-item">
-							      <img class="d-block w-100" src="Images/Khibana2.jpg" alt="Second slide">
+							      <img class="d-block w-100" src="<?php echo base_url(); ?>front_assets/Images/Khibana2.jpg" alt="Second slide">
 							    </div>
 							    <div class="carousel-item">
-							      <img class="d-block w-100" src="Images/khibana1.jpg" alt="Third slide">
+							      <img class="d-block w-100" src="<?php echo base_url(); ?>front_assets/Images/khibana1.jpg" alt="Third slide">
 							    </div>
 							    <div class="carousel-item">
-							      <img class="d-block w-100" src="Images/kitchen khib.jpg" alt="Fourth slide">
+							      <img class="d-block w-100" src="<?php echo base_url(); ?>front_assets/Images/kitchen khib.jpg" alt="Fourth slide">
 							    </div>
 							  </div>
 					  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -49,16 +49,16 @@
         <div class="gallery-wrap">
         	<div class="property-images-gallery">
         		<div class="prop-img-inner">
-        		    <img class="d-block" src="Images/Khibana_prop.jpg" alt="img not found">
+        		    <img class="d-block" src="<?php echo base_url(); ?>front_assets/Images/Khibana_prop.jpg" alt="img not found">
         	  </div>
         	  <div class="prop-img-inner">
-        		    <img class="d-block" src="Images/Khibana2.jpg" alt="img not found">
+        		    <img class="d-block" src="<?php echo base_url(); ?>front_assets/Images/Khibana2.jpg" alt="img not found">
         	  </div>
         	  <div class="prop-img-inner">
-        		    <img class="d-block" src="Images/khibana1.jpg" alt="img not found">
+        		    <img class="d-block" src="<?php echo base_url(); ?>front_assets/Images/khibana1.jpg" alt="img not found">
         	  </div>
         	  <div class="prop-img-inner">
-        		    <img class="d-block" src="Images/kitchen khib.jpg" alt="img not found">
+        		    <img class="d-block" src="<?php echo base_url(); ?>front_assets/Images/kitchen khib.jpg" alt="img not found">
         	  </div>
         	</div>
         </div>

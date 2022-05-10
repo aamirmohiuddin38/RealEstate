@@ -4,7 +4,7 @@
 ?>
 
 <!-- content START -->
-<?php echo (!empty($content) ? $content : null) ?>
+<?php  echo (!empty($content) ? $content : null) ?>
 <!-- Content END -->
 <?php $this->load->view("frontend/layout/footer_view");
 ?>
