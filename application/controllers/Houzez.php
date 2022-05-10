@@ -131,11 +131,7 @@ class Houzez extends CI_Controller
 		$this->data['slider_property'] = $this->p_model->get_slider_properties(20);
 		$this->data['sale_property'] = $this->p_model->read_sale_property(4);
 		// ddisplay($this->data['slider_property'] );
-		// $this->data['featured'] = $this->p_model->get_featured_properties();
-		//$this->data['services'] = $this->psr_model->read();
-		// // $this->data['featured'] = array_merge($this->data['featured'], $this->data['featured']);
 		$arrintSliderPropertyIds = valArr($this->data['slider_property']) ? array_keys(rekeyArray('p_id', $this->data['slider_property'])) : null;
-		// $arrintFeaturedPropertyIds = valArr($this->data['featured']) ? array_keys(rekeyArray('p_id', $this->data['featured'])) : null;
 		$arrintFinalPropertyIds = array_unique($arrintSliderPropertyIds);
 		$this->data['property_images'] = rekeyArray('img_p_id', $this->p_model->read_images_by_property_ids($arrintFinalPropertyIds), false, false);
 
@@ -149,10 +145,6 @@ class Houzez extends CI_Controller
 		$this->load_common_data();
 
 		$this->load_get_data();
-
-		// ddisplay($this->arrmixfilter);
-		// ddisplay($this->data['features']);
-		// ddisplay($this->data);
 
 		$data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$this->data['properties'] = $this->p_model->read_by_filter($this->per_page_count, $data['page'], $this->arrmixfilter);
