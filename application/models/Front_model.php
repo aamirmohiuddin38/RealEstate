@@ -2,10 +2,12 @@
 
 class Front_model extends CI_Model
 {
-    public function get_slider_properties(){
+    public function get_slider_properties()
+    {
         $this->db->select("
 			property_tbl.p_id,
             property_tbl.p_title,
+            property_tbl.p_content,
             property_type.type_name ,
             property_label.label_name ,
             property_status.status_name,
