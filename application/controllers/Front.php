@@ -20,4 +20,9 @@ class Front extends CI_Controller
         $data['content'] = $this->load->view('frontend/pages/about_view', '', true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
+    public function contactUs()
+    {
+        $data['content'] = $this->load->view('frontend/pages/contact_view', '', true);
+        $this->load->view('frontend/layout/main_wrapper', $data);
+    }
 }

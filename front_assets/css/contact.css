@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.image_contact{
+  height: 300px;
+  width: 100%;
+  object-fit:cover;
+}
+.head_text_contact {
+  color: #4612ca;
+  font-size: 2rem;
+  position: absolute;
+  left: 10%;
+  top: 40%;
+}
+.main-head {
+  font-size: x-large;
+  color: rgb(9, 158, 81);
+}
+.wrapper-left {
+  width:50%;
+  font-weight: bold;
+  margin-left: 5%;
+}
+.right{
+    padding: 10% 10% 10% 18%;
+}
