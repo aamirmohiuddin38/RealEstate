@@ -415,7 +415,7 @@ class Property extends CI_Controller
   {
     $setting_data = $this->property_model->app_setting();
     $config = [
-      'upload_path'   => './assets/images',
+      'upload_path'   => './assets/images/logo/',
       'allowed_types' => 'jpg|jpeg|png|ico',
       'max_size'      => '2048'
 
@@ -423,13 +423,13 @@ class Property extends CI_Controller
     $this->load->library('upload', $config);
     if ($this->upload->do_upload('logo')) {
       $data = $this->upload->data();
-      $logo_path = "uploads/images/" . $data['raw_name'] . $data['file_ext'];
+      $logo_path = "assets/images/logo/" . $data['raw_name'] . $data['file_ext'];
     } else {
       $logo_path = $setting_data->logo;
     }
     if ($this->upload->do_upload('favicon')) {
       $data = $this->upload->data();
-      $favicon_path = "uploads/images/" . $data['raw_name'] . $data['file_ext'];
+      $favicon_path = "assets/images/logo/" . $data['raw_name'] . $data['file_ext'];
     } else {
       $favicon_path = $setting_data->favicon;
     }

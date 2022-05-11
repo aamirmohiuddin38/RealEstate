@@ -1,4 +1,5 @@
 <!-- !-- Content Wrapper. Contains page content -->
+<?php echo base_url() . $setting->favicon; ?>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -91,7 +92,6 @@
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-info">Save</button>
-        <button type="reset" class="btn btn-default">Reset</button>
       </div>
 
     </form>
