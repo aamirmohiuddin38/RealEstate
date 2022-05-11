@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
     <div class="card h-100">
-      <img src="Images/resi_commerial.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+      <img src="<?php echo base_url(); ?>front_assets/Images/resi_commerial.jpg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
       <div class="card-body">
         <h5 class="card-title">Commercial or Residential land or Structure.</h5>
         <p class="card-text">
@@ -19,7 +19,7 @@
   </div>
   <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
     <div class="card h-100">
-      <img src="Images/architect_structure_design.jpg" class="card-img-top" alt="Palm Springs Road"/>
+      <img src="<?php echo base_url(); ?>front_assets/Images/architect_structure_design.jpg" class="card-img-top" alt="Palm Springs Road"/>
       <div class="card-body">
         <h5 class="card-title">Architectural and Structural designing.</h5>
         <p class="card-text">With our Innovative & Experienced team of designers, your quest for best and economical designs ends here.</p>
@@ -28,7 +28,7 @@
   </div>
   <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
     <div class="card h-100">
-      <img src="Images/land_measurement.jpg" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+      <img src="<?php echo base_url(); ?>front_assets/Images/land_measurement.jpg" class="card-img-top" alt="Los Angeles Skyscrapers"/>
       <div class="card-body">
         <h5 class="card-title">Precise land measurements.</h5>
         <p class="card-text">Our team is equipped with the best and latest machines to solve this need in the least possible time with an error possibility near to "ZERO".</p>
@@ -37,7 +37,7 @@
   </div>
   <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
     <div class="card h-100">
-      <img src="Images/contractor.jpg" class="card-img-top" alt="Skyscrapers"/>
+      <img src="<?php echo base_url(); ?>front_assets/Images/contractor.jpg" class="card-img-top" alt="Skyscrapers"/>
       <div class="card-body">
         <h5 class="card-title">Constructional & Interior / Exterior contracts. </h5>
         <p class="card-text">

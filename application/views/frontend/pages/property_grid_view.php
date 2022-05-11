@@ -1,9 +1,9 @@
 <!-- ******************** Grid Content ************************ -->
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
   <div class="col-lg-4 col-md-6 col-sm-12 card property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/cove.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>
@@ -35,7 +35,7 @@
 
   <div class="col-lg-4 col-md-6 col-sm-12 card property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/canopy.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/canopy.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>
@@ -67,7 +67,7 @@
 
   <div class="col-lg-4 col-md-6 col-sm-12 card property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/room.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/room.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>

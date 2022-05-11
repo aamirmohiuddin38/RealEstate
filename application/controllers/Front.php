@@ -12,7 +12,7 @@ class Front extends CI_Controller
 
     public function index()
     {
-        $data['content'] = $this->load->view('frontend/pages/property_view', '', true);
+        $data['content'] = $this->load->view('frontend/pageparts/property_sale_view', '', true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
     public function about()

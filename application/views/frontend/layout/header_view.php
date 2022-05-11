@@ -18,8 +18,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/slick-theme.css"> <!-- Slick-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/property.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/footer.css">
-  <!-- About Us -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/about.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/about.css"> <!-- About Us -->
   <script type='text/javascript' src="<?php echo base_url(); ?>front_assets/js/map.js"></script> <!-- Google Map JS -->
 </head>
 

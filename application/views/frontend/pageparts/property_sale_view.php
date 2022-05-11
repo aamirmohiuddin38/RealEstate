@@ -1,6 +1,6 @@
 <!-- ******************** Card Slider Content ************************ -->
 <div class="container">
-	<div class="sales-heading-wrap">
+	<div class="sales-heading-wrap mt-4">
 		<div class="sale-heading">
 			<h2> PROPERTIES FOR SALE </h2>
 			<p> Explore the hot properties on Sale </p>
@@ -10,7 +10,7 @@
 <div class="card-wrap slider">
 	<div class="card p-1 property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/cove.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>
@@ -42,7 +42,7 @@
 
   <div class="card p-1 property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/cove.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>
@@ -74,7 +74,7 @@
 
   <div class="card p-1 property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/cove.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>
@@ -106,7 +106,7 @@
 
   <div class="card p-1 property-grid-item">
   	<div class="card-image-and-tags">
-     <img class="card-img-top" src="Images/cove.jpg" alt="Card image cap">
+     <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
       <div class="property-tags">
       	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
       	<span class="type-tag">Property Type</span>
