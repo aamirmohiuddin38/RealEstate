@@ -4,7 +4,7 @@
 // echo "</pre>";
 ?>
 <!-- ******************** Card Slider Content ************************ -->
-<div class="container">
+<div class="container" id="propertysalesid">
    <div class="sales-heading-wrap mt-4">
       <div class="sale-heading">
          <h2> PROPERTIES FOR SALE </h2>
