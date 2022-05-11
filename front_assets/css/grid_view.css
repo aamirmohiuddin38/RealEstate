@@ -5,7 +5,7 @@
 .property-grid-item ul li{display: inline-block; padding: 0 8px;}
 .property-grid-item ul li.middle-item{border-left: 1px solid grey; border-right: 1px solid grey;}
 .property-grid-item p.amenities-name {margin-bottom: 0;}
-.property-grid-item .card-img-top{max-height: 17rem;}
+.property-grid-item .card-img-top{min-height: 17rem;}
 .property-grid-item  .card-image-and-tags { position: relative;}
 .property-grid-item .property-tags{font-size: 10px; text-transform: uppercase;}
 .property-grid-item span.price-tag {position: absolute; bottom: 5%;left: 5%; color: white; background: rgba(0,0,0,0.6); padding: 2px 7px;}
