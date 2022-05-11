@@ -29,7 +29,7 @@
               } ?>
               <div class="carousel-caption d-md-block">
                 <h5><?php echo $slider_p->p_title ?></h5>
-                <p><?php echo $slider_p->p_content ?></p>
+                <marquee width="100%" behavior="scroll" direction="up" scrollamount="1" height="40px"><?php echo $slider_p->p_content ?></marquee>
               </div>
               <div class="property-slider-item">
                 <div class="name-and-price">
@@ -74,7 +74,7 @@
               } ?>
               <div class="carousel-caption d-md-block">
                 <h5><?php echo $slider_p->p_title ?></h5>
-                <p><?php echo $slider_p->p_content ?></p>
+                <marquee width="100%" behavior="scroll" direction="up" scrollamount="1" height="40px"><?php echo $slider_p->p_content ?></marquee>
               </div>
               <div class="property-slider-item">
                 <div class="name-and-price">
