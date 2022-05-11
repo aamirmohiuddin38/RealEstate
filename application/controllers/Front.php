@@ -14,6 +14,7 @@ class Front extends CI_Controller
     public function index()
     {
         $data = [];
+        $data['slider_properties'] = $this->front_model->get_slider_properties();
         $data['property_sale'] = $this->front_model->property_sale();
         $data['content'] = $this->load->view('frontend/pages/home', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);

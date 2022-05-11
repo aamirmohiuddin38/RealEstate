@@ -1,3 +1,8 @@
+<?php
+// echo "<pre>";
+// echo print_r($slider_properties);
+// echo "</pre>";
+?>
 <!-- ********************** Property Slider Start *************************** -->
 <div class="carousel-slider-wrap">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
