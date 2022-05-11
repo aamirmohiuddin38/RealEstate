@@ -1,6 +1,6 @@
 <?php
 // echo "<pre>";
-// echo print_r($property_sale);
+// print_r($images);
 // echo "</pre>";
 ?>
 <!-- ******************** Card Slider Content ************************ -->
@@ -18,7 +18,13 @@
       ?>
             <div class="card p-1 property-grid-item">
                <div class="card-image-and-tags">
-                  <img class="card-img-top" src="<?php echo base_url(); ?>front_assets/Images/cove.jpg" alt="Card image cap">
+                  <?php
+                  foreach ($images as $img) {
+                     if ($img['img_p_id'] == $property->p_id) { ?>
+                        <img class="card-img-top" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="Card image cap">
+                  <?php break;
+                     }
+                  } ?>
                   <div class="property-tags">
                      <span class="price-tag">₹&nbsp; <?php echo $property->p_price ?> </span>
                      <span class="type-tag"><?php echo $property->type_name ?></span>
