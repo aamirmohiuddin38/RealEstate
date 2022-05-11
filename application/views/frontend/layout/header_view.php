@@ -18,14 +18,11 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/slick-theme.css"> <!-- Slick-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/property.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/footer.css">
-<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/about.css"> <!-- About Us -->
-=======
   <!-- Contact Us -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/contact.css">
   <!-- About Us -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/about.css">
->>>>>>> 4cbd079712db87e3cd670fac69e76f9c7e851492
   <script type='text/javascript' src="<?php echo base_url(); ?>front_assets/js/map.js"></script> <!-- Google Map JS -->
 </head>
 
