@@ -1,3 +1,8 @@
+<?php
+echo "<pre>"; 
+echo print_r($property_sale);
+echo "</pre>";
+?>
 <!-- ******************** Card Slider Content ************************ -->
 <div class="container">
 	<div class="sales-heading-wrap mt-4">
@@ -8,11 +13,14 @@
 	</div>
 	<!-- Card -->
 <div class="card-wrap slider">
-	<div class="card p-1 property-grid-item">
+   <?php if(!empty($property_sale)){
+      foreach($property_sale as $index => $property){
+        ?>
+      <div class="card p-1 property-grid-item">
   	<div class="card-image-and-tags">
      <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
       <div class="property-tags">
-      	<span class="price-tag">₹&nbsp;1,52,20,001.00 </span>
+      	<span class="price-tag">₹&nbsp;<?php echo $property->p_price; ?> </span>
       	<span class="type-tag">Property Type</span>
       	<span class="status-tag" style="background-color:#EB5353;"> For Sale</span>
       </div>
@@ -39,7 +47,12 @@
       </ul> 
    </div>
   </div>
+  <?php
+      }
+   } ?>
+	
 
+<!--   
   <div class="card p-1 property-grid-item">
   	<div class="card-image-and-tags">
      <img class="card-img-top" src="<?php echo base_url();?>front_assets/Images/cove.jpg" alt="Card image cap">
@@ -134,7 +147,9 @@
               </li>       
       </ul> 
    </div>
-  </div>
+  </div> -->
+
 	<!-- End Card -->
 </div>
-   <!-- ******************** Card Slider End ********************* -->
+
+</div> <!-- ******************** Card Slider End ********************* -->

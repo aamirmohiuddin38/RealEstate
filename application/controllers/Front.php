@@ -8,11 +8,14 @@ class Front extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model(array('front_model'));
     }
 
     public function index()
     {
-        $data['content'] = $this->load->view('frontend/pageparts/property_sale_view', '', true);
+        $data = [];
+        $data['property_sale'] = $this->front_model->property_sale();
+        $data['content'] = $this->load->view('frontend/pages/home', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
     public function about()
@@ -25,4 +28,5 @@ class Front extends CI_Controller
         $data['content'] = $this->load->view('frontend/pages/contact_view', '', true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
+
 }
