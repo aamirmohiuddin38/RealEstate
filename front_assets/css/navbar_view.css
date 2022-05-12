@@ -23,7 +23,7 @@
 	.upper-header .header-contact-details-wrap{gap: 0; font-size: 12px;}
 	.upper-header .header-social-icons{display: none;}
 	.lower-header .navbar-collapse .btn.btn-outline-success {display: none;}
-	.lower-header .display-on-mobile{display: block;}
+	.lower-header .display-on-mobile{display: block; padding-right: 10px;}
 }
 @media(max-width: 426px){
 	.row.upper-header{padding: 0;margin-left: 5px;}

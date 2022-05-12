@@ -3,7 +3,7 @@
 	<div class="row upper-header">
 		<div class="logo-container-wrap">
 			<div class="logo-inner">
-				<img class="logo-img" src="<?php echo base_url(); ?>front_assets/Images/logomain.png" alt="logo not found" />
+			<a href="<?php echo base_url('index.php/front'); ?>"><img class="logo-img" src="<?php echo base_url(); ?>front_assets/Images/logomain.png" alt="logo not found" /> </a>
 			</div>
 		</div>
 
@@ -53,7 +53,7 @@
 		<!-- ************** LOGO and Login Icon: Display on Tab and Mobile **************** -->
 
 		<span class="logo-mobile display-on-mobile">H.O.M.E.S.P.H.E.R.E</span>
-		<span class="login-icon-mobile display-on-mobile"><a href="#"><i class="fa-solid fa-user"></i></a></span>
+		<span class="login-icon-mobile display-on-mobile"><a href="<?php echo base_url('index.php/Login'); ?>"><i class="fa-solid fa-user"></i></a></span>
 
 		<!-- ******************** End Login Icon  ********************************* -->
 
