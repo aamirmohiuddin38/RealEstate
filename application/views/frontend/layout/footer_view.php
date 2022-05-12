@@ -56,13 +56,13 @@
             Links
         </h6>
         <p>
-            <a href="#!" class="text-reset">Home</a>
+            <a href="<?php echo base_url('index.php/front'); ?>" class="text-reset">Home</a>
         </p>
         <p>
-            <a href="#!" class="text-reset">About Us</a>
+            <a href="<?php echo base_url('index.php/front/about'); ?>" class="text-reset">About Us</a>
         </p>
         <p>
-            <a href="#!" class="text-reset">Contact Us</a>
+            <a href="<?php echo base_url('index.php/front/contactUs'); ?>" class="text-reset">Contact Us</a>
         </p>
         <!-- <p>
             <a href="#!" class="text-reset">Laravel</a>
