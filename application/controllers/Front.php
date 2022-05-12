@@ -28,6 +28,14 @@ class Front extends CI_Controller
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
 
+    public function property_details(){
+        $id = $_GET['id'];
+        $data['property'] = $this->front_model->read_property_by_id($id);
+        $data['images'] = $this->property_model->img_list($id);
+        $data['content'] = $this->load->view('frontend/pages/property_view', $data, true);
+        $this->load->view('frontend/layout/main_wrapper', $data);
+    }
+
     public function about()
     {
         $data['content'] = $this->load->view('frontend/pages/about_view', '', true);
