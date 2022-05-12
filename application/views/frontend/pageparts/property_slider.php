@@ -34,11 +34,12 @@
               <div class="property-slider-item">
                 <div class="name-and-price">
                   <h2 class="item-title">
-                    <a href=""><?php echo $slider_p->p_title ?></a>
+                    <?php echo $slider_p->p_title ?>
                   </h2>
                   <div class="item-price-wrap">
                     <span class="item-price">
-                      ₹&nbsp;<?php echo $slider_p->p_price ?> </span>
+                    <?php $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY); ?>
+                    <?php echo $fmt->formatCurrency($slider_p->p_price, "INR"); ?></span>
                   </div>
                 </div>
                 <address class="item-address">
@@ -79,11 +80,12 @@
               <div class="property-slider-item">
                 <div class="name-and-price">
                   <h2 class="item-title">
-                    <a href=""><?php echo $slider_p->p_title ?></a>
+                    <?php echo $slider_p->p_title ?>
                   </h2>
                   <div class="item-price-wrap">
                     <span class="item-price">
-                      ₹&nbsp;<?php echo $slider_p->p_price ?> </span>
+                    <?php $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY); ?>
+                    <?php echo $fmt->formatCurrency($slider_p->p_price, "INR"); ?> </span>
                   </div>
                 </div>
                 <address class="item-address">

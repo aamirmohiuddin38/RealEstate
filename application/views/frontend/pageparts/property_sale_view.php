@@ -26,7 +26,8 @@
                      }
                   } ?>
                   <div class="property-tags">
-                     <span class="price-tag">₹&nbsp; <?php echo $property->p_price ?> </span>
+                     <?php $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY); ?>
+                     <span class="price-tag"><?php echo $fmt->formatCurrency($property->p_price, "INR"); ?></span>
                      <span class="type-tag"><?php echo $property->type_name ?></span>
                      <span class="status-tag" style="background-color:#EB5353;"> <?php echo $property->status_name ?></span>
                   </div>

@@ -14,12 +14,13 @@
       <?php
                   foreach ($images as $img) {
                      if ($img['img_p_id'] == $property->p_id) { ?>
-                        <img class="card-img-top" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="Card image cap">
+                        <a href="<?php echo base_url()?>index.php/front/property_details?id=<?php echo $property->p_id ?>"><img class="card-img-top" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="Card image cap"></a>
                   <?php break;
                      }
                   } ?>
       <div class="property-tags">
-      	<span class="price-tag">₹&nbsp;<?php echo $property->p_price ?></span>
+         <?php $fmt = new NumberFormatter('en_IN', NumberFormatter::CURRENCY); ?>
+      	<span class="price-tag"><?php echo $fmt->formatCurrency($property->p_price, "INR"); ?></span>
       	<span class="type-tag"><?php echo $property->type_name ?></span>
       	<span class="status-tag"><?php echo $property->status_name ?></span>
       </div>
