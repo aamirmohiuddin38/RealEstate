@@ -64,9 +64,6 @@
         <p>
             <a href="<?php echo base_url('index.php/front/contactUs'); ?>" class="text-reset">Contact Us</a>
         </p>
-        <!-- <p>
-            <a href="#!" class="text-reset">Laravel</a>
-        </p> -->
         </div>
         <!-- Grid column -->
 

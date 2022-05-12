@@ -1,6 +1,6 @@
 <?php
 // echo "<pre>";
-// print_r($images);
+// print_r($slider_properties);
 // echo "</pre>";
 ?>
 <!-- ********************** Property Slider Start *************************** -->
@@ -51,7 +51,7 @@
                   <li class="item-amenities-with-icons"><span class="no_of_amenities"><?php echo $slider_p->p_area ?></span><i class="fa-solid fa-chart-area"></i> Sqft</li>
                 </ul>
                 <span class="p-type"><?php echo $slider_p->type_name ?></span>
-                <a class="btn btn-primary btn-item" href="<?php echo base_url('index.php/front/property_details')?>">Details</a>
+                <a class="btn btn-primary btn-item" href="<?php echo base_url()?>index.php/front/property_details?id=<?php echo $slider_p->p_id ?>">Details</a>
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -97,7 +97,7 @@
                   <li class="item-amenities-with-icons"><span class="no_of_amenities"><?php echo $slider_p->p_area ?></span><i class="fa-solid fa-chart-area"></i> Sqft</li>
                 </ul>
                 <span class="p-type"><?php echo $slider_p->type_name ?></span>
-                <a class="btn btn-primary btn-item" href="">Details</a>
+                <a class="btn btn-primary btn-item" href="<?php echo base_url()?>index.php/front/property_details?id=<?php echo $slider_p->p_id ?>">Details</a>
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
