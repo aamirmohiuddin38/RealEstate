@@ -190,4 +190,17 @@ class Front_model extends CI_Model
             ->result();
         return $result;
     }
+    public function find_property($data)
+    {
+        // print_r($data);
+        // die();
+        $result = $this->db
+            ->select("*")
+            ->from('property_tbl')
+            ->where('p_type', $data['type'], 'p_label', $data['label'], 'p_status', $data['label'], 'p_bedroom', $data['bedrooms'], 'p_bathroom', $data['bathrooms'])
+            ->get()
+            ->result();
+        // echo ('<pre>');
+        // print_r($result);
+    }
 }

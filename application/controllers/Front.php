@@ -51,4 +51,15 @@ class Front extends CI_Controller
         $data['content'] = $this->load->view('frontend/pages/contact_view', '', true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
+    public function search_data()
+    {
+        $data = array(
+            'status' => $this->input->post('status'),
+            'type' => $this->input->post('type'),
+            'label' => $this->input->post('label'),
+            'bedrooms' => $this->input->post('bedroom'),
+            'bathrooms' => $this->input->post('bathroom'),
+        );
+        $this->front_model->find_property($data);
+    }
 }
