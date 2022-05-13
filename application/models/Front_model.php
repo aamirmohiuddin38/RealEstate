@@ -2,7 +2,8 @@
 
 class Front_model extends CI_Model
 {
-    public function read_properties(){
+    public function read_properties()
+    {
         $this->db->select("
 			property_tbl.p_id,
             property_tbl.p_title,
@@ -43,7 +44,8 @@ class Front_model extends CI_Model
         return $result = $this->db->get()->result();
     }
 
-    public function read_property_by_id($id){
+    public function read_property_by_id($id)
+    {
         $this->db->select("
 			property_tbl.p_id,
             property_tbl.p_title,
@@ -77,7 +79,7 @@ class Front_model extends CI_Model
         $this->db->join('states',           'property_tbl.p_state 	= state_id', 'left');
         $this->db->join('cities',           'property_tbl.p_city 	= city_id', 'left');
 
-        $this->db->where('p_id', $id); 
+        $this->db->where('p_id', $id);
         $this->db->order_by('property_tbl.p_dou', 'DESC');
         $this->db->group_by('property_tbl.p_id');
         // echo $this->db->get_compiled_select(); //For displaying db query
@@ -157,5 +159,35 @@ class Front_model extends CI_Model
         // echo $this->db->get_compiled_select(); //For displaying db query
         // die();
         return $result = $this->db->get()->result();
+    }
+    public function get_type()
+    {
+        $result = $this->db
+            ->select("*")
+            ->from('property_type')
+            ->get()
+            ->result();
+        return $result;
+        // echo ('<pre>');
+        // print_r($result);
+        // die();
+    }
+    public function get_label()
+    {
+        $result = $this->db
+            ->select("*")
+            ->from('property_label')
+            ->get()
+            ->result();
+        return $result;
+    }
+    public function get_status()
+    {
+        $result = $this->db
+            ->select("*")
+            ->from('property_status')
+            ->get()
+            ->result();
+        return $result;
     }
 }
