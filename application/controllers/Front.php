@@ -28,27 +28,27 @@ class Front extends CI_Controller
     {
         $this->load->library('pagination');
         $config = [
-                'base_url' => base_url('index.php/front/property_grids'),
-                'per_page' => 2,
-                'total_rows' => $this->front_model->total_properties(),
-                'full_tag_open' => '<ul class="pagination pagination-md justify-content-center">',
-		        'full_tag_close' => '</ul>',
-		        'first_link' => 'First',
-		        'last_link' => 'Last',
-		        'first_tag_open' => '<li class="page-item">',
-		        'first_tag_close' => '</li>',
-		        'prev_link' => '«',
-		        'prev_tag_open' => '<li class="page-item ">',
-		        'prev_tag_close' => '</li>',
-		        'next_link' => '»',
-		        'next_tag_open' => '<li class="page-item page-link">',
-		        'next_tag_close' => '</li>',
-		        'last_tag_open' => '<li class="page-item">',
-		        'last_tag_close' => '</li>',
-		        'cur_tag_open' => '<li class="active"><a class="page-link text-white bg-info" href="#">',
-		        'cur_tag_close' => '</a></li>',
-		        'num_tag_open' => '<li class="page-item page-link">',
-		        'num_tag_close' => '</li>',
+            'base_url' => base_url('index.php/front/property_grids'),
+            'per_page' => 2,
+            'total_rows' => $this->front_model->total_properties(),
+            'full_tag_open' => '<ul class="pagination pagination-md justify-content-center">',
+            'full_tag_close' => '</ul>',
+            'first_link' => 'First',
+            'last_link' => 'Last',
+            'first_tag_open' => '<li class="page-item">',
+            'first_tag_close' => '</li>',
+            'prev_link' => '«',
+            'prev_tag_open' => '<li class="page-item ">',
+            'prev_tag_close' => '</li>',
+            'next_link' => '»',
+            'next_tag_open' => '<li class="page-item page-link">',
+            'next_tag_close' => '</li>',
+            'last_tag_open' => '<li class="page-item">',
+            'last_tag_close' => '</li>',
+            'cur_tag_open' => '<li class="active"><a class="page-link text-white bg-info" href="#">',
+            'cur_tag_close' => '</a></li>',
+            'num_tag_open' => '<li class="page-item page-link">',
+            'num_tag_close' => '</li>',
         ];
         $this->pagination->initialize($config);
         $data['properties'] = $this->front_model->read_properties($config['per_page'], $this->uri->segment(3));
@@ -87,6 +87,7 @@ class Front extends CI_Controller
             'bedrooms' => $this->input->post('bedroom'),
             'bathrooms' => $this->input->post('bathroom'),
         );
-        $this->front_model->find_property($data);
+        if ($this->front_model->find_property($data)) {
+        }
     }
 }

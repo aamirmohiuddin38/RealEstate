@@ -28,20 +28,21 @@
 						<option value="<?php echo $value->label_id; ?>"><?php echo $value->label_name; ?></option>
 					<?php	} ?>
 				</select>
-
-				<select name="bedroom">
+				<!-- <input type="text" placeholder="location"></input>
+				<input type="number" placeholder="Max price"></input> -->
+				<!-- <select name="bedroom">
 					<option value="" disabled selected hidden>Bedroom</option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 				</select>
 
-				<select name="bathroom">
-					<option value="" disabled selected hidden>Bathroom</option>
+				<select name="">
+					<option value="" disabled selected hidden>location</option>
 					<option>1</option>
 					<option>2</option>
 					<option>7</option>
-				</select>
+				</select> -->
 			</ul>
 			<button type="submit"><i class="fa-solid fa-magnifying-glass mr-1"></i>Search</button>
 

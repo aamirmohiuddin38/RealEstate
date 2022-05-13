@@ -39,7 +39,7 @@ class Front_model extends CI_Model
 
         $this->db->order_by('property_tbl.p_dou', 'DESC');
         $this->db->group_by('property_tbl.p_id');
-        $this->db->limit($limit,$offset);
+        $this->db->limit($limit, $offset);
         // echo $this->db->get_compiled_select(); //For displaying db query
         // die();
         return $result = $this->db->get()->result();
@@ -198,17 +198,24 @@ class Front_model extends CI_Model
         $result = $this->db
             ->select("*")
             ->from('property_tbl')
-            ->where('p_type', $data['type'], 'p_label', $data['label'], 'p_status', $data['label'], 'p_bedroom', $data['bedrooms'], 'p_bathroom', $data['bathrooms'])
+            ->where('p_type', $data['type'])
+            ->or_where('p_label', $data['label'])
+            ->or_where('p_status', $data['status'])
+            ->or_where('p_bedrooms', $data['bedrooms'])
+            ->or_where('p_bathrooms', $data['bathrooms'])
+            //echo $this->db->get_compiled_select(); //For displaying db query
+            //die();
             ->get()
             ->result();
-        // echo ('<pre>');
-        // print_r($result);
+        echo ('<pre>');
+        print_r($result);
+        die();
     }
 
     public function total_properties()
-	{
-		return $this->db
-			->from('property_tbl')
-			->count_all_results();
-	}
+    {
+        return $this->db
+            ->from('property_tbl')
+            ->count_all_results();
+    }
 }
