@@ -6,7 +6,9 @@
 <div class="container">
 	<section class="property_search_wrap">
 		<form method="post" action="<?php echo base_url('index.php/front/search_data') ?>">
-			<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword">
+		        <input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="inputs">
+ 			    <input type="number" name="price" placeholder="Max Price" class="inputs">
+ 			    <input type="text" name="location" placeholder="Nearby Location" class="inputs">
 			<ul>
 				<select name="status">
 					<option value="" disabled selected hidden>Status</option>
@@ -28,21 +30,7 @@
 						<option value="<?php echo $value->label_id; ?>"><?php echo $value->label_name; ?></option>
 					<?php	} ?>
 				</select>
-				<!-- <input type="text" placeholder="location"></input>
-				<input type="number" placeholder="Max price"></input> -->
-				<!-- <select name="bedroom">
-					<option value="" disabled selected hidden>Bedroom</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-				</select>
-
-				<select name="">
-					<option value="" disabled selected hidden>location</option>
-					<option>1</option>
-					<option>2</option>
-					<option>7</option>
-				</select> -->
+				
 			</ul>
 			<button type="submit"><i class="fa-solid fa-magnifying-glass mr-1"></i>Search</button>
 
