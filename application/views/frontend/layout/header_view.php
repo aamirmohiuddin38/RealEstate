@@ -18,9 +18,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/slick-theme.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"> <!-- Slick-->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/property.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/footer.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-  <!-- Contact Us -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/search.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/contact.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-  <!-- About Us -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/about.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
   <script type='text/javascript' src="<?php echo base_url(); ?>front_assets/js/map.js"></script> <!-- Google Map JS -->
 </head>

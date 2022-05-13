@@ -1,5 +1,5 @@
 <?php $this->load->view('frontend/pageparts/property_slider'); ?>
-	<?php // $this->load->view('frontend/pageparts/property_search'); ?>
+	<?php  $this->load->view('frontend/pageparts/search_view'); ?>
 	
 		<!-- Welcome -->
 		<?php $this->load->view('frontend/pageparts/welcome'); ?>
