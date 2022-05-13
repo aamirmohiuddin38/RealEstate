@@ -59,5 +59,5 @@
       } ?>
 </div>
 </div>
-<?php echo $pagination?>
+            <?php echo $pagination?>
   <!-- ******************** Grid Content End ********************* -->
