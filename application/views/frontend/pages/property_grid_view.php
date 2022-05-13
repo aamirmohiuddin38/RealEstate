@@ -57,7 +57,7 @@
   <?php
          }
       } ?>
-
 </div>
 </div>
+<?php echo $pagination?>
   <!-- ******************** Grid Content End ********************* -->

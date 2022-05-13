@@ -2,7 +2,7 @@
 
 class Front_model extends CI_Model
 {
-    public function read_properties()
+    public function read_properties($limit, $offset)
     {
         $this->db->select("
 			property_tbl.p_id,
@@ -39,6 +39,7 @@ class Front_model extends CI_Model
 
         $this->db->order_by('property_tbl.p_dou', 'DESC');
         $this->db->group_by('property_tbl.p_id');
+        $this->db->limit($limit,$offset);
         // echo $this->db->get_compiled_select(); //For displaying db query
         // die();
         return $result = $this->db->get()->result();

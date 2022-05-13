@@ -26,7 +26,15 @@ class Front extends CI_Controller
 
     public function property_grids()
     {
-        $data['properties'] = $this->front_model->read_properties();
+        $this->load->library('pagination');
+        $config = [
+                'base_url' => base_url('index.php/front/property_grids'),
+                'per_page' => 2,
+                'total_rows' => $this->front_model->total_properties(),
+        ];
+        $this->pagination->initialize($config);
+        $data['properties'] = $this->front_model->read_properties($config['per_page'], $this->uri->segment(3));
+        $data['pagination'] = $this->pagination->create_links();
         $data['images'] = $this->property_model->front_img_list();
         $data['total_property'] = $this->front_model->total_properties();
         $data['content'] = $this->load->view('frontend/pages/property_grid_view', $data, true);
