@@ -195,21 +195,36 @@ class Front_model extends CI_Model
     {
         // print_r($data);
         // die();
-        $result = $this->db
-            ->select("*")
-            ->from('property_tbl')
-            ->where('p_type', $data['type'])
-            ->or_where('p_label', $data['label'])
-            ->or_where('p_status', $data['status'])
-            ->or_where('p_bedrooms', $data['bedrooms'])
-            ->or_where('p_bathrooms', $data['bathrooms'])
-            //echo $this->db->get_compiled_select(); //For displaying db query
-            //die();
-            ->get()
-            ->result();
-        echo ('<pre>');
-        print_r($result);
-        die();
+        if ($data['keyword'] != null) {
+            $result = $this->db
+                ->select("*")
+                ->from('property_tbl')
+                ->like('p_title', $data['keyword'])
+                ->or_like('p_type', $data['keyword'])
+                ->or_like('p_label', $data['keyword'])
+                ->or_like('p_content', $data['keyword'])
+                ->get()
+                ->result();
+        } else {
+            $result = $this->db
+                ->select("*")
+                ->from('property_tbl')
+                ->where('p_price<=', $data['price'])
+                ->or_where('p_address', $data['location'])
+                ->or_where('p_type', $data['type'])
+                ->or_where('p_label', $data['label'])
+                ->or_where('p_status', $data['status'])
+                ->or_where('p_bedrooms', $data['bedrooms'])
+                ->or_where('p_bathrooms', $data['bathrooms'])
+                //echo $this->db->get_compiled_select(); //For displaying db query
+                //die();
+                ->get()
+                ->result();
+        }
+        return $result;
+        // echo ('<pre>');
+        // print_r($result);
+        // die();
     }
 
     public function total_properties()

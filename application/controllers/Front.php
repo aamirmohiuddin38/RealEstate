@@ -81,11 +81,15 @@ class Front extends CI_Controller
     public function search_data()
     {
         $data = array(
+            'price' => $this->input->post('price'),
+            'location' => $this->input->post('location'),
             'status' => $this->input->post('status'),
             'type' => $this->input->post('type'),
             'label' => $this->input->post('label'),
             'bedrooms' => $this->input->post('bedroom'),
             'bathrooms' => $this->input->post('bathroom'),
+            'keyword' => $this->input->post('keyword'),
+
         );
         if ($this->front_model->find_property($data)) {
         }
