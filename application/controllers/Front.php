@@ -28,6 +28,7 @@ class Front extends CI_Controller
     {
         $data['properties'] = $this->front_model->read_properties();
         $data['images'] = $this->property_model->front_img_list();
+        $data['total_property'] = $this->front_model->total_properties();
         $data['content'] = $this->load->view('frontend/pages/property_grid_view', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }

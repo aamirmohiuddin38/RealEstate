@@ -3,9 +3,15 @@
 // print_r($properties);
 // echo "</pre>";
 ?>
+ <!-- Total Properties Bar -->
+ <section class="container total-properties-bar-wrap">
+  	  <span class="text-muted">Total Properties...</span>
+      <strong class="total-properties text-muted"> <?php echo $total_property ?? 0; ?> Properties</strong> 
+  </section> 
+       <!-- Total properties bar end-->
 <!-- ******************** Grid Content ************************ -->
 <div class="container">
-  <div class="row mt-5">
+  <div class="row mt-4">
       <?php if (!empty($properties)) {
          foreach ($properties as $index => $property) {
       ?>

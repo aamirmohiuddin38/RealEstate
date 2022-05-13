@@ -203,4 +203,11 @@ class Front_model extends CI_Model
         // echo ('<pre>');
         // print_r($result);
     }
+
+    public function total_properties()
+	{
+		return $this->db
+			->from('property_tbl')
+			->count_all_results();
+	}
 }

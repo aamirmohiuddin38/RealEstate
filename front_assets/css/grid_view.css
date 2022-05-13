@@ -1,3 +1,5 @@
+section.container.total-properties-bar-wrap {padding: 1rem 15px; margin-top: 20px; margin-bottom: 15px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  display: flex; justify-content: space-between; align-items: center;}
 .property-grid-item.card{box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; margin-bottom: 1rem;} /* https://getcssscan.com/css-box-shadow-examples */
 .property-grid-item .card-title {margin-bottom: 5px;}
 .property-grid-item address{font-size: 12px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
