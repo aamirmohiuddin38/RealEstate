@@ -1,12 +1,11 @@
-
-<div class="main-card">
-  <img src="<?php echo base_url('front_assets/images/about_image.jpg'); ?>" alt="image" class="image" />
+<div class="main-card_about">
+  <img src="<?php echo base_url('front_assets/images/about_image.jpg'); ?>" alt="image" class="image_about" />
 </div>
-<div class="head_text">HomeSphere</div>
-<div class="wrapper">
+<div class="head_text_about">HomeSphere</div>
+<div class="wrapper_about">
   <div class="container main-content">
     <div class="row pt-5 pb-3">
-      <div class="col-12 main-head">Know About Us!</div>
+      <div class="col-12 main-head_about">Know About Us!</div>
     </div>
     <div class="row">
       <div class="col-md-6 p-3 pr-5">
@@ -43,7 +42,7 @@
 </div>
 
 <div class="services">
-  <div class="s-head">
+  <div class="s-head_about">
     <p>Services</p>
   </div>
   <div class="container">
@@ -64,7 +63,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card mb-4">
+        <div class="card_about mb-4">
           <img class="card-img-top" src="https://media.istockphoto.com/photos/estate-agent-giving-house-keys-to-woman-and-sign-agreement-in-office-picture-id1130829500?k=20&m=1130829500&s=612x612&w=0&h=pRvjEVrgrHX2HJYqj7kU3k1rJLgztCV2rizKr7pd5Ec=" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title text-center text-success mt-md-4">
@@ -79,7 +78,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
+        <div class="card_about">
           <img class="card-img-top" src="https://media.istockphoto.com/photos/new-homes-picture-id171300298?k=20&m=171300298&s=612x612&w=0&h=C4io9p6g4mB0ppkysat1egp4x-zeq-4mcqQbGZcesqQ=" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title text-center text-success mt-md-4">
