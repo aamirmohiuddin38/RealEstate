@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2022 at 01:46 PM
+-- Generation Time: May 14, 2022 at 11:28 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -97506,6 +97506,7 @@ CREATE TABLE `setting` (
   `setting_id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `city` varchar(30) NOT NULL COMMENT 'setting city',
   `email` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `logo` varchar(50) DEFAULT NULL,
@@ -97518,8 +97519,8 @@ CREATE TABLE `setting` (
 -- Dumping data for table `setting`
 --
 
-INSERT INTO `setting` (`setting_id`, `title`, `description`, `email`, `phone`, `logo`, `favicon`, `footer_text_left`, `footer_text_right`) VALUES
-(1, 'HomeSphere', 'Bagi Mehtab Srinagar', 'HomeSphere@gmail.com', '7006382025', 'uploads/images/studio31.jpg', 'uploads/images/Studio21.jpg', 'Copyright © 2021-2022 HomeSphere. All Rights Reserved', 'CS Dept University Of Kashmir');
+INSERT INTO `setting` (`setting_id`, `title`, `description`, `city`, `email`, `phone`, `logo`, `favicon`, `footer_text_left`, `footer_text_right`) VALUES
+(1, 'HomeSphere', 'Hazratbal', 'Srinagar', 'HomeSphere@gmail.com', '7006382025', 'assets/images/logo/HomeSphere-logos_black.png', 'assets/images/logo/favicon2.ico', 'Copyright © 2021-2022 HomeSphere. All Rights Reserved', 'CS Dept University Of Kashmir');
 
 -- --------------------------------------------------------
 
