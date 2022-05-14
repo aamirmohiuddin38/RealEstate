@@ -161,25 +161,32 @@ class Front_model extends CI_Model
         // die();
         return $result = $this->db->get()->result();
     }
-    public function get_tls_list()
+    public function get_type()
     {
-        $this->db->select("
-        property_tbl.p_type,
-        property_tbl.p_label,
-        property_tbl.p_status,
-        property_type.type_name ,
-        property_label.label_name ,
-        property_status.status_name,
-    ");
-        $this->db->from('property_tbl');
-        $this->db->join('property_type',    'property_tbl.p_type   = property_type.type_id', 'let');
-        $this->db->join('property_label',   'property_tbl.p_label  = property_label.label_id', 'left');
-        $this->db->join('property_status',  'property_tbl.p_status = property_status.status_id', 'left');
-        $this->db->order_by('property_status.status_id', 'DESC');
-        // echo $this->db->get_compiled_select(); //For displaying db query
-        // die();
-        return $result = $this->db->get()->result();
-        // print_r($result);
+        $result = $this->db
+            ->select("*")
+            ->from('property_type')
+            ->get()
+            ->result();
+        return $result;
+    }
+    public function get_label()
+    {
+        $result = $this->db
+            ->select("*")
+            ->from('property_label')
+            ->get()
+            ->result();
+        return $result;
+    }
+    public function get_status()
+    {
+        $result = $this->db
+            ->select("*")
+            ->from('property_status')
+            ->get()
+            ->result();
+        return $result;
     }
     public function find_property($data)
     {
