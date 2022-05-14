@@ -3,13 +3,17 @@
   margin: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+.card-contact{position: relative;}
+
 .image_contact{
   height: 300px;
   width: 100%;
   object-fit:cover;
 }
 .head_text_contact {
-  color: #4612ca;
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-weight: 500;
   font-size: 2rem;
   position: absolute;
   left: 10%;
