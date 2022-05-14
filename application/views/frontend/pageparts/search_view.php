@@ -1,7 +1,11 @@
 <div class="container">
+
 	<section class="property_search_wrap">
 		<form method="post" action="<?php echo base_url('index.php/front/search_data') ?>">
-			<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="inputs">
+		<details>
+		<summary class="search_heading"><i class="fa-solid fa-magnifying-glass mr-1"></i>Click to Search Property</summary>
+		<div class="mt-2">
+		<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword" class="inputs">
 			<input type="number" name="price" placeholder="Max Price" class="inputs">
 			<input type="text" name="location" placeholder="Nearby Location" class="inputs">
 			<ul>
@@ -28,7 +32,9 @@
 				</select>
 			</ul>
 			<button type="submit"><i class="fa-solid fa-magnifying-glass mr-1"></i>Search</button>
-
+			</div>
+			</details>
 		</form>
 	</section>
+	
 </div>

@@ -5,10 +5,13 @@ section.property_search_wrap select {padding: 11px 0px 12px 5px; color: #999;bor
 .property_search_wrap input.inputs { padding: 10px 20px 10px 5px; color: #999;border: none; box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;}
 .property_search_wrap button {padding: 10px 15px 10px; border: none; background-color: orange; font-weight: bold; color: white; cursor: pointer;}
 .property_search_wrap option:focus-visible {outline: none;}
+.property_search_wrap .search_heading{list-style: none;text-align: center; letter-spacing: 0.1em; font-weight: bold; color: #73777B;}
 
-@media(max-width: 769px){
-    section.property_search_wrap select{width: 32%;}
-    .property_search_wrap button{width: 100%;}
+@media(max-width: 1025px){
+    section.property_search_wrap select {width: 32%; margin-bottom: 5px;}
+    .property_search_wrap input.inputs {padding: 10px 24px 10px 24px; margin-bottom: 5px; width: 32%;} 
+    .property_search_wrap button{display: block;
+        margin: auto;}
 }
 
 @media(max-width: 426px){
