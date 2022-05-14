@@ -17,9 +17,7 @@ class Front extends CI_Controller
         $data['slider_properties'] = $this->front_model->get_slider_properties();
         $data['property_sale'] = $this->front_model->property_sale();
         $data['images'] = $this->property_model->front_img_list();
-        $data['type'] = $this->front_model->get_type();
-        $data['label'] = $this->front_model->get_label();
-        $data['status'] = $this->front_model->get_status();
+        $data['tls_data'] = $this->front_model->get_tls_list();
         $data['content'] = $this->load->view('frontend/pages/home', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
@@ -91,7 +89,10 @@ class Front extends CI_Controller
             'keyword' => $this->input->post('keyword'),
 
         );
-        if ($this->front_model->find_property($data)) {
-        }
+        $data['searched_property'] = $this->front_model->find_property($data);
+        // $data['content'] = $this->load->view('frontend/pages/detailed_property',  $data, true);
+        // $this->load->view('frontend/layout/main_wrapper', $data);
+        // echo '<pre>';
+        print_r($data['searched_property']);
     }
 }
