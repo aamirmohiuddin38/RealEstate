@@ -90,9 +90,11 @@ class Front extends CI_Controller
 
         );
         $data['searched_property'] = $this->front_model->find_property($data);
-        // $data['content'] = $this->load->view('frontend/pages/detailed_property',  $data, true);
-        // $this->load->view('frontend/layout/main_wrapper', $data);
+        $data['count'] = count($data['searched_property']);
+        $data['images'] = $this->property_model->front_img_list();
+        $data['content'] = $this->load->view('frontend/pages/selected_prop_view',  $data, true);
+        $this->load->view('frontend/layout/main_wrapper', $data);
         // echo '<pre>';
-        print_r($data['searched_property']);
+        // print_r($data['searched_property']);
     }
 }
