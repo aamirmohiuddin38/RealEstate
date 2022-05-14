@@ -42,15 +42,13 @@
     <form class="form-horizontal" action="<?php echo base_url('index.php/admin/property/app_setting_data'); ?>" method="post" enctype="multipart/form-data">
       <div class="card-body">
         <div class="form-group row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <label for="inputEmail3" class="">Title</label>
             <input type="text" class="form-control" id="inputEmail3" name="title" value="<?php echo $setting->title; ?>" required>
           </div>
-          <div class="col-md-6">
-            <label for="inputPassword3" class="">Address</label>
-            <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo $setting->description; ?>" required>
-          </div>
+
         </div>
+        <!-- row -->
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Email</label>
@@ -61,7 +59,17 @@
             <input type="text" class="form-control" id="inputPassword3" name="phone" value="<?php echo $setting->phone; ?>" required>
           </div>
         </div>
-
+        <!-- row -->
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="inputPassword3" class="">Address</label>
+            <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo $setting->description; ?>" required>
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail3" class="">City</label>
+            <input type="text" class="form-control" id="inputEmail3" name="city" value="<?php echo $setting->city; ?>" required>
+          </div>
+        </div>
         <div class="form-group row">
           <div class="col-md-6">
             <img src="<?php echo base_url() . $setting->favicon; ?>" alt="favicon" style="height:40px;width:40px; border:1px solid green; border-radius:25%; padding:5px">
@@ -78,6 +86,7 @@
             </div>
           </div>
         </div>
+        <!-- row -->
         <div class="form-group row">
           <div class="col-md-6">
             <label for="inputEmail3" class="">Footer Text Left</label>

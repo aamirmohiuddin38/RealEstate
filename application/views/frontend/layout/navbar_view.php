@@ -3,7 +3,7 @@
 	<div class="row upper-header">
 		<div class="logo-container-wrap">
 			<div class="logo-inner">
-			<a href="<?php echo base_url('index.php/front'); ?>"><img class="logo-img" src="<?php echo base_url(); ?>front_assets/Images/logomain.png" alt="logo not found" /> </a>
+				<a href="<?php echo base_url('index.php/front'); ?>"><img class="logo-img" src="<?php echo base_url() . $setting->logo ?>" alt="logo not found" /> </a>
 			</div>
 		</div>
 
@@ -11,16 +11,16 @@
 			<div class="icon-with-details">
 				<span class="icon"><i class="fa-solid fa-phone"></i></span>
 				<div class="inner-contact-details">
-					<span class="inner-heading"> +91 7006112233 </span>
-					<span class="inner-subheading"> homesphere@gmail.com </span>
+					<span class="inner-heading"> +91 <?php echo $setting->phone ?></span>
+					<span class="inner-subheading"> <?php echo $setting->email ?> </span>
 				</div>
 			</div>
 
 			<div class="icon-with-details">
 				<span class="icon"><i class="fa-solid fa-location-dot"></i></span>
 				<div class="inner-contact-details">
-					<span class="inner-heading"> University Of Kashmir</span>
-					<span class="inner-subheading"> Srinagar, Hazratbal </span>
+					<span class="inner-heading"><?php echo $setting->footer_text_right ?></span>
+					<span class="inner-subheading"> <?php echo $setting->description . ',' . $setting->city ?></span>
 				</div>
 			</div>
 

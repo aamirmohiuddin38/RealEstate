@@ -5,9 +5,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HomeSphere:Realestate</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Realestate | <?php echo $setting->title; ?></title>
   <!--Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="<?php echo base_url() . $setting->favicon; ?>" type="image/x-icon">
+  <!-- font Awesome -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/fontawesome6/css/all.min.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"> <!-- FontAwesome -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/navbar_view.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>front_assets/css/main.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">

@@ -436,6 +436,7 @@ class Property extends CI_Controller
     $data = (array)[
       'title' => $this->input->post('title'),
       'description' => $this->input->post('address'),
+      'city' => $this->input->post('city'),
       'email' => $this->input->post('email'),
       'phone' => $this->input->post('phone'),
       'logo' => $logo_path,

@@ -18,6 +18,7 @@ class Front extends CI_Controller
         $data['property_sale'] = $this->front_model->property_sale();
         $data['images'] = $this->property_model->front_img_list();
         $data['tls_data'] = $this->front_model->get_tls_list();
+        $data['setting'] = $this->property_model->app_setting();
         $data['content'] = $this->load->view('frontend/pages/home', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
@@ -53,6 +54,7 @@ class Front extends CI_Controller
         $data['pagination'] = $this->pagination->create_links();
         $data['images'] = $this->property_model->front_img_list();
         $data['total_property'] = $this->front_model->total_properties();
+        $data['setting'] = $this->property_model->app_setting();
         $data['content'] = $this->load->view('frontend/pages/property_grid_view', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
@@ -62,6 +64,7 @@ class Front extends CI_Controller
         $id = $_GET['id'];
         $data['property'] = $this->front_model->read_property_by_id($id);
         $data['images'] = $this->property_model->img_list($id);
+        $data['setting'] = $this->property_model->app_setting();
         $data['content'] = $this->load->view('frontend/pages/property_view', $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
@@ -69,11 +72,13 @@ class Front extends CI_Controller
     public function about()
     {
         $data['content'] = $this->load->view('frontend/pages/about_view', '', true);
+        $data['setting'] = $this->property_model->app_setting();
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
     public function contactUs()
     {
         $data['content'] = $this->load->view('frontend/pages/contact_view', '', true);
+        $data['setting'] = $this->property_model->app_setting();
         $this->load->view('frontend/layout/main_wrapper', $data);
     }
     public function search_data()
@@ -92,6 +97,7 @@ class Front extends CI_Controller
         $data['searched_property'] = $this->front_model->find_property($data);
         $data['count'] = count($data['searched_property']);
         $data['images'] = $this->property_model->front_img_list();
+        $data['setting'] = $this->property_model->app_setting();
         $data['content'] = $this->load->view('frontend/pages/selected_prop_view',  $data, true);
         $this->load->view('frontend/layout/main_wrapper', $data);
         // echo '<pre>';
