@@ -22,8 +22,12 @@
 .wrapper-left {
   width:50%;
   font-weight: bold;
-  margin-left: 5%;
+  margin: auto;
 }
 .right{
     padding: 10% 10% 10% 18%;
+}
+
+@media(max-width:426px){
+  .wrapper-left{width:100%;}
 }
