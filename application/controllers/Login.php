@@ -45,6 +45,8 @@ class Login extends CI_Controller
 					'user_id'       => $check_user->user_id,
 					'email'         => $check_user->email,
 					'fullname'      => $check_user->username,
+					'mobile'        => $check_user->mobile,
+					'address'       => $check_user->address,
 					'user_role'     => $check_user->user_role,
 				]);
 				// print_r($this->session->userdata());
@@ -68,7 +70,7 @@ class Login extends CI_Controller
 				redirect('index.php/admin/home/index');
 				break;
 			case 2:
-				redirect('index.php/houzez');
+				redirect('index.php/front');
 				break;
 			default:
 				$this->logout();

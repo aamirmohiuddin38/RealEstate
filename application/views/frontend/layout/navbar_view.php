@@ -78,7 +78,7 @@
 					<a class="nav-link " href="<?php echo base_url('index.php/front/contactUs'); ?>">Contact</a>
 				</li>
 			</ul>
-			<a href="<?php echo base_url('index.php/Login'); ?>"><button class="btn btn-outline-success my-2 my-sm-0">Login</button></a>
+			<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-outline-success my-2 my-sm-0">Logout</button></a>
 		</div>
 	</nav>
 </div>
