@@ -3,7 +3,7 @@
   margin: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-.card-contact{position: relative;}
+.card_contact{position: relative;}
 
 .image_contact{
   height: 300px;
