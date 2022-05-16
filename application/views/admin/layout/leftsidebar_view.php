@@ -92,19 +92,12 @@
                 <p>App Setting</p>
               </a>
             </li>
-
-            <li class="nav-item">
-              <a href="" class="nav-link ">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Language</p>
-              </a>
-            </li>
           </ul>
         </li>
 
         <!--############# Contact#############-->
         <li class="nav-item">
-          <a href="" class="nav-link ">
+          <a href="<?php echo base_url('index.php/message/user_messages'); ?>" class="nav-link ">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Message <span class="right badge badge-danger"></span>

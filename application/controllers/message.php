@@ -7,7 +7,7 @@ class message extends CI_Controller
   {
     parent::__construct();
     $this->load->model(array(
-      'message_model',
+      'message_model', 'property_model', 'Common_model',
     ));
   }
   public function index()
@@ -49,5 +49,13 @@ class message extends CI_Controller
       // redirect('index.php/front/property_details');
     }
     // }
+  }
+  public function user_messages()
+  {
+    $data = [];
+    $data['setting'] = $this->property_model->app_setting();
+    $data['messages'] = $this->message_model->get_user_messages();
+    $data['content'] = $this->load->view('admin/property/messages_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
   }
 }
