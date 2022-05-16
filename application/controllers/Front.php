@@ -7,8 +7,6 @@ class Front extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!($this->session->userdata('isLogIn')))
-            redirect('index.php/login');
         $this->load->helper('url');
         $this->load->model(array('front_model', 'property_model'));
     }

@@ -218,21 +218,22 @@
 
 		<!-- Contact Form Section -->
 		<section class="contact-info-wrap">
-			<form method="" action=#>
+			<form method="post" action="<?php echo base_url('index.php/'); ?>message">
+				<input type="hidden" name="p_id" value="<?php echo $property->p_id; ?>">
 				<div class="form-heading-wrap">
-					<h6 class="form-heading text-muted">Enquire About This Property </h6>
+					<h6 class="form-heading text-muted">Enquire About This Property <input type="hidden" id="unique_id" value="<?php echo $this->session->userdata('user_id'); ?>"></h6>
 				</div>
 				<div class="row mb-4">
 					<div class="col">
 						<div class="form-outline">
 							<label class="form-label" for="form3Example1">UserName</label>
-							<input type="text" class="form-control" value="<?php echo $this->session->userdata('fullname'); ?>" />
+							<input type="text" name="username" id="username" class="form-control" placeholder="UserName" value="<?php echo $this->session->userdata('fullname'); ?>" />
 						</div>
 					</div>
 					<div class="col">
 						<div class="form-outline">
 							<label class="form-label" for="form3Example2">Address</label>
-							<input type="text" class="form-control" value="<?php echo $this->session->userdata('address'); ?>" />
+							<input type="text" name="address" class="form-control" placeholder="Address" value="<?php echo $this->session->userdata('address'); ?>" />
 						</div>
 					</div>
 				</div>
@@ -240,13 +241,13 @@
 					<div class="col">
 						<div class="form-outline">
 							<label class="form-label" for="form3Example2">Phone</label>
-							<input type="number" class="form-control" value="<?php echo $this->session->userdata('mobile'); ?>" />
+							<input type="number" name="phone" class="form-control" placeholder="Phone No" value="<?php echo $this->session->userdata('mobile'); ?>" />
 						</div>
 					</div>
 					<div class="col">
 						<div class="form-outline">
 							<label class="form-label" for="form3Example2">Email</label>
-							<input type="email" class="form-control" value="<?php echo $this->session->userdata('email'); ?>" />
+							<input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $this->session->userdata('email'); ?>" />
 						</div>
 					</div>
 				</div>
@@ -254,19 +255,19 @@
 				<!-- Email input -->
 				<div class="form-outline mb-4">
 					<label class="form-label" for="form3Example3">Subject</label>
-					<input type="text" class="form-control" placeholder="subject" />
+					<input type="text" name="subject" class="form-control" placeholder="subject" />
 				</div>
 
 				<!-- Password input -->
 				<div class="form-outline mb-4">
 					<label class="form-label" for="form3Example4">Message</label>
-					<textarea class="form-control">
+					<textarea class="form-control" name="user_query">
 					Hello, I am interested in [<?php echo $property->p_title; ?>]
 					</textarea>
 				</div>
 
 				<!-- Submit button -->
-				<button type="submit" class="btn btn-success btn-sm-full-width mb-4">Request Information</button>
+				<button type="submit" id="check_login_user" class="btn btn-success btn-sm-full-width mb-4">Request Information</button>
 
 			</form>
 		</section>
@@ -274,3 +275,19 @@
 
 	</div>
 </div>
+<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	$("document").ready(function() {
+		$('#check_login_user').click(function(e) {
+			var user_id = $("#unique_id").val();
+			if (user_id == '') {
+				alert("please register first");
+				e.preventDefault();
+				return false;
+			}
+		})
+	})
+</script>
