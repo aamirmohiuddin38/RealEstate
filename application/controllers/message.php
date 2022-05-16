@@ -54,8 +54,38 @@ class message extends CI_Controller
   {
     $data = [];
     $data['setting'] = $this->property_model->app_setting();
-    $data['messages'] = $this->message_model->get_user_messages();
+    $data['Messages_list'] = $this->message_model->get_user_messages();
     $data['content'] = $this->load->view('admin/property/messages_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  public function user_msg_details()
+  {
+    $this->message_model->update_status($_GET['m_id']);
+    $data = [];
+    $data['setting'] = $this->property_model->app_setting();
+    $data['sp_user_Message'] = $this->message_model->get_unique_messages($_GET['m_id']);
+    $data['content'] = $this->load->view('admin/property/message_detail_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  public function user_msg_delete()
+  {
+    if ($this->message_model->delete_message($_GET['m_id'])) {
+      $this->session->set_flashdata('success', 'Message Deleted!');
+      redirect('index.php/message/user_messages');
+    } else {
+      $this->session->set_flashdata('failure', 'Message Not Deleted!');
+      redirect('index.php/message/user_messages');
+    }
+  }
+  public function check_user_msg()
+  {
+    if ($_POST['check_msg'] != null) {
+      $count = $this->message_model->get_msg_status();
+      if ($count > 0) {
+        echo $count;
+      } else {
+        echo 0;
+      }
+    }
   }
 }

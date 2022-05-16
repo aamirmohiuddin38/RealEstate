@@ -100,7 +100,7 @@
           <a href="<?php echo base_url('index.php/message/user_messages'); ?>" class="nav-link ">
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Message <span class="right badge badge-danger"></span>
+              Message <span id="active_msg_count" class="bi bi-bell bg-danger ml-3 pl-3 pr-3 pt-1 pb-1 rounded-circle"></span>
             </p>
           </a>
         </li>
@@ -111,3 +111,24 @@
   </div>
   <!-- /.sidebar -->
 </aside>
+<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+  $("document").ready(function() {
+    setInterval(function() {
+      $.post("<?php echo base_url('index.php/message/check_user_msg'); ?>", {
+        check_msg: 'check_msg'
+      }, function(check_msg) {
+        if (check_msg > 0) {
+          $('#active_msg_count').show();
+          $('#active_msg_count').text(check_msg);
+        } else {
+          $('#active_msg_count').hide();
+        }
+
+      });
+    }, 100);
+  });
+</script>

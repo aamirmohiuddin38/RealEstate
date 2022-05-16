@@ -12,10 +12,36 @@ class message_model extends CI_Model
     return $this->db
       ->select("*")
       ->from($this->msg_tbl)
-      ->limit(1)
-      ->order_by('msg_date', 'DESC')
-      ->where('read_status', 0)
+      ->order_by('msg_date')
+      ->get()
+      ->result();
+  }
+  public function get_unique_messages($m_id)
+  {
+    return $this->db
+      ->select("*")
+      ->from($this->msg_tbl)
+      ->where('msg_id', $m_id)
       ->get()
       ->row();
+  }
+  public function delete_message($m_id)
+  {
+    $this->db->where('msg_id', $m_id);
+    return $this->db->delete($this->msg_tbl);
+  }
+  public function get_msg_status()
+  {
+    $this->db->select("m_id");
+    $this->db->from($this->msg_tbl);
+    $this->db->where('read_status', 0);
+    $num_result = $this->db->count_all_results();
+    return $num_result;
+  }
+  public function update_status($m_id)
+  {
+    $this->db->set("read_status", 1);
+    $this->db->where_in('msg_id', $m_id);
+    $this->db->update($this->msg_tbl);
   }
 }
