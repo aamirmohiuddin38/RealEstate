@@ -50,6 +50,7 @@ class message extends CI_Controller
     }
     // }
   }
+  //get all the messages from db;
   public function user_messages()
   {
     $data = [];
@@ -77,6 +78,7 @@ class message extends CI_Controller
       redirect('index.php/message/user_messages');
     }
   }
+  // count unread messages 
   public function check_user_msg()
   {
     if ($_POST['check_msg'] != null) {

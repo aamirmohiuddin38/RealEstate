@@ -127,7 +127,6 @@
         } else {
           $('#active_msg_count').hide();
         }
-
       });
     }, 100);
   });
