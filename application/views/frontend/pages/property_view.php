@@ -6,7 +6,24 @@
 
 <div class="container">
 	<div class="property-view-wrap">
-
+		<!-- Flash data Success -->
+		<?php if ($this->session->flashdata('success') != null) { ?>
+			<div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+				<strong><?php echo $this->session->flashdata('success'); ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php } ?>
+		<!-- Flash data Failure -->
+		<?php if ($this->session->flashdata('failure') != null) { ?>
+			<div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+				<strong><?php echo $this->session->flashdata('failure'); ?></strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<?php } ?>
 		<!-- Property Name, Price and Location Section -->
 		<section class="prop-name-loc-wrap">
 			<div class="name-price">
@@ -217,8 +234,9 @@
 		<!-- Map section end -->
 
 		<!-- Contact Form Section -->
+
 		<section class="contact-info-wrap">
-			<form method="post" action="<?php echo base_url('index.php/'); ?>message">
+			<form method="post" action="<?php echo base_url() ?>index.php/message/save_message?id=<?php echo $property->p_id ?>">
 				<input type="hidden" name="p_id" value="<?php echo $property->p_id; ?>">
 				<div class="form-heading-wrap">
 					<h6 class="form-heading text-muted">Enquire About This Property <input type="hidden" id="unique_id" value="<?php echo $this->session->userdata('user_id'); ?>"></h6>

@@ -27,6 +27,9 @@ class message extends CI_Controller
     // if ($this->form_validation->run() == FALSE) {
     //   //redirect('index.php/front/property_details');
     // } else {
+    $id = $_GET['id'];
+    // echo ($id);
+    // die();
     $data['input_msg'] = (object) $postData = [
       "msg_id"           => null,
       "p_id"           => $this->input->post('p_id'),
@@ -40,13 +43,12 @@ class message extends CI_Controller
       "msg_date"     =>  date('Y-m-d H:m:s'),
     ];
     if ($this->message_model->save_msg($postData)) {
-      echo ('Message Sent Successfully!');
-      // $this->session->set_flashdata('success', 'Message Sent Successfully!');
-      // redirect('index.php/front/property_details');
+      $this->session->set_flashdata('success', 'Message Sent Successfully!');
+      redirect(base_url() . "index.php/front/property_details?id=" . $id);
     } else {
-      echo ('Message Not Sent!');
-      // $this->session->set_flashdata('failure', 'Message Not Sent!');
-      // redirect('index.php/front/property_details');
+
+      $this->session->set_flashdata('failure', 'Message Not Sent try Again !');
+      redirect(base_url() . "index.php/front/property_details?id=" . $id);
     }
     // }
   }
