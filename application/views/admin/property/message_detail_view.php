@@ -46,7 +46,7 @@
           </div>
 
           <div class="card-footer">
-            <a href="<?php echo base_url() ?>index.php/message/user_messages?id=<?php echo $sp_user_Message->msg_id ?>" type="button" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i> Delete</a>
+            <a href="<?php echo base_url() ?>index.php/message/user_msg_delete?m_id=<?php echo $sp_user_Message->msg_id ?>" type="button" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i> Delete</a>
           </div>
         </div>
       </div>
