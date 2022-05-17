@@ -79,7 +79,10 @@
 				</li>
 			</ul>
 			<a href="<?php echo base_url('index.php/login'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 mr-2">LogIn</button></a>
-			<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 ml-2">Logout</button></a>
+			<?php if ($this->session->userdata('isLogIn')) { ?>
+				<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 ml-2">Logout</button></a>
+			<?php } ?>
+
 		</div>
 	</nav>
 </div>
