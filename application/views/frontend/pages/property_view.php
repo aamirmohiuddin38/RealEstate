@@ -283,15 +283,19 @@
 					Hello, I am interested in [<?php echo $property->p_title; ?>]
 					</textarea>
 				</div>
-
-				<!-- Submit button -->
-				<button type="submit" id="check_login_user" class="btn btn-success btn-sm-full-width mb-4">Request Information</button>
-
+				<div class="d-flex">
+					<!-- Submit button -->
+					<button type="submit" id="check_login_user" class="btn btn-success btn-sm-full-width mb-4 mr-2">Request Information</button>
 			</form>
-		</section>
-		<!-- End contact form section -->
 
+			<?php if (!($this->session->userdata('isLogIn'))) { ?>
+				<a href="<?php echo base_url('index.php/login/register'); ?>"><button id="check_login_user" class="btn btn-success btn-sm-full-width mb-4">Register</button></a>
+			<?php } ?>
 	</div>
+	</section>
+	<!-- End contact form section -->
+
+</div>
 </div>
 <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
 
