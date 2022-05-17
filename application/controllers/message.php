@@ -44,7 +44,7 @@ class message extends CI_Controller
     ];
     if ($this->message_model->save_msg($postData)) {
       $this->session->set_flashdata('success', 'Message Sent Successfully!');
-      redirect(base_url() . "index.php/front/property_details/" . $id);
+      redirect(base_url() . "index.php/front/property_details?id=" . $id);
     } else {
 
       $this->session->set_flashdata('failure', 'Message Not Sent try Again !');

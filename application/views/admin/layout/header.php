@@ -20,6 +20,32 @@
   <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/'); ?>dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url('vendor/almasaeed2010/adminlte/'); ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- msg -->
+  <link rel="stylesheet" type="text/css" href="css/slick.css"> <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css"> <!-- Slick CSS min -->
+  <link rel="stylesheet" type="text/css" href="css/search.css"> <!-- Manual css file -->
+  <style>
+    .msg-box-inner .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .msg-box-inner .card-title {
+      font-size: 1rem;
+    }
+
+    .card-body .msg-from {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media(max-width: 425px) {
+      .card-body .msg-from {
+        display: block;
+      }
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

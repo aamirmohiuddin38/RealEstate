@@ -16,54 +16,39 @@
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
-  <div class="card card-info">
-    <div class="card-header">
-      <h3 class="card-title">Messages</h3>
-    </div>
-    <form class="form-horizontal" action="">
-      <div class="card-body">
-        <!-- row -->
-        <div class="form-group row">
-          <div class="col-md-6">
-            <label for="inputusername3" class="">UserName</label>
-            <input type="text" class="form-control" id="username" name="username" value="<?php echo $sp_user_Message->username;  ?>" required>
-          </div>
-          <div class="col-md-6">
-            <label for="inputEmail3" class="">Email</label>
-            <input type="email" class="form-control" id="email" name="email" value="<?php echo $sp_user_Message->email; ?>" required>
-          </div>
-        </div>
-        <!-- row -->
-        <div class="form-group row">
-          <div class="col-md-6">
-            <label for="inputPhone3" class="">Phone No</label>
-            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $sp_user_Message->phone; ?>" required>
-          </div>
-          <div class="col-md-6">
-            <label for="inputAddress3" class="">Address</label>
-            <input type="text" class="form-control" id="address" name="address" value="<?php echo $sp_user_Message->address;  ?>" required>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-md-12">
-            <label for="inputSubject3" class="">Subject</label>
-            <input type="text" class="form-control" id="subject" name="subject" value="<?php echo $sp_user_Message->subject; ?>" required>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary card-outline msg-box-inner">
+          <div class="card-header bg-warning">
+            <h3 class="card-title">Read Message From : <strong><?php echo $sp_user_Message->username; ?></strong></h3>
+            <div class="card-tools">
+              <a href="<?php echo base_url('index.php/message/user_messages'); ?>" class="btn btn-tool" title="Back To Messages"><i class="fas fa-reply text-dark"></i></a>
+            </div>
           </div>
 
-        </div>
-        <!-- row -->
-        <div class="col-md-12">
-          <label for="inputMessage3" class="">Message</label>
-          <textarea class="form-control" name="user_query" required>
-          <?php echo $sp_user_Message->message; ?>
-    </textarea>
-        </div>
-        <div class="col-md-12 text-right pt-2 pr-3 text-danger">
-          <a href="<?php echo base_url(); ?>index.php/message/user_msg_delete?m_id=<?php echo $sp_user_Message->msg_id; ?>"><label class="bg-danger pt-2 pb-2 pl-3 pr-3 btn" for="delete"><strong>Delete</strong></label></a>
+          <div class="card-body">
+            <div class="mailbox-read-info">
+              <p>
+                <strong class="text-info"> Subject:</strong><?php echo $sp_user_Message->subject; ?>
+              </p>
+              <h6 class="msg-from">
+                From:<?php echo $sp_user_Message->email; ?> <br><span class="mailbox-read-time text-muted"><?php echo $sp_user_Message->msg_date; ?></span>
+              </h6>
+
+            </div>
+
+            <div class="mailbox-read-message">
+              <p>
+                <?php echo $sp_user_Message->message; ?>
+              </p>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a href="<?php echo base_url() ?>index.php/message/user_messages?id=<?php echo $sp_user_Message->msg_id ?>" type="button" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i> Delete</a>
+          </div>
         </div>
       </div>
+    </div>
   </div>
-  </form>
-</div>
-
-</div>
