@@ -32,7 +32,7 @@
 		<div class="card card-outline card-primary">
 			<div class="card-header text-center">
 				<a href="<?php echo base_url('index.php/login'); ?>" class="h1">
-					<img style="margin: auto 5%;height: 12rem;" src="<?php echo base_url() . $setting->logo; ?>" alt="Logo">
+					<img style="width:100%; height:auto;" src="<?php echo base_url() . $setting->logo; ?>" alt="Logo">
 				</a>
 			</div>
 			<div class="card-body">
