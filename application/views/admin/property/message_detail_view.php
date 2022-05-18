@@ -30,10 +30,10 @@
           <div class="card-body">
             <div class="mailbox-read-info">
               <p>
-                <strong class="text-info"> Subject:</strong><?php echo $sp_user_Message->subject; ?>
+                <strong class="text-info"> Subject:  </strong><b><?php echo $sp_user_Message->subject; ?></b>
               </p>
               <h6 class="msg-from">
-                From:<?php echo $sp_user_Message->email; ?> <br><span class="mailbox-read-time text-muted"><?php echo $sp_user_Message->msg_date; ?></span>
+                From:  <?php echo $sp_user_Message->email; ?> <br><span class="mailbox-read-time text-muted"><?php echo $sp_user_Message->msg_date; ?></span>
               </h6>
 
             </div>

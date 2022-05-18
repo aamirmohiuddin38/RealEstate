@@ -26,7 +26,6 @@
   <link rel="stylesheet" type="text/css" href="css/search.css"> <!-- Manual css file -->
   <style>
     .msg-box-inner .card-header {
-      display: flex;
       justify-content: space-between;
       align-items: center;
     }
