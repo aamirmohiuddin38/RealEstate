@@ -100,7 +100,7 @@
           <a href="<?php echo base_url('index.php/message/user_messages'); ?>" class="nav-link ">
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Message <span id="active_msg_count" class="bi bi-bell bg-danger ml-3 pl-3 pr-3 pt-1 pb-1 rounded-circle"></span>
+              Message <span id="active_msg_count" class="badge-pill bg-danger ml-3 pl-3 pr-3 pt-1 pb-1"></span>
             </p>
           </a>
         </li>

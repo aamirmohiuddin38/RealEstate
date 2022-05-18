@@ -1,11 +1,28 @@
 <!-- <?php
       // print_r($this->session->userdata());
       ?> -->
+<!-- Flash data Success -->
+<?php if ($this->session->flashdata('success') != null) { ?>
+  <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+    <strong><?php echo $this->session->flashdata('success'); ?></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<?php } ?>
+<!-- Flash data Failure -->
+<?php if ($this->session->flashdata('failure') != null) { ?>
+  <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+    <strong><?php echo $this->session->flashdata('failure'); ?></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<?php } ?>
 <div class="card_contact">
   <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="image" class="image_contact" />
   <div class="head_text_contact">Contact Us</div>
 </div>
-
 <div class="container">
   <div class="wrapper-left">
     <div class="row mt-5 mb-3 text-info text-center">
@@ -14,7 +31,7 @@
         <input type="hidden" id="unique_id" value="<?php echo $this->session->userdata('user_id'); ?>" />
       </div>
     </div>
-    <form method="post" action="<?php echo base_url('index.php/'); ?>message">
+    <form method="post" action="<?php echo base_url() ?>index.php/message?id=<?php echo 'contact_us' ?>">
       <div class="row">
         <div class="form-group col-md-6">
           <label for="FirstName">UserName</label><small class="req text-danger"> *</small>

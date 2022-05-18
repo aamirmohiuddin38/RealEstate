@@ -6,6 +6,9 @@ class message extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    if (!($this->session->userdata('isLogIn'))) {
+      redirect('index.php/login');
+    }
     $this->load->model(array(
       'message_model', 'property_model', 'Common_model',
     ));
@@ -16,45 +19,61 @@ class message extends CI_Controller
   }
   public function save_message()
   {
-    // validation rules
-    // $this->form_validation->set_rules('username', 'UserName', 'required');
-    // $this->form_validation->set_rules('address', 'Address', 'required');
-    // $this->form_validation->set_rules('phone', 'Phone No', 'required|numeric|max_length[15]|min_length[10]');
-    // $this->form_validation->set_rules('email', 'Email', 'required|email');
-    // $this->form_validation->set_rules('subject', 'Subject', 'required');
-    // $this->form_validation->set_rules('user_query', 'Message', 'required|max_length[500]');
-    // check validation
-    // if ($this->form_validation->run() == FALSE) {
-    //   //redirect('index.php/front/property_details');
-    // } else {
     $id = $_GET['id'];
+    if ($id == 'contact_us') {
+      $data['input_msg'] = (object) $postData = [
+        "msg_id"           => null,
+        "p_id"           => 0,
+        "username"        => ucfirst($this->input->post('username')),
+        "address"      => $this->input->post('address'),
+        "phone"         => $this->input->post('phone'),
+        "email"        => $this->input->post('email'),
+        "subject"       => $this->input->post('subject'),
+        "message"      => $this->input->post('user_query'),
+        "read_status"   => 0,
+        "msg_date"     =>  date('Y-m-d H:m:s'),
+      ];
+      if ($this->message_model->save_msg($postData)) {
+        $this->session->set_flashdata('success', 'Message Sent Successfully!');
+        redirect(base_url() . "index.php/front/contactUs");
+      } else {
+
+        $this->session->set_flashdata('failure', 'Message Not Sent try Again !');
+        redirect(base_url() . "index.php/front/contactUs");
+      }
+    } else {
+      $data['input_msg'] = (object) $postData = [
+        "msg_id"           => null,
+        "p_id"           => $this->input->post('p_id'),
+        "username"        => ucfirst($this->input->post('username')),
+        "address"      => $this->input->post('address'),
+        "phone"         => $this->input->post('phone'),
+        "email"        => $this->input->post('email'),
+        "subject"       => $this->input->post('subject'),
+        "message"      => $this->input->post('user_query'),
+        "read_status"   => 0,
+        "msg_date"     =>  date('Y-m-d H:m:s'),
+      ];
+      if ($this->message_model->save_msg($postData)) {
+        $this->session->set_flashdata('success', 'Message Sent Successfully!');
+        redirect(base_url() . "index.php/front/property_details?id=" . $id);
+      } else {
+
+        $this->session->set_flashdata('failure', 'Message Not Sent try Again !');
+        redirect(base_url() . "index.php/front/property_details?id=" . $id);
+      }
+    }
     // echo ($id);
     // die();
-    $data['input_msg'] = (object) $postData = [
-      "msg_id"           => null,
-      "p_id"           => $this->input->post('p_id'),
-      "username"        => ucfirst($this->input->post('username')),
-      "address"      => $this->input->post('address'),
-      "phone"         => $this->input->post('phone'),
-      "email"        => $this->input->post('email'),
-      "subject"       => $this->input->post('subject'),
-      "message"      => $this->input->post('user_query'),
-      "read_status"   => 0,
-      "msg_date"     =>  date('Y-m-d H:m:s'),
-    ];
-    if ($this->message_model->save_msg($postData)) {
-      $this->session->set_flashdata('success', 'Message Sent Successfully!');
-      redirect(base_url() . "index.php/front/property_details?id=" . $id);
-    } else {
 
-      $this->session->set_flashdata('failure', 'Message Not Sent try Again !');
-      redirect(base_url() . "index.php/front/property_details?id=" . $id);
-    }
     // }
   }
   //get all the messages from db;
   public function user_messages()
   {
+    if ($this->session->userdata('user_role') != 1) {
+      redirect('index.php/login');
+    }
     $data = [];
     $data['setting'] = $this->property_model->app_setting();
     $data['Messages_list'] = $this->message_model->get_user_messages();
@@ -63,6 +82,9 @@ class message extends CI_Controller
   }
   public function user_msg_details()
   {
+    if ($this->session->userdata('user_role') != 1) {
+      redirect('index.php/login');
+    }
     $this->message_model->update_status($_GET['m_id']);
     $data = [];
     $data['setting'] = $this->property_model->app_setting();
@@ -72,6 +94,9 @@ class message extends CI_Controller
   }
   public function user_msg_delete()
   {
+    if ($this->session->userdata('user_role') != 1) {
+      redirect('index.php/login');
+    }
     if ($this->message_model->delete_message($_GET['m_id'])) {
       $this->session->set_flashdata('success', 'Message Deleted!');
       redirect('index.php/message/user_messages');
@@ -83,6 +108,9 @@ class message extends CI_Controller
   // count unread messages 
   public function check_user_msg()
   {
+    if ($this->session->userdata('user_role') != 1) {
+      redirect('index.php/login');
+    }
     if ($_POST['check_msg'] != null) {
       $count = $this->message_model->get_msg_status();
       if ($count > 0) {
