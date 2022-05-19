@@ -77,6 +77,8 @@ class Property extends CI_Controller
     $this->form_validation->set_rules('size_postfix', 'Size Postfix', 'required');
     $this->form_validation->set_rules('land_area', 'Land Area', 'required|numeric');
     $this->form_validation->set_rules('land_area_postfix', 'Land Area Postfix', 'required');
+    $this->form_validation->set_rules('latitude', 'Latitude', 'required|numeric');
+    $this->form_validation->set_rules('longitude', 'Longitude', 'required|numeric');
     $this->form_validation->set_rules('year_built', 'Year Built', 'required|numeric');
     $this->form_validation->set_rules('country', 'Country', 'required');
     $this->form_validation->set_rules('state', 'State', 'required');
@@ -100,6 +102,8 @@ class Property extends CI_Controller
         "p_city"         => $this->input->post('city'),
         "p_address"      => ucfirst($this->input->post('address')),
         "p_postal_code"  => $this->input->post('postal_code'),
+        "p_latitude"     => $this->input->post('latitude'),
+        "p_longitude"    => $this->input->post('longitude'),
         "p_bedrooms"     => $this->input->post('bedrooms'),
         "p_bathrooms"    => $this->input->post('bathrooms'),
         "p_area"         => $this->input->post('area_size'),

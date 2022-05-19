@@ -228,7 +228,8 @@
 				<p class="text-muted">Property location..</p>
 			</div>
 			<div class="property-location-map" id="map" style="height: 400px;">
-
+				<span id="latitude"><?php echo $property->p_latitude ?></span>
+				<span id="longitude"><?php echo $property->p_longitude ?></span>
 			</div>
 		</section>
 		<!-- Map section end -->

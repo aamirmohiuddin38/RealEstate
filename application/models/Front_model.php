@@ -59,6 +59,8 @@ class Front_model extends CI_Model
 			states.state_name,
 			cities.city_name,
             property_tbl.p_postal_code,
+            property_tbl.p_latitude,
+            property_tbl.p_longitude,
             property_tbl.p_bathrooms,
             property_tbl.p_bedrooms,
             property_tbl.p_area ,

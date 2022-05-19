@@ -247,6 +247,28 @@
 									</span>
 								</div>
 							</div>
+							<!-- Latitude -->
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label for="postal_code">Latitude</label> <small class="req text-danger"> *</small>
+									<input name="latitude" class="form-control " type="number" step="any" placeholder="Latitude" id="latitude" value="<?php echo $result->p_latitude; ?>">
+									<!-- validation errors -->
+									<span class="badge badge-danger">
+										<?php echo form_error('latitude'); ?>
+									</span>
+								</div>
+							</div>
+							<!-- Longitude -->
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label for="longitude">Longitude</label> <small class="req text-danger"> *</small>
+									<input name="longitude" class="form-control " type="number" step="any" placeholder="Longitude" id="longitude" value="<?php echo $result->p_longitude; ?>">
+									<!-- validation errors -->
+									<span class="badge badge-danger">
+										<?php echo form_error('longitude'); ?>
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
