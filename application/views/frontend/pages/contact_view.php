@@ -73,36 +73,7 @@
       </div>
     </form>
   </div>
-  <!-- <div class="right">
-    <div class="row">
-      <div class="col-md-12">
-        <p class="padding-top"><strong>For inquiries</strong><strong>&nbsp;contact:</strong></p>
-        <hr>
-        <p><strong>Irfan Fayaz</strong><br>Founder<br>Lambert Lane LalChowk, Srinagar<br>9797741062<br>erirfanfayaz@gmail.com</p>
-        <p class="padding-top"><strong>Corporate
-            Headquarters</strong><br>Lambert Lane LalChowk, Srinagar</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3 col-6 mb-3">
-        <button type="button" class="btn btn-primary"><i class="fa-brands fa-facebook"></i></button>
-      </div>
-      <div class="col-md-3 col-6 mb-3">
-        <button type="button" class="btn btn-warning"><i class="fa-brands fa-instagram"></i></button>
-      </div>
-      <div class="col-md-3 col-6 mb-3">
-        <button type="button" class="btn btn-success"><i class="fa-brands fa-twitter"></i></button>
-      </div>
-      <div class="col-md-3 col-6 mb-3">
-        <button type="button" class="btn btn-danger"><i class="fa-brands fa-linkedin"></i></button>
-      </div>
-    </div>
-  </div> -->
 </div>
-<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
   $("document").ready(function() {
     $('#check_login_user').click(function(e) {

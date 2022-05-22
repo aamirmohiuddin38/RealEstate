@@ -298,10 +298,6 @@
 
 </div>
 </div>
-<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 	$("document").ready(function() {
 		$('#check_login_user').click(function(e) {
