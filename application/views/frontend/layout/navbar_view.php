@@ -53,7 +53,7 @@
 		<!-- ************** LOGO and Login Icon: Display on Tab and Mobile **************** -->
 
 		<span class="logo-mobile display-on-mobile">H.O.M.E.S.P.H.E.R.E</span>
-		<span class="login-icon-mobile display-on-mobile"><a href="<?php echo base_url('index.php/Login'); ?>"><i class="fa-solid fa-user"></i></a></span>
+		<span class="login-icon-mobile display-on-mobile"><a href="<?php echo base_url('index.php/Login'); ?>"><i class="fa-solid fa-user" title="<?php $this->session->userdata('fullname'); ?>"></i></a></span>
 
 		<!-- ******************** End Login Icon  ********************************* -->
 
@@ -84,7 +84,7 @@
 			<?php } ?>
 			<!-- logout -->
 			<?php if ($this->session->userdata('isLogIn')) { ?>
-				<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 ml-2">Logout</button></a>
+				<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 ml-2" title="<?php echo $this->session->userdata('fullname'); ?>">Logout</button></a>
 			<?php } ?>
 
 		</div>
