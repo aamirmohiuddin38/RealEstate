@@ -234,6 +234,36 @@
 		</section>
 		<!-- Map section end -->
 
+        <!-- Weather Section -->
+        <section class="weather-wrap">
+   	     <div class="property-weather-wrap">
+   		     <h5 class="weather-title">Weather</h5>
+   		     <div class="weather-details">
+   			<!-- fetch and prepare weather data -->
+			<?php
+                $lat = $property->p_latitude;
+                $lon = $property->p_longitude;
+                $api_key = '0e4f5b91c71d5b231704999652e96e80';
+                $api_url = 'https://api.openweathermap.org/data/2.5/weather?lat='.$lat.'&lon='.$lon.'&appid='.$api_key.'&units=metric';
+
+                $weather_data = json_decode(file_get_contents($api_url),true);
+
+                $temperature = round($weather_data['main']['temp']);
+                $weather_type = $weather_data['weather'][0]['main'];
+                $weather_descrip = $weather_data['weather'][0]['description'];
+                $weather_icon = $weather_data['weather'][0]['icon'];
+				$weather_loc_name = $weather_data['name'];
+            ?>
+
+   			<!-- display data -->
+   			     <span>The Current Weather in <strong><?php echo $weather_loc_name ?> </strong> is:</span>
+   			     <span> <img src="http://openweathermap.org/img/wn/<?php echo $weather_icon ?>@2x.png" alt="not avlbl"/> <i><?php echo $temperature ?>	&#8451; </i></span>
+   			     <span> <?php echo $weather_type ?> <br> <i><?php echo $weather_descrip ?></i></span>
+   		     </div>
+   	     </div>
+        </section>
+   <!-- End weather section -->
+
 		<!-- Contact Form Section -->
 
 		<section class="contact-info-wrap">
