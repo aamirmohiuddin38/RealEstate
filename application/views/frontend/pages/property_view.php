@@ -248,7 +248,7 @@
 
                 $weather_data = json_decode(file_get_contents($api_url),true);
 
-                $temperature = round($weather_data['main']['temp']);
+                $temperature = $weather_data['main']['temp'];
                 $weather_type = $weather_data['weather'][0]['main'];
                 $weather_descrip = $weather_data['weather'][0]['description'];
                 $weather_icon = $weather_data['weather'][0]['icon'];
