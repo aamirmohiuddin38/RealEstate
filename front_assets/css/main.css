@@ -15,6 +15,7 @@
  	.property-slider-item{width: 450px; top: 50%; left: 50%; transform: translate(-50%,-50%); padding: 20px 20px;}
  }
  @media(max-width: 520px){
+	span.carousel-control-next-icon, span.carousel-control-prev-icon {display:none;}
  	.name-and-price{display: block;}
  	.property-slider-item{width: 310px;}
  	.property-slider-item address{text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
@@ -26,8 +27,8 @@
  	.property-slider-item .item-title{font-size: 12px;}
  	.property-slider-item .item-price{font-size: 11px;}
  	.property-slider-item address{margin: 0; font-size: 10px;}
- 	.property-slider-item ul{    margin-top: 0.5rem; margin-bottom: 0.5rem;}
+ 	.property-slider-item ul{margin-top: 0.5rem; margin-bottom: 0.5rem; font-size:10px;}
  	.property-slider-item .p-type{font-size: 10px;}
  	.carousel .carousel-inner .carousel-item img{height: 400px;}
- 	.btn.btn-primary.btn-item{width: 23%; padding: 0px;}
+ 	.btn.btn-primary.btn-item{width: 23%; padding: 0px; font-size: 12px;}
  }
