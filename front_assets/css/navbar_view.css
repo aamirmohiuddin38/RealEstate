@@ -6,7 +6,7 @@
 .upper-header .inner-contact-details {display: flex;flex-direction: column;text-align: center;}
 .upper-header .inner-heading{text-transform: uppercase; color: #004274; font-weight: 500;}
 .upper-header .inner-subheading{font-size: 12px;}
-.upper-header span.icon {font-size: 30px;color: #004274;}
+.upper-header span.icon {font-size: 24px; color: #004274;}
 .upper-header .header-social-icons {display: flex; font-size: 30px; gap: 1rem;}
 
 .lower-header .navbar{padding: 0.5rem 5rem; background-color: #004274;}
