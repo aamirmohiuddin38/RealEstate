@@ -1,5 +1,5 @@
 <!-- *********************** Content *********************** -->
-<div class="welcome-wrap">
+<div class="welcome-wrap" id="welcomeSection">
 <div class="container-fluid p-5">
 	<div class="welcome-heading-wrap">
 		<p class="welcome-heading">Welcome to HOMESPHERE </p>

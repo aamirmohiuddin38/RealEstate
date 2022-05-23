@@ -77,14 +77,22 @@
 				<li class="nav-item">
 					<a class="nav-link " href="<?php echo base_url('index.php/front/contactUs'); ?>">Contact</a>
 				</li>
+				<li class="nav-item">
+				    <a class="nav-link" href="<?php echo base_url('index.php/front/'); ?>#searchSection"><i class="fa-solid fa-magnifying-glass mr-1"></i>Search</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="<?php echo base_url('index.php/front/'); ?>#welcomeSection">Why Us?</a>
+				</li>
 			</ul>
+
 			<!-- login -->
 			<?php if (!$this->session->userdata('isLogIn')) { ?>
-				<a href="<?php echo base_url('index.php/login'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 mr-2">LogIn</button></a>
+				<a href="<?php echo base_url('index.php/login'); ?>"><button class="btn btn-info btn-sm" title="Please Login">LogIn</button></a>
 			<?php } ?>
 			<!-- logout -->
 			<?php if ($this->session->userdata('isLogIn')) { ?>
-				<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-outline-success my-2 my-sm-0 ml-2" title="<?php echo $this->session->userdata('fullname'); ?>">Logout</button></a>
+				<a href="<?php echo base_url('index.php/logout'); ?>"><button class="btn btn-info btn-sm" title="<?php echo $this->session->userdata('fullname'); ?>">Logout</button></a>
+
 			<?php } ?>
 
 		</div>

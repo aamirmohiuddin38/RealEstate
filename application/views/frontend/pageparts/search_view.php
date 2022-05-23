@@ -1,6 +1,6 @@
 <div class="container">
 
-	<section class="property_search_wrap">
+	<section class="property_search_wrap" id="searchSection">
 		<form method="post" action="<?php echo base_url('index.php/front/search_data') ?>">
 		<details>
 		<summary class="search_heading"><i class="fa-solid fa-magnifying-glass mr-1"></i>Click to Search Property</summary>
