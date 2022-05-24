@@ -338,7 +338,7 @@ class Property extends CI_Controller
     $config = [
       'upload_path'   => './uploads/images/',
       'allowed_types' => 'jpg|jpeg|png',
-      'max_size'      => '2048'
+      'max_size'      => '3072'
 
     ];
     $this->load->library('upload', $config);
@@ -359,7 +359,7 @@ class Property extends CI_Controller
       } else {
         $data2 = $this->upload->data();
         if ($data2['file_ext'] == '.jpg' || $data2['file_ext'] == '.jpeg' || $data2['file_ext'] == '.png') {
-          if ($data2['file_size'] > 2048) {
+          if ($data2['file_size'] > 3072) {
             $this->session->set_flashdata('failure', 'Image Size Must be Less than 2MB');
             redirect('index.php/admin/property/property_image');
           }
@@ -421,8 +421,7 @@ class Property extends CI_Controller
     $config = [
       'upload_path'   => './assets/images/logo/',
       'allowed_types' => 'jpg|jpeg|png|ico',
-      'max_size'      => '2048'
-
+      'max_size'      => '3072'
     ];
     $this->load->library('upload', $config);
     if ($this->upload->do_upload('logo')) {
