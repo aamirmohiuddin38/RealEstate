@@ -360,7 +360,7 @@ class Property extends CI_Controller
         $data2 = $this->upload->data();
         if ($data2['file_ext'] == '.jpg' || $data2['file_ext'] == '.jpeg' || $data2['file_ext'] == '.png') {
           if ($data2['file_size'] > 3072) {
-            $this->session->set_flashdata('failure', 'Image Size Must be Less than 2MB');
+            $this->session->set_flashdata('failure', 'Image Size Must be Less than 3MB');
             redirect('index.php/admin/property/property_image');
           }
         } else {
