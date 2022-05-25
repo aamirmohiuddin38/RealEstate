@@ -53,7 +53,7 @@
             <table width="100%" class="datatable_colvis table table-striped table-bordered table-hover table-sm">
               <thead>
                 <tr>
-                  <th><?php echo ('Message Id') ?></th>
+                  <th><?php echo ('S.No.') ?></th>
                   <th><?php echo ('UserName') ?></th>
                   <th><?php echo ('Address') ?></th>
                   <th><?php echo ('Phone No') ?></th>
@@ -63,11 +63,12 @@
                 </tr>
               </thead>
               <tbody id="">
+                <?php $i = 1; ?>
                 <?php
                 if (!empty($Messages_list)) {
                   foreach ($Messages_list as $index => $val1) { ?>
                     <tr>
-                      <td><?php echo $val1->msg_id; ?></td>
+                      <td><?php echo $i ?></td>
                       <?php
                       if ($val1->read_status == 0) { ?>
                         <td class="badge bg-warning font-weight-bold"><a href="<?php echo base_url(); ?>index.php/message/user_msg_details?m_id=<?php echo  $val1->msg_id; ?>"> <?php echo $val1->username; ?> </a></td>
@@ -85,6 +86,7 @@
                       <td><?php echo $val1->message; ?></td>
                     </tr>
                   <?php
+                    $i++;
                   }
                 } else { ?>
                   <tr class="text-center ">
