@@ -1,7 +1,7 @@
 <div class="main-card_about">
   <img src="<?php echo base_url('front_assets/images/about_image.jpg'); ?>" alt="image" class="image_about" />
+  <div class="head_text_about text-muted">HOMESPHERE</div>
 </div>
-<div class="head_text_about">HomeSphere</div>
 <div class="wrapper_about">
   <div class="container main-content">
     <div class="row pt-5 pb-3">
@@ -48,7 +48,7 @@
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-4">
-        <div class="card mb-4">
+        <div class="card_about mb-4">
           <img class="card-img-top" src="https://media.istockphoto.com/photos/paper-house-under-a-magnifying-lens-picture-id827615404?k=20&m=827615404&s=612x612&w=0&h=Z8p9MUAISBvrSxaZYj9jL5B_6nY03DEFvls4XlKBlps=" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title text-center text-success mt-md-4">

@@ -195,6 +195,8 @@ class Front_model extends CI_Model
             ->result();
         return $result;
     }
+
+    //Specific Properties based on search
     public function find_property($data)
     {
         // print_r($data);
@@ -289,6 +291,7 @@ class Front_model extends CI_Model
         // die();
     }
 
+    //Total Properties Count
     public function total_properties()
     {
         return $this->db
