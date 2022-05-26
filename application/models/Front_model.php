@@ -45,6 +45,7 @@ class Front_model extends CI_Model
         return $result = $this->db->get()->result();
     }
 
+    //For Property Details View
     public function read_property_by_id($id)
     {
         $this->db->select("
@@ -90,6 +91,7 @@ class Front_model extends CI_Model
         return $result = $this->db->get()->row();
     }
 
+    //Get Latest 3(limit) properties for the landing page carousel
     public function get_slider_properties()
     {
         $this->db->select("
@@ -109,7 +111,8 @@ class Front_model extends CI_Model
             property_tbl.p_area ,
             property_tbl.p_area_unit,
             property_tbl.p_year,
-            property_tbl.p_price
+            property_tbl.p_price,
+            property_tbl.p_doc
 		");
         $this->db->from('property_tbl');
 
@@ -120,13 +123,15 @@ class Front_model extends CI_Model
         $this->db->join('states',           'property_tbl.p_state 	= state_id', 'left');
         $this->db->join('cities',           'property_tbl.p_city 	= city_id', 'left');
 
-        $this->db->order_by('property_tbl.p_dou', 'DESC');
+        $this->db->order_by('property_tbl.p_doc', 'DESC');
         $this->db->group_by('property_tbl.p_id');
+        $this->db->limit(3);
         // echo $this->db->get_compiled_select(); //For displaying db query
         // die();
         return $result = $this->db->get()->result();
     }
 
+    //Properties with 'Sale' Status
     public function property_sale()
     {
         $this->db->select("
