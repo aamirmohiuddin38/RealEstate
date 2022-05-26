@@ -21,7 +21,9 @@
                   <?php
                   foreach ($images as $img) {
                      if ($img['img_p_id'] == $property->p_id) { ?>
-                        <a href="<?php echo base_url()?>index.php/front/property_details?id=<?php echo $property->p_id ?>"><img class="card-img-top" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="Card image cap"></a>
+                        <a href="<?php echo base_url()?>index.php/front/property_details?id=<?php echo $property->p_id ?>">
+                        <img class="card-img-top" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="Card image cap" loading="lazy" />
+                     </a>
                   <?php break;
                      }
                   } ?>

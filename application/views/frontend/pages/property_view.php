@@ -77,7 +77,7 @@
 				<div class="property-images-gallery">
 					<?php foreach ($images as $img) { ?>
 						<div class="prop-img-inner">
-							<img class="d-block" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="img not found">
+							<img class="d-block" src="<?php echo base_url() . $img['img_file_path'] ?>" alt="img not found" loading="lazy" />
 
 						</div>
 					<?php } ?>
