@@ -101,7 +101,7 @@ class Login extends CI_Controller
 		$this->form_validation->set_rules('uname', 'UserName', 'required|max_length[30]');
 		$this->form_validation->set_rules('uemail', 'email', 'required|max_length[50]|valid_email');
 		$this->form_validation->set_rules('upass', 'password', 'required|max_length[32]');
-		$this->form_validation->set_rules('uphone', 'Phone No', 'required');
+		$this->form_validation->set_rules('uphone', 'Phone No', 'required|numeric');
 		$this->form_validation->set_rules('uaddr', 'Address ', 'required');
 		if ($this->form_validation->run() == true) {
 			// preparing data
