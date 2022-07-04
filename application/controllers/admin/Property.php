@@ -251,7 +251,7 @@ class Property extends CI_Controller
   {
     $config = [
       'upload_path'   => './uploads/docs/',
-      'allowed_types' => 'jpeg',
+      'allowed_types' => 'jpeg|jpg|pdf',
       'max_size'   => '2048'
     ];
     $this->load->library('upload', $config);
