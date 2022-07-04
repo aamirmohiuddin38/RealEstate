@@ -51,21 +51,6 @@ class Property extends CI_Controller
     $response['cities'] = $citiesStr;
     echo json_encode($response);
   }
-  public function list()
-  {
-    $data = [];
-    $data['setting'] = $this->property_model->app_setting();
-    $data['properties'] = $this->property_model->read();
-    $data['status'] = $this->property_model->getStatus();
-    $data['type'] = $this->property_model->getType();
-    $data['label'] = $this->property_model->getLabel();
-    $data['images'] = $this->property_model->front_img_list();
-    //echo "<pre>";
-    // print_r($data['images']);
-    //echo "</pre>";
-    $data['content'] = $this->load->view('admin/property/list_view', $data, true);
-    $this->load->view('admin/layout/main_wrapper_view', $data);
-  }
   public function create()
   {
 
@@ -129,7 +114,22 @@ class Property extends CI_Controller
       }
     }
   }
-
+  public function list()
+  {
+    $data = [];
+    $data['setting'] = $this->property_model->app_setting();
+    $data['properties'] = $this->property_model->read();
+    $data['status'] = $this->property_model->getStatus();
+    $data['type'] = $this->property_model->getType();
+    $data['label'] = $this->property_model->getLabel();
+    $data['images'] = $this->property_model->front_img_list();
+    //echo "<pre>";
+    // print_r($data['images']);
+    //echo "</pre>";
+    $data['content'] = $this->load->view('admin/property/list_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
+  //details of a prticular property based on its Id//
   public function detail()
   {
     $id = $_GET['id'];
@@ -164,18 +164,6 @@ class Property extends CI_Controller
     //$data['stateName']=$this->Common_model->getStateName($data['result']->p_country);
     $data['content'] = $this->load->view('admin/property/edit_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
-  }
-  public function delete()
-  {
-
-    $id = $_GET['id'];
-    if ($this->property_model->delete_data($id)) {
-      $this->session->set_flashdata('success', 'Property Deleted!');
-      redirect('index.php/admin/property/list');
-    } else {
-      $this->session->set_flashdata('failure', 'Property Not Deleted!');
-      redirect('index.php/admin/property/list');
-    }
   }
   // after editing property directed to modify
   public function modify()
@@ -239,6 +227,17 @@ class Property extends CI_Controller
     }
   }
 
+  public function delete()
+  {
+    $id = $_GET['id'];
+    if ($this->property_model->delete_data($id)) {
+      $this->session->set_flashdata('success', 'Property Deleted!');
+      redirect('index.php/admin/property/list');
+    } else {
+      $this->session->set_flashdata('failure', 'Property Not Deleted!');
+      redirect('index.php/admin/property/list');
+    }
+  }
   public function property_document()
   {
     $data = [];
@@ -248,7 +247,6 @@ class Property extends CI_Controller
     $data['content'] = $this->load->view('admin/property/document_view', $data, true);
     $this->load->view('admin/layout/main_wrapper_view', $data);
   }
-
   public function document_upload()
   {
     $config = [
@@ -294,6 +292,16 @@ class Property extends CI_Controller
       $this->property_document();
     }
   }
+  public function document_list()
+  {
+    $title = $this->input->post('pty_type');
+    $data = [];
+    $data['setting'] = $this->property_model->app_setting();
+    $data['type'] = $this->property_model->getProperties(); //ALL PROPERTIES 
+    $data['list'] = $this->property_model->doc_list($title);
+    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
+    $this->load->view('admin/layout/main_wrapper_view', $data);
+  }
   public function document_delete()
   {
     $id = $_GET['id'];
@@ -312,17 +320,6 @@ class Property extends CI_Controller
     $path = $_GET['path'];
     force_download($path, NULL);
   }
-  public function document_list()
-  {
-    $title = $this->input->post('pty_type');
-    $data = [];
-    $data['setting'] = $this->property_model->app_setting();
-    $data['type'] = $this->property_model->getProperties();
-    $data['list'] = $this->property_model->doc_list($title);
-    $data['content'] = $this->load->view('admin/property/document_view', $data, true);
-    $this->load->view('admin/layout/main_wrapper_view', $data);
-  }
-
   // Property images 
   public function property_image()
   {

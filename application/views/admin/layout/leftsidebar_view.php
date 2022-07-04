@@ -117,13 +117,13 @@
 <script src="<?php echo base_url(); ?>vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
   $("document").ready(function() {
-    //  setInterval(function() {
+    //  setInterval(function() { 
     $.post("<?php echo base_url('index.php/message/check_user_msg'); ?>", {
-      check_msg: 'check_msg'
-    }, function(check_msg) {
-      if (check_msg > 0) {
+      check_msg: 'flag'
+    }, function(response) {
+      if (response > 0) {
         $('#active_msg_count').show();
-        $('#active_msg_count').text(check_msg);
+        $('#active_msg_count').text(response);
       } else {
         $('#active_msg_count').hide();
       }

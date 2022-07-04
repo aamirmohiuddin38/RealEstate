@@ -90,7 +90,7 @@
                   }
                 } else { ?>
                   <tr class="text-center ">
-                    <td colspan='7'> No records found!</td>
+                    <td colspan='7'> No User Messages found!</td>
                   </tr>
                 <?php } ?>
 
